@@ -44,6 +44,8 @@ func checkGallery() {
         assert(snippet.contains("rotationDuration: 40.0"))
         assert(snippet.contains("strokeWidth: 7.0"))
         assert(snippet.contains("CurveSampler.samples("))
+        assert(snippet.contains("normalized base points with pulse, without renderer-only rotation"))
+        assert(snippet.contains("full animated preview, including rotation only when definition.rotates is true"))
         assert(snippet.contains(definition.equation))
         if let directory = CommandLine.arguments.dropFirst().first {
             try! snippet.write(toFile: "\(directory)/\(definition.id.rawValue).swift", atomically: true, encoding: .utf8)

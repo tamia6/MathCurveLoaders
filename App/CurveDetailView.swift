@@ -58,7 +58,6 @@ struct CurveDetailView: View {
         import CurveCore
 
         // \(definition.title): \(definition.equation)
-        // CurveCore evaluates and normalizes the formula, including pulse and rotation.
         if let definition = CurveCatalog.definition(for: .\(definition.id.rawValue)) {
             let parameters = CurveParameters(
                 particleCount: \(parameters.particleCount),
@@ -69,10 +68,12 @@ struct CurveDetailView: View {
                 strokeWidth: \(parameters.strokeWidth)
             )
             let elapsedSeconds = 0.0
+            // Sample normalized base points with pulse, without renderer-only rotation.
             let points = CurveSampler.samples(
                 for: definition, parameters: parameters,
                 phase: elapsedSeconds, count: parameters.particleCount
             )
+            // Embed the full animated preview, including rotation only when definition.rotates is true.
             let preview = CurveAnimationView(definition: definition, parameters: parameters)
             // Use points for custom drawing, or embed preview in a SwiftUI view.
             _ = (points, preview)

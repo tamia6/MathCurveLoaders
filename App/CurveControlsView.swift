@@ -8,14 +8,15 @@ struct CurveControlsView: View {
 
     var body: some View {
         Section("Animation Parameters") {
-            // CurveCore applies all six parameters to every catalog definition.
             Stepper("Particle count: \(parameters.particleCount)", value: particleCount, in: 24...140)
                 .accessibilityLabel("Particle count")
                 .accessibilityValue("\(parameters.particleCount)")
             slider("Trail length", keyPath: \.trail, range: 0.12...0.68, step: 0.01, unit: "")
             slider("Loop duration", keyPath: \.loopDuration, range: 2.4...12, step: 0.1, unit: "seconds")
             slider("Pulse duration", keyPath: \.pulseDuration, range: 1.8...10, step: 0.1, unit: "seconds")
-            slider("Rotation duration", keyPath: \.rotationDuration, range: 6...60, step: 1, unit: "seconds")
+            if definition.rotates {
+                slider("Rotation duration", keyPath: \.rotationDuration, range: 6...60, step: 1, unit: "seconds")
+            }
             slider("Stroke width", keyPath: \.strokeWidth, range: 2.5...7.5, step: 0.1, unit: "points")
             Button("Reset to Defaults", action: reset)
                 .disabled(parameters == definition.defaultParameters)
