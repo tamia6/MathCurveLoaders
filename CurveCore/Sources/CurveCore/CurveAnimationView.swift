@@ -14,68 +14,63 @@ public struct CurveAnimationView: View {
     }
 
     public var body: some View {
-        if isAnimating && !accessibilityReduceMotion {
-            TimelineView(.animation) { timeline in
+        Group {
+            if isAnimating && !accessibilityReduceMotion {
+                TimelineView(.animation) { timeline in
+                    Canvas { context, size in
+                        draw(in: context, size: size, elapsedTime: timeline.date.timeIntervalSinceReferenceDate)
+                    }
+                }
+            } else {
                 Canvas { context, size in
-                    draw(in: context, size: size, elapsedTime: timeline.date.timeIntervalSinceReferenceDate)
+                    draw(in: context, size: size, elapsedTime: 0)
                 }
             }
-        } else {
-            Canvas { context, size in
-                draw(in: context, size: size, elapsedTime: 0)
-            }
         }
+        .background(Color(white: 0.055))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
     private func draw(in context: GraphicsContext, size: CGSize, elapsedTime: Double) {
-        let smallestSide = min(size.width, size.height)
-        guard smallestSide > 2 else { return }
+        let side = min(size.width, size.height)
+        guard side > 2 else { return }
 
-        let samples = CurveSampler.samples(
-            for: definition,
-            parameters: parameters,
-            phase: elapsedTime,
-            count: parameters.particleCount
-        )
-        guard !samples.isEmpty else { return }
-
-        let lineWidth = min(parameters.strokeWidth, (smallestSide - 2) / 1.6)
-        let radius = lineWidth * 0.8
-        let inset = max(lineWidth / 2, radius) + 1
-        let bounds = CGRect(origin: .zero, size: size).insetBy(dx: inset, dy: inset)
+        let scale = side / 100
+        let center = CGPoint(x: size.width / 2, y: size.height / 2)
+        let pulse = CurveSampler.detailScale(at: elapsedTime, duration: parameters.pulseDuration)
         let rotation = definition.rotates ? -2 * Double.pi * (elapsedTime.truncatingRemainder(dividingBy: parameters.rotationDuration) / parameters.rotationDuration) : 0
-        let points = samples.map { point in
-            let x = point.x * cos(rotation) - point.y * sin(rotation)
-            let y = point.x * sin(rotation) + point.y * cos(rotation)
-            return CGPoint(
-                x: bounds.minX + ((x.clamped(to: -1...1) + 1) / 2) * bounds.width,
-                y: bounds.minY + ((1 - y.clamped(to: -1...1)) / 2) * bounds.height
+        let cosine = cos(rotation)
+        let sine = sin(rotation)
+        func canvasPoint(_ point: CurvePoint) -> CGPoint {
+            CGPoint(
+                x: center.x + (point.x * cosine - point.y * sine) * side / 2,
+                y: center.y + (point.x * sine + point.y * cosine) * side / 2
             )
         }
 
         var curve = Path()
-        curve.move(to: points[0])
-        for point in points.dropFirst() { curve.addLine(to: point) }
-        context.stroke(curve, with: .color(.accentColor.opacity(0.3)), lineWidth: lineWidth)
-
-        let trailPhase = (elapsedTime / parameters.loopDuration).truncatingRemainder(dividingBy: 1)
-        let start = Int((trailPhase >= 0 ? trailPhase : trailPhase + 1) * Double(points.count)) % points.count
-        let length = max(2, Int(Double(points.count) * parameters.trail))
-        var trail = Path()
-        trail.move(to: points[start])
-        for offset in 1..<length {
-            let index = (start + offset) % points.count
-            if index == 0 { trail.move(to: points[index]) } else { trail.addLine(to: points[index]) }
+        for step in 0...480 {
+            let point = CurveSampler.point(for: definition, progress: Double(step) / 480, pulse: pulse)
+            let position = canvasPoint(point)
+            if step == 0 { curve.move(to: position) } else { curve.addLine(to: position) }
         }
-        context.stroke(trail, with: .color(.accentColor), lineWidth: lineWidth)
+        context.stroke(curve, with: .color(.white.opacity(0.1)), style: StrokeStyle(
+            lineWidth: parameters.strokeWidth * scale, lineCap: .round, lineJoin: .round
+        ))
 
-        let marker = points[(start + length - 1) % points.count]
-        context.fill(Path(ellipseIn: CGRect(x: marker.x - radius, y: marker.y - radius, width: radius * 2, height: radius * 2)), with: .color(.accentColor))
-    }
-}
-
-private extension Double {
-    func clamped(to range: ClosedRange<Double>) -> Double {
-        min(max(self, range.lowerBound), range.upperBound)
+        let progress = (elapsedTime / parameters.loopDuration).truncatingRemainder(dividingBy: 1)
+        let count = parameters.particleCount
+        for index in 0..<count {
+            let offset = Double(index) / Double(count - 1)
+            let phase = progress - offset * parameters.trail
+            let wrapped = phase - floor(phase)
+            let point = CurveSampler.point(for: definition, progress: wrapped, pulse: pulse)
+            let position = canvasPoint(point)
+            let fade = pow(1 - offset, 0.56)
+            let radius = (0.9 + fade * 2.7) * scale * 1.35
+            let circle = Path(ellipseIn: CGRect(x: position.x - radius, y: position.y - radius,
+                                                width: radius * 2, height: radius * 2))
+            context.fill(circle, with: .color(.white.opacity(0.04 + fade * 0.96)))
+        }
     }
 }

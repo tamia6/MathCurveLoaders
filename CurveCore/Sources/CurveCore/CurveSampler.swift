@@ -6,14 +6,18 @@ public enum CurveSampler {
         let count = max(0, count)
         let pulse = detailScale(at: phase, duration: parameters.pulseDuration)
         return (0..<count).map { index in
-            point(for: definition.kind, at: 2 * .pi * Double(index) / Double(max(count, 1)), pulse: pulse)
+            point(for: definition, progress: Double(index) / Double(count), pulse: pulse)
         }
     }
 
-    private static func detailScale(at elapsedTime: Double, duration: Double) -> Double {
+    static func detailScale(at elapsedTime: Double, duration: Double) -> Double {
         let elapsedTime = elapsedTime.isFinite ? elapsedTime : 0
         let cycle = elapsedTime.truncatingRemainder(dividingBy: duration) / duration
         return 0.52 + ((sin(2 * .pi * cycle + 0.55) + 1) / 2) * 0.48
+    }
+
+    static func point(for definition: CurveDefinition, progress: Double, pulse: Double) -> CurvePoint {
+        point(for: definition.kind, at: 2 * .pi * progress, pulse: pulse)
     }
 
     private static func point(for kind: CurveKind, at t: Double, pulse s: Double) -> CurvePoint {

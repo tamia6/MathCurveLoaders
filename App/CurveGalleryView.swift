@@ -14,7 +14,7 @@ struct CurveGalleryView: View {
                     CurveAnimationView(definition: definition,
                                        parameters: definition.defaultParameters,
                                        isAnimating: scenePhase == .active)
-                        .frame(width: 44, height: 44)
+                        .frame(width: 96, height: 96)
                         .accessibilityHidden(true)
                     VStack(alignment: .leading, spacing: 4) {
                         Text(definition.title)

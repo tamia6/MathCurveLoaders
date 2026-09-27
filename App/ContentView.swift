@@ -4,6 +4,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var selection: CurveID?
     @State private var parameters = CurveCatalog.all[0].defaultParameters
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     var body: some View {
         NavigationSplitView {
@@ -24,6 +25,11 @@ struct ContentView: View {
         .onChange(of: selection) { _, newValue in
             if let newValue, let definition = CurveCatalog.definition(for: newValue) {
                 parameters = definition.defaultParameters
+            }
+        }
+        .onAppear {
+            if horizontalSizeClass != .compact && selection == nil {
+                selection = .originalThinking
             }
         }
     }

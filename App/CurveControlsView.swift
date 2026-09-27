@@ -17,7 +17,7 @@ struct CurveControlsView: View {
             if definition.rotates {
                 slider("Rotation duration", keyPath: \.rotationDuration, range: 6...60, step: 1, unit: "seconds")
             }
-            slider("Stroke width", keyPath: \.strokeWidth, range: 2.5...7.5, step: 0.1, unit: "points")
+            slider("Stroke width", keyPath: \.strokeWidth, range: 2.5...7.5, step: 0.1, unit: "")
             Button("Reset to Defaults", action: reset)
                 .disabled(parameters == definition.defaultParameters)
                 .accessibilityHint("Restores the default parameters for \(definition.title).")
