@@ -10,23 +10,22 @@ struct CurveGalleryView: View {
         let definitions = Self.definitions(matching: searchText)
         List(selection: $selection) {
             ForEach(definitions) { definition in
-                NavigationLink(value: definition.id) {
-                    HStack(spacing: 12) {
-                        CurveAnimationView(definition: definition,
-                                           parameters: definition.defaultParameters,
-                                           isAnimating: scenePhase == .active)
-                            .frame(width: 44, height: 44)
-                            .accessibilityHidden(true)
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(definition.title)
-                                .font(.headline)
-                            Text(definition.equation)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .lineLimit(1)
-                        }
+                HStack(spacing: 12) {
+                    CurveAnimationView(definition: definition,
+                                       parameters: definition.defaultParameters,
+                                       isAnimating: scenePhase == .active)
+                        .frame(width: 44, height: 44)
+                        .accessibilityHidden(true)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(definition.title)
+                            .font(.headline)
+                        Text(definition.equation)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
                     }
                 }
+                .tag(definition.id)
             }
         }
         .listStyle(.sidebar)
