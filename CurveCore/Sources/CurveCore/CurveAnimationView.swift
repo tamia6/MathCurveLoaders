@@ -14,20 +14,26 @@ public struct CurveAnimationView: View {
     }
 
     public var body: some View {
-        TimelineView(.animation) { timeline in
+        if isAnimating && !accessibilityReduceMotion {
+            TimelineView(.animation) { timeline in
+                Canvas { context, size in
+                    draw(in: context, size: size, phase: animatedPhase(at: timeline.date))
+                }
+            }
+        } else {
             Canvas { context, size in
-                draw(in: context, size: size, phase: phase(at: timeline.date))
+                draw(in: context, size: size, phase: 0)
             }
         }
     }
 
-    private func phase(at date: Date) -> Double {
-        guard isAnimating, !accessibilityReduceMotion else { return 0 }
+    private func animatedPhase(at date: Date) -> Double {
         return (date.timeIntervalSinceReferenceDate / parameters.loopDuration).truncatingRemainder(dividingBy: 1)
     }
 
     private func draw(in context: GraphicsContext, size: CGSize, phase: Double) {
-        guard size.width > 0, size.height > 0 else { return }
+        let smallestSide = min(size.width, size.height)
+        guard smallestSide > 2 else { return }
 
         let samples = CurveSampler.samples(
             for: definition,
@@ -35,10 +41,11 @@ public struct CurveAnimationView: View {
             phase: 0,
             count: parameters.particleCount
         )
-        guard let first = samples.first else { return }
+        guard !samples.isEmpty else { return }
 
-        let lineWidth = min(parameters.strokeWidth, min(size.width, size.height))
-        let inset = min(lineWidth / 2, min(size.width, size.height) / 2)
+        let lineWidth = min(parameters.strokeWidth, (smallestSide - 2) / 1.6)
+        let radius = lineWidth * 0.8
+        let inset = max(lineWidth / 2, radius) + 1
         let bounds = CGRect(origin: .zero, size: size).insetBy(dx: inset, dy: inset)
         let points = samples.map { point in
             CGPoint(
@@ -48,10 +55,8 @@ public struct CurveAnimationView: View {
         }
 
         var curve = Path()
-        curve.move(to: map(first, in: bounds))
-        for point in samples.dropFirst() {
-            curve.addLine(to: map(point, in: bounds))
-        }
+        curve.move(to: points[0])
+        for point in points.dropFirst() { curve.addLine(to: point) }
         context.stroke(curve, with: .color(.accentColor.opacity(0.3)), lineWidth: lineWidth)
 
         let start = Int(phase * Double(points.count)) % points.count
@@ -65,15 +70,7 @@ public struct CurveAnimationView: View {
         context.stroke(trail, with: .color(.accentColor), lineWidth: lineWidth)
 
         let marker = points[(start + length - 1) % points.count]
-        let radius = lineWidth * 0.8
         context.fill(Path(ellipseIn: CGRect(x: marker.x - radius, y: marker.y - radius, width: radius * 2, height: radius * 2)), with: .color(.accentColor))
-    }
-
-    private func map(_ point: CurvePoint, in bounds: CGRect) -> CGPoint {
-        CGPoint(
-            x: bounds.minX + ((point.x.clamped(to: -1...1) + 1) / 2) * bounds.width,
-            y: bounds.minY + ((1 - point.y.clamped(to: -1...1)) / 2) * bounds.height
-        )
     }
 }
 
