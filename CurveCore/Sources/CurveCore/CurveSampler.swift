@@ -3,7 +3,7 @@ import Foundation
 public enum CurveSampler {
     public static func samples(for definition: CurveDefinition, parameters: CurveParameters, phase: Double, count: Int) -> [CurvePoint] {
         let count = max(0, count)
-        let phase = phase.isFinite ? phase : 0
+        let phase = phase.isFinite ? phase.truncatingRemainder(dividingBy: 1) : 0
         return (0..<count).map { index in
             let t = 2 * Double.pi * (Double(index) / Double(max(count, 1)) + phase)
             return point(for: definition.kind, at: t, pulse: 0.75 + 0.25 * sin(2 * Double.pi * phase))

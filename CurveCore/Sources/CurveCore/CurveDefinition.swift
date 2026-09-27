@@ -7,6 +7,9 @@ public enum CurveID: String, CaseIterable, Identifiable, Sendable {
     public var id: Self { self }
 }
 
+/// Animation values clamped to inclusive finite bounds: `particleCount` 24...140,
+/// `trail` 0.12...0.68, `loopDuration` 2.4...12, `pulseDuration` 1.8...10,
+/// `rotationDuration` 6...60, and `strokeWidth` 2.5...7.5.
 public struct CurveParameters: Equatable, Sendable {
     public let particleCount: Int
     public let trail: Double

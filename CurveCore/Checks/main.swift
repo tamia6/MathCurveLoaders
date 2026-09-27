@@ -28,6 +28,11 @@ for definition in definitions {
     assert(points.allSatisfy { $0.x.isFinite && $0.y.isFinite })
 }
 
+for phase in [Double.greatestFiniteMagnitude, -Double.greatestFiniteMagnitude, Double.nan, Double.infinity] {
+    let points = CurveSampler.samples(for: definitions[0], parameters: definitions[0].defaultParameters, phase: phase, count: 32)
+    assert(points.allSatisfy { $0.x.isFinite && $0.y.isFinite })
+}
+
 let cardioidGlow = CurveCatalog.definition(for: .cardioidGlow)!
 let cardioidHeart = CurveCatalog.definition(for: .cardioidHeart)!
 assert(CurveSampler.samples(for: cardioidGlow, parameters: cardioidGlow.defaultParameters, phase: 0, count: 8) != CurveSampler.samples(for: cardioidHeart, parameters: cardioidHeart.defaultParameters, phase: 0, count: 8))
