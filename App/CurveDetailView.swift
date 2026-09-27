@@ -8,49 +8,51 @@ import AppKit
 
 struct CurveDetailView: View {
     let definition: CurveDefinition
+    let language: CurveLanguage
     @Binding var parameters: CurveParameters
     let reset: () -> Void
-    @State private var copyConfirmation = ""
+    @State private var copyConfirmation: (english: String, chinese: String)?
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         Form {
-            Section("Preview") {
+            Section(appText(language, "Preview", "预览")) {
                 CurveAnimationView(definition: definition, parameters: parameters,
                                    isAnimating: scenePhase == .active && !reduceMotion)
                     .aspectRatio(1, contentMode: .fit)
                     .frame(maxWidth: 300)
                     .frame(maxWidth: .infinity)
-                    .accessibilityLabel("\(definition.title) curve preview")
+                    .accessibilityLabel(appText(language,
+                                                "\(definition.title(in: .english)) curve preview",
+                                                "\(definition.title(in: .chinese))预览"))
                 if reduceMotion {
-                    Label("Animation paused for Reduce Motion", systemImage: "pause.circle")
+                    Label(appText(language, "Animation paused for Reduce Motion", "已开启“减弱动态效果”，动画已暂停"), systemImage: "pause.circle")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
             }
-            Section("Equation") {
+            Section(appText(language, "Equation", "方程")) {
                 Text(definition.equation)
                     .font(.body.monospaced())
                     .textSelection(.enabled)
-                Text(definition.summary)
+                Text(definition.summary(in: language))
                     .foregroundStyle(.secondary)
-                Button("Copy Equation", systemImage: "doc.on.doc") {
-                    copy(definition.equation, confirmation: "Equation copied")
+                Button(appText(language, "Copy Equation", "复制方程"), systemImage: "doc.on.doc") {
+                    copy(definition.equation, confirmation: ("Equation copied", "方程已复制"))
                 }
-                Button("Copy Swift Snippet", systemImage: "curlybraces") {
-                    copy(swiftSnippet, confirmation: "Swift snippet copied")
+                Button(appText(language, "Copy Swift Snippet", "复制 Swift 代码"), systemImage: "curlybraces") {
+                    copy(swiftSnippet, confirmation: ("Swift snippet copied", "Swift 代码已复制"))
                 }
-                if !copyConfirmation.isEmpty {
-                    Text(copyConfirmation)
+                if let copyConfirmation {
+                    Text(appText(language, copyConfirmation.english, copyConfirmation.chinese))
                         .font(.callout)
-                        .accessibilityLabel(copyConfirmation)
                 }
             }
-            CurveControlsView(definition: definition, parameters: $parameters, reset: reset)
+            CurveControlsView(definition: definition, language: language, parameters: $parameters, reset: reset)
         }
         .formStyle(.grouped)
-        .navigationTitle(definition.title)
+        .navigationTitle(definition.title(in: language))
     }
 
     var swiftSnippet: String {
@@ -81,15 +83,17 @@ struct CurveDetailView: View {
         """
     }
 
-    private func copy(_ text: String, confirmation: String) {
+    private func copy(_ text: String, confirmation: (english: String, chinese: String)) {
         #if canImport(UIKit)
         UIPasteboard.general.string = text
         copyConfirmation = confirmation
         #elseif canImport(AppKit)
         NSPasteboard.general.clearContents()
         copyConfirmation = NSPasteboard.general.setString(text, forType: .string)
-            ? confirmation : "Copy failed. Please try again."
+            ? confirmation : ("Copy failed. Please try again.", "复制失败，请重试。")
         #endif
-        AccessibilityNotification.Announcement(copyConfirmation).post()
+        if let copyConfirmation {
+            AccessibilityNotification.Announcement(appText(language, copyConfirmation.english, copyConfirmation.chinese)).post()
+        }
     }
 }

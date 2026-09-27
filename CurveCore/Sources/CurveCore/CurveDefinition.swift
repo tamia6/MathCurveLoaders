@@ -3,8 +3,15 @@ public enum CurveID: String, CaseIterable, Identifiable, Sendable {
     case lissajousDrift, lemniscateBloom, hypotrochoidLoop, threePetalSpiral, fourPetalSpiral
     case fivePetalSpiral, sixPetalSpiral, butterflyPhase, cardioidGlow, cardioidHeart, heartWave
     case spiralSearch, fourierFlow
+    case epicycloid, hypocycloid, starTrochoid, archimedeanSpiral, logarithmicSpiral
+    case superellipse, lissajousKnot, harmonograph, fourierDrawing
 
     public var id: Self { self }
+}
+
+public enum CurveLanguage: String, CaseIterable, Sendable {
+    case english = "en"
+    case chinese = "zh"
 }
 
 /// Animation values clamped to inclusive finite bounds: `particleCount` 24...140,
@@ -37,6 +44,8 @@ public struct CurveParameters: Equatable, Sendable {
 enum CurveKind: Sendable {
     case thinking(Int), roseOrbit, rose(Int), lissajous, lemniscate, hypotrochoid
     case petalSpiral(Int), butterfly, cardioidGlow, cardioidHeart, heartWave, spiralSearch, fourierFlow
+    case epicycloid, hypocycloid, starTrochoid, archimedeanSpiral, logarithmicSpiral
+    case superellipse, lissajousKnot, harmonograph, fourierDrawing
 }
 
 public struct CurveDefinition: Identifiable, Sendable {
@@ -57,6 +66,14 @@ public struct CurveDefinition: Identifiable, Sendable {
         self.defaultParameters = defaultParameters
         self.rotates = rotates
         self.kind = kind
+    }
+
+    public func title(in language: CurveLanguage) -> String {
+        language == .chinese ? CurveTranslations.values[id]?.title ?? title : title
+    }
+
+    public func summary(in language: CurveLanguage) -> String {
+        language == .chinese ? CurveTranslations.values[id]?.summary ?? summary : summary
     }
 }
 

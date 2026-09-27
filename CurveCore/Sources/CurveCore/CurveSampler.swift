@@ -74,6 +74,47 @@ public enum CurveSampler {
         case .fourierFlow:
             let mix = 1 + 0.16 * s
             screen = (50 + 17 * cos(t) + 7.5 * cos(3 * t + 0.6 * mix) + 3.2 * sin(5 * t - 0.4), 50 + 15 * sin(t) + 8.2 * sin(2 * t + 0.25) - 4.2 * cos(4 * t - 0.5 * mix))
+        case .epicycloid:
+            let scale = 1.45 * (1.05 + 0.1 * s)
+            screen = (50 + scale * (21 * cos(t) - 3 * cos(7 * t)),
+                      50 + scale * (21 * sin(t) - 3 * sin(7 * t)))
+        case .hypocycloid:
+            let scale = 1.3 * (0.95 + 0.1 * s)
+            screen = (50 + scale * (18 * cos(t) + 6 * cos(3 * t)),
+                      50 + scale * (18 * sin(t) - 6 * sin(3 * t)))
+        case .starTrochoid:
+            let scale = 0.95 + 0.1 * s
+            screen = (50 + scale * (20 * cos(t) + 10 * cos(5 * t)),
+                      50 + scale * (20 * sin(t) - 10 * sin(5 * t)))
+        case .archimedeanSpiral:
+            let progress = t / (2 * .pi)
+            let angle = 4 * t
+            let radius = (2 + 29 * progress) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
+        case .logarithmicSpiral:
+            let progress = t / (2 * .pi)
+            let angle = 4 * t
+            let radius = 2 * exp(log(15) * progress) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
+        case .superellipse:
+            let x = cos(t)
+            let y = sin(t)
+            let radius = 30 * (0.92 + 0.08 * s)
+            screen = (50 + radius * (x < 0 ? -sqrt(abs(x)) : sqrt(x)),
+                      50 + radius * (y < 0 ? -sqrt(abs(y)) : sqrt(y)))
+        case .lissajousKnot:
+            let amplitude = 29 * (0.9 + 0.1 * s)
+            screen = (50 + amplitude * sin(5 * t + .pi / 4),
+                      50 + amplitude * sin(4 * t))
+        case .harmonograph:
+            let u = 6 * t
+            let amplitude = exp(-0.045 * u) * (0.9 + 0.1 * s)
+            screen = (50 + amplitude * (18 * sin(1.05 * u + 0.4) + 10 * sin(1.52 * u)),
+                      50 + amplitude * (18 * sin(1.37 * u) + 10 * sin(0.96 * u + 1.1)))
+        case .fourierDrawing:
+            let scale = 0.92 + 0.08 * s
+            screen = (50 + scale * (22 * cos(t) + 7 * cos(-4 * t) + 4 * cos(7 * t)),
+                      50 + scale * (22 * sin(t) + 7 * sin(-4 * t) + 4 * sin(7 * t)))
         }
         return CurvePoint(x: (screen.0 - 50) / 50, y: (screen.1 - 50) / 50)
     }

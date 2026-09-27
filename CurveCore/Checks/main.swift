@@ -1,10 +1,15 @@
 import CurveCore
 
 let definitions = CurveCatalog.all
-assert(definitions.count == 21)
-assert(Set(definitions.map(\.id)).count == 21)
+assert(definitions.count == 30)
+assert(Set(definitions.map(\.id)).count == 30)
 for id in CurveID.allCases {
     assert(CurveCatalog.definition(for: id)?.id == id)
+}
+for definition in definitions {
+    assert(!definition.title(in: .chinese).isEmpty)
+    assert(!definition.summary(in: .chinese).isEmpty)
+    assert(definition.title(in: .chinese) != definition.title(in: .english))
 }
 
 let parameters = CurveParameters(
@@ -44,6 +49,15 @@ let expectedDefaults: [(CurveID, Int, Double, Double, Double, Double, Double, Bo
     (.heartWave, 104, 0.18, 8.4, 5.6, 22, 3.9, false),
     (.spiralSearch, 86, 0.28, 7.8, 6.8, 44, 4.3, false),
     (.fourierFlow, 92, 0.31, 8.4, 6.8, 44, 4.2, false),
+    (.epicycloid, 90, 0.34, 6, 5, 32, 4.4, false),
+    (.hypocycloid, 84, 0.33, 6, 5, 32, 4.4, false),
+    (.starTrochoid, 94, 0.32, 6.5, 5, 36, 4.2, false),
+    (.archimedeanSpiral, 100, 0.20, 9, 7, 40, 4, false),
+    (.logarithmicSpiral, 100, 0.20, 9, 7, 40, 4, false),
+    (.superellipse, 80, 0.30, 7, 5, 32, 4.5, false),
+    (.lissajousKnot, 92, 0.31, 6, 5, 30, 4.5, false),
+    (.harmonograph, 120, 0.16, 10, 8, 40, 3.8, false),
+    (.fourierDrawing, 96, 0.31, 7.5, 6, 35, 4.2, false),
 ]
 for (id, count, trail, loop, pulse, rotation, width, rotates) in expectedDefaults {
     let definition = CurveCatalog.definition(for: id)!
@@ -70,6 +84,24 @@ for definition in definitions {
     let points = CurveSampler.samples(for: definition, parameters: definition.defaultParameters, phase: 0.25, count: 32)
     assert(points.count == 32)
     assert(points.allSatisfy { $0.x.isFinite && $0.y.isFinite })
+}
+
+let newIDs: [CurveID] = [.epicycloid, .hypocycloid, .starTrochoid, .archimedeanSpiral,
+                         .logarithmicSpiral, .superellipse, .lissajousKnot, .harmonograph,
+                         .fourierDrawing]
+for id in newIDs {
+    let definition = CurveCatalog.definition(for: id)!
+    let points = CurveSampler.samples(for: definition, parameters: definition.defaultParameters, phase: 1, count: 480)
+    let xs = points.map(\.x)
+    let ys = points.map(\.y)
+    assert(xs.max()! - xs.min()! > 0.2)
+    assert(ys.max()! - ys.min()! > 0.2)
+    assert(points.allSatisfy { abs($0.x) < 1 && abs($0.y) < 1 })
+}
+for id in [CurveID.archimedeanSpiral, .logarithmicSpiral] {
+    let definition = CurveCatalog.definition(for: id)!
+    let points = CurveSampler.samples(for: definition, parameters: definition.defaultParameters, phase: 1, count: 480)
+    assert(abs(points[0].x - points[479].x) > 0.2)
 }
 
 for phase in [Double.greatestFiniteMagnitude, -Double.greatestFiniteMagnitude, Double.nan, Double.infinity] {

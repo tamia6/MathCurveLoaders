@@ -15,6 +15,7 @@ xcodebuild -project MathCurveLoaders.xcodeproj -scheme MathCurveLoaders -destina
 
 - `CurveCore` is the public, dependency-free Swift Package boundary. Keep public curve definitions, parameter values, sampling, and `CurveAnimationView` there.
 - Keep all curve formulas in `CurveCore`; app code must consume public package APIs.
+- Keep Chinese curve titles and descriptions in `CurveCore/Sources/CurveCore/CurveTranslations.swift`; access them through `CurveDefinition.title(in:)` and `summary(in:)`. Curve IDs and equations are language independent.
 - SwiftUI app ownership is in `App/`: `MathCurveLoadersApp.swift` starts the app, `ContentView.swift` owns navigation and selection, `CurveGalleryView.swift` owns the gallery, `CurveDetailView.swift` owns preview and copy UI, and `CurveControlsView.swift` owns parameter controls.
 - `MathCurveLoaders.xcodeproj` owns the universal iOS/iPadOS and macOS app target and the local `CurveCore` dependency.
 

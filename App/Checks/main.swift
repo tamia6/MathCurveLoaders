@@ -8,17 +8,28 @@ import SwiftUI
 
 @MainActor
 func checkGallery() {
-    assert(CurveGalleryView.definitions(matching: "").count == 21)
-    assert(CurveGalleryView.definitions(matching: "ROSE").count == 5)
-    assert(CurveGalleryView.definitions(matching: "  rose  ").count == 5)
-    assert(CurveGalleryView.definitions(matching: "1.57").map(\.id) == [.lissajousDrift])
+    assert(CurveGalleryView.definitions(matching: "").count == 30)
+    assert(appText(.english, "Preview", "预览") == "Preview")
+    assert(appText(.chinese, "Preview", "预览") == "预览")
+    assert(CurveGalleryView.definitions(matching: "ROSE").map(\.id)
+           == CurveGalleryView.definitions(matching: "  rose  ").map(\.id))
+    assert(CurveGalleryView.definitions(matching: "ROSE").contains { $0.id == .roseCurve })
+    assert(CurveGalleryView.definitions(matching: "1.57").contains { $0.id == .lissajousDrift })
     assert(CurveGalleryView.definitions(matching: "no such curve").isEmpty)
 
     for definition in CurveCatalog.all {
+        assert(CurveGalleryView.definitions(matching: definition.equation).contains { $0.id == definition.id })
+        for language in CurveLanguage.allCases {
+            let title = definition.title(in: language)
+            let summary = definition.summary(in: language)
+            assert(!title.isEmpty && !summary.isEmpty)
+            assert(CurveGalleryView.definitions(matching: "  \(title.uppercased())  ").contains { $0.id == definition.id })
+            assert(CurveGalleryView.definitions(matching: summary).contains { $0.id == definition.id })
+        }
         var parameters = definition.defaultParameters
         let binding = Binding(get: { parameters }, set: { parameters = $0 })
         let reset = { parameters = definition.defaultParameters }
-        let controls = CurveControlsView(definition: definition, parameters: binding, reset: reset)
+        let controls = CurveControlsView(definition: definition, language: .english, parameters: binding, reset: reset)
         controls.particleCount.wrappedValue = 100
         assert(parameters.particleCount == 100)
         let changes: [(KeyPath<CurveParameters, Double>, Double)] = [
@@ -34,8 +45,10 @@ func checkGallery() {
                 assert(parameters[keyPath: other] == before[keyPath: other])
             }
         }
-        let detail = CurveDetailView(definition: definition, parameters: binding, reset: reset)
+        let detail = CurveDetailView(definition: definition, language: .english, parameters: binding, reset: reset)
         let snippet = detail.swiftSnippet
+        let chineseDetail = CurveDetailView(definition: definition, language: .chinese, parameters: binding, reset: reset)
+        assert(chineseDetail.swiftSnippet == snippet)
         assert(snippet.contains(".\(definition.id.rawValue)"))
         assert(snippet.contains("particleCount: 100"))
         assert(snippet.contains("trail: 0.5"))
@@ -60,7 +73,7 @@ func checkGallery() {
         assert(parameters == definition.defaultParameters)
         assert(detail.parameters == definition.defaultParameters)
     }
-    print("Task 3 checks passed: search, six live bindings, clamping, reset, and 21 Swift snippets.")
+    print("App checks passed: bilingual search and text, six live bindings, clamping, reset, and 30 language-independent Swift snippets.")
 }
 
 MainActor.assumeIsolated { checkGallery() }

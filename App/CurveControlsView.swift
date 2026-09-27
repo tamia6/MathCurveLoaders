@@ -3,24 +3,27 @@ import SwiftUI
 
 struct CurveControlsView: View {
     let definition: CurveDefinition
+    let language: CurveLanguage
     @Binding var parameters: CurveParameters
     let reset: () -> Void
 
     var body: some View {
-        Section("Animation Parameters") {
-            Stepper("Particle count: \(parameters.particleCount)", value: particleCount, in: 24...140)
-                .accessibilityLabel("Particle count")
+        Section(appText(language, "Animation Parameters", "动画参数")) {
+            Stepper(appText(language, "Particle count: \(parameters.particleCount)", "粒子数量：\(parameters.particleCount)"), value: particleCount, in: 24...140)
+                .accessibilityLabel(appText(language, "Particle count", "粒子数量"))
                 .accessibilityValue("\(parameters.particleCount)")
-            slider("Trail length", keyPath: \.trail, range: 0.12...0.68, step: 0.01, unit: "")
-            slider("Loop duration", keyPath: \.loopDuration, range: 2.4...12, step: 0.1, unit: "seconds")
-            slider("Pulse duration", keyPath: \.pulseDuration, range: 1.8...10, step: 0.1, unit: "seconds")
+            slider(appText(language, "Trail length", "拖尾长度"), keyPath: \.trail, range: 0.12...0.68, step: 0.01, unit: "")
+            slider(appText(language, "Loop duration", "循环时长"), keyPath: \.loopDuration, range: 2.4...12, step: 0.1, unit: appText(language, "seconds", "秒"))
+            slider(appText(language, "Pulse duration", "脉动时长"), keyPath: \.pulseDuration, range: 1.8...10, step: 0.1, unit: appText(language, "seconds", "秒"))
             if definition.rotates {
-                slider("Rotation duration", keyPath: \.rotationDuration, range: 6...60, step: 1, unit: "seconds")
+                slider(appText(language, "Rotation duration", "旋转时长"), keyPath: \.rotationDuration, range: 6...60, step: 1, unit: appText(language, "seconds", "秒"))
             }
-            slider("Stroke width", keyPath: \.strokeWidth, range: 2.5...7.5, step: 0.1, unit: "")
-            Button("Reset to Defaults", action: reset)
+            slider(appText(language, "Stroke width", "线条宽度"), keyPath: \.strokeWidth, range: 2.5...7.5, step: 0.1, unit: "")
+            Button(appText(language, "Reset to Defaults", "恢复默认设置"), action: reset)
                 .disabled(parameters == definition.defaultParameters)
-                .accessibilityHint("Restores the default parameters for \(definition.title).")
+                .accessibilityHint(appText(language,
+                                           "Restores the default parameters for \(definition.title(in: .english)).",
+                                           "恢复“\(definition.title(in: .chinese))”的默认参数。"))
         }
     }
 

@@ -15,12 +15,21 @@ public enum CurveCatalog {
         define(.fourPetalSpiral, "Four-Petal Spiral", "u = (R-r)(cos t, sin t) + d(cos 3t, -sin 3t)", "A four-loop rolling-circle flower.", .petalSpiral(4), true, 84, 0.34, 4.6, 4.2, 28, 4.4),
         define(.fivePetalSpiral, "Five-Petal Spiral", "u = (R-r)(cos t, sin t) + d(cos 4t, -sin 4t)", "A five-loop rolling-circle flower.", .petalSpiral(5), true, 85, 0.34, 4.6, 4.2, 28, 4.4),
         define(.sixPetalSpiral, "Six-Petal Spiral", "u = (R-r)(cos t, sin t) + d(cos 5t, -sin 5t)", "A six-loop rolling-circle flower.", .petalSpiral(6), true, 86, 0.34, 4.6, 4.2, 28, 4.4),
-        define(.butterflyPhase, "Butterfly Phase", "B(u) = e^cos(u) - 2 cos 4u - sin⁵(u/12)", "A pulsing butterfly parameterization.", .butterfly, false, 88, 0.32, 9, 7, 50, 4.4),
+        define(.butterflyPhase, "Butterfly Curve", "B(u) = e^cos(u) - 2 cos 4u - sin⁵(u/12)", "A pulsing butterfly parameterization.", .butterfly, false, 88, 0.32, 9, 7, 50, 4.4),
         define(.cardioidGlow, "Cardioid Glow", "r = (8.4 + 0.8s)(1 - cos t)", "An outward glowing cardioid.", .cardioidGlow, false, 72, 0.36, 6.2, 5.2, 36, 4.9),
         define(.cardioidHeart, "Cardioid Heart", "(x, y) = (-r sin t, -r cos t)", "An upright rotated cardioid.", .cardioidHeart, false, 74, 0.36, 6.2, 5.2, 36, 4.9),
         define(.heartWave, "Heart Wave", "f(x) = |x|^(2/3) + 0.9√(3.3 - x²) sin(6.4πx)", "A wave-filled heart envelope.", .heartWave, false, 104, 0.18, 8.4, 5.6, 22, 3.9),
         define(.spiralSearch, "Spiral Search", "r = 8 + (1 - cos t)(8.5 + 2.4s)", "A closed expanding search spiral.", .spiralSearch, false, 86, 0.28, 7.8, 6.8, 44, 4.3),
         define(.fourierFlow, "Fourier Flow", "x = 17 cos t + 7.5 cos(3t + 0.6m) + 3.2 sin(5t - 0.4)", "A pulsing harmonic flow.", .fourierFlow, false, 92, 0.31, 8.4, 6.8, 44, 4.2),
+        define(.epicycloid, "Epicycloid", "x = 50 + 1.45(1.05+0.1s)(21 cos t - 3 cos 7t)", "An outer rolling circle with six cusps.", .epicycloid, false, 90, 0.34, 6, 5, 32, 4.4),
+        define(.hypocycloid, "Hypocycloid", "x = 50 + 1.3(0.95+0.1s)(18 cos t + 6 cos 3t)", "An inner rolling circle with four cusps.", .hypocycloid, false, 84, 0.33, 6, 5, 32, 4.4),
+        define(.starTrochoid, "Star Trochoid", "x = 50 + (0.95+0.1s)(20 cos t + 10 cos 5t)", "An offset inner rolling circle draws a six-point star.", .starTrochoid, false, 94, 0.32, 6.5, 5, 36, 4.2),
+        define(.archimedeanSpiral, "Archimedean Spiral", "r = (2+29u)(0.9+0.1s), θ = 8πu", "Radius grows evenly over each turn.", .archimedeanSpiral, false, 100, 0.20, 9, 7, 40, 4),
+        define(.logarithmicSpiral, "Logarithmic Spiral", "r = 2e^((ln 15)u)(0.9+0.1s), θ = 8πu", "Radius grows exponentially with angle.", .logarithmicSpiral, false, 100, 0.20, 9, 7, 40, 4),
+        define(.superellipse, "Superellipse", "|(x-50)/a|⁴ + |(y-50)/a|⁴ = 1, a = 30(0.92+0.08s)", "A rounded square traced by a power-law curve.", .superellipse, false, 80, 0.30, 7, 5, 32, 4.5),
+        define(.lissajousKnot, "Lissajous Knot", "x = 50+a sin(5t+π/4), y = 50+a sin 4t, a = 29(0.9+0.1s)", "A 5:4 Lissajous rhythm with a phase offset.", .lissajousKnot, false, 92, 0.31, 6, 5, 30, 4.5),
+        define(.harmonograph, "Harmonograph", "u=6t, A=(0.9+0.1s)e^(-0.045u); x=50+A(18 sin(1.05u+0.4)+10 sin 1.52u); y=50+A(18 sin 1.37u+10 sin(0.96u+1.1))", "Damped harmonics weave an intricate open trace.", .harmonograph, false, 120, 0.16, 10, 8, 40, 3.8),
+        define(.fourierDrawing, "Fourier Drawing", "z(t) = (0.92+0.08s)(22e^(it)+7e^(-4it)+4e^(7it))", "Rotating harmonics draw a star-like contour.", .fourierDrawing, false, 96, 0.31, 7.5, 6, 35, 4.2),
     ]
 
     public static func definition(for id: CurveID) -> CurveDefinition? { all.first { $0.id == id } }
