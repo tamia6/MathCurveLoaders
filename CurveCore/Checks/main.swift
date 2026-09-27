@@ -36,3 +36,11 @@ for phase in [Double.greatestFiniteMagnitude, -Double.greatestFiniteMagnitude, D
 let cardioidGlow = CurveCatalog.definition(for: .cardioidGlow)!
 let cardioidHeart = CurveCatalog.definition(for: .cardioidHeart)!
 assert(CurveSampler.samples(for: cardioidGlow, parameters: cardioidGlow.defaultParameters, phase: 0, count: 8) != CurveSampler.samples(for: cardioidHeart, parameters: cardioidHeart.defaultParameters, phase: 0, count: 8))
+
+let staticDefinition = CurveCatalog.definition(for: .originalThinking)!
+let staticParameters = staticDefinition.defaultParameters
+let staticRenderer = CurveAnimationView(definition: staticDefinition, parameters: staticParameters, isAnimating: false)
+assert(!staticRenderer.isAnimating)
+let frozenSamples = CurveSampler.samples(for: staticDefinition, parameters: staticParameters, phase: 0, count: staticParameters.particleCount)
+assert(!frozenSamples.isEmpty)
+assert(frozenSamples == CurveSampler.samples(for: staticDefinition, parameters: staticParameters, phase: 1, count: staticParameters.particleCount))
