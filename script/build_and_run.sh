@@ -9,6 +9,11 @@ DERIVED_DATA="$ROOT_DIR/.build/DerivedData"
 APP_BUNDLE="$DERIVED_DATA/Build/Products/Debug/$APP_NAME.app"
 APP_BINARY="$APP_BUNDLE/Contents/MacOS/$APP_NAME"
 
+if (( $# > 1 )); then
+  echo "usage: $0 [run|--debug|--logs|--telemetry|--verify]" >&2
+  exit 2
+fi
+
 case "$MODE" in
   run|--debug|debug|--logs|logs|--telemetry|telemetry|--verify|verify) ;;
   *)
