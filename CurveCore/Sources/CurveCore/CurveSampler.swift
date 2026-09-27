@@ -1,13 +1,25 @@
 import Foundation
 
 public enum CurveSampler {
+    /// `phase` is elapsed animation time in seconds. It drives the pulse and rotation durations.
     public static func samples(for definition: CurveDefinition, parameters: CurveParameters, phase: Double, count: Int) -> [CurvePoint] {
         let count = max(0, count)
-        let phase = phase.isFinite ? phase.truncatingRemainder(dividingBy: 1) : 0
+        let elapsedTime = phase.isFinite ? phase : 0
+        let pulseCycle = cycle(elapsedTime, duration: parameters.pulseDuration)
+        let rotation = 2 * Double.pi * cycle(elapsedTime, duration: parameters.rotationDuration)
+        let pulse = 0.875 + 0.125 * sin(2 * Double.pi * pulseCycle)
         return (0..<count).map { index in
-            let t = 2 * Double.pi * (Double(index) / Double(max(count, 1)) + phase)
-            return point(for: definition.kind, at: t, pulse: 0.75 + 0.25 * sin(2 * Double.pi * phase))
+            let t = 2 * Double.pi * Double(index) / Double(max(count, 1))
+            let point = point(for: definition.kind, at: t, pulse: pulse)
+            return CurvePoint(
+                x: pulse * (point.x * cos(rotation) - point.y * sin(rotation)),
+                y: pulse * (point.x * sin(rotation) + point.y * cos(rotation))
+            )
         }
+    }
+
+    private static func cycle(_ elapsedTime: Double, duration: Double) -> Double {
+        (elapsedTime / duration).truncatingRemainder(dividingBy: 1)
     }
 
     private static func point(for kind: CurveKind, at t: Double, pulse: Double) -> CurvePoint {

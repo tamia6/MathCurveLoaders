@@ -17,28 +17,24 @@ public struct CurveAnimationView: View {
         if isAnimating && !accessibilityReduceMotion {
             TimelineView(.animation) { timeline in
                 Canvas { context, size in
-                    draw(in: context, size: size, phase: animatedPhase(at: timeline.date))
+                    draw(in: context, size: size, elapsedTime: timeline.date.timeIntervalSinceReferenceDate)
                 }
             }
         } else {
             Canvas { context, size in
-                draw(in: context, size: size, phase: 0)
+                draw(in: context, size: size, elapsedTime: 0)
             }
         }
     }
 
-    private func animatedPhase(at date: Date) -> Double {
-        return (date.timeIntervalSinceReferenceDate / parameters.loopDuration).truncatingRemainder(dividingBy: 1)
-    }
-
-    private func draw(in context: GraphicsContext, size: CGSize, phase: Double) {
+    private func draw(in context: GraphicsContext, size: CGSize, elapsedTime: Double) {
         let smallestSide = min(size.width, size.height)
         guard smallestSide > 2 else { return }
 
         let samples = CurveSampler.samples(
             for: definition,
             parameters: parameters,
-            phase: 0,
+            phase: elapsedTime,
             count: parameters.particleCount
         )
         guard !samples.isEmpty else { return }
@@ -59,7 +55,8 @@ public struct CurveAnimationView: View {
         for point in points.dropFirst() { curve.addLine(to: point) }
         context.stroke(curve, with: .color(.accentColor.opacity(0.3)), lineWidth: lineWidth)
 
-        let start = Int(phase * Double(points.count)) % points.count
+        let trailPhase = (elapsedTime / parameters.loopDuration).truncatingRemainder(dividingBy: 1)
+        let start = Int((trailPhase >= 0 ? trailPhase : trailPhase + 1) * Double(points.count)) % points.count
         let length = max(2, Int(Double(points.count) * parameters.trail))
         var trail = Path()
         trail.move(to: points[start])
