@@ -43,10 +43,13 @@ public struct CurveAnimationView: View {
         let radius = lineWidth * 0.8
         let inset = max(lineWidth / 2, radius) + 1
         let bounds = CGRect(origin: .zero, size: size).insetBy(dx: inset, dy: inset)
+        let rotation = definition.rotates ? -2 * Double.pi * (elapsedTime.truncatingRemainder(dividingBy: parameters.rotationDuration) / parameters.rotationDuration) : 0
         let points = samples.map { point in
-            CGPoint(
-                x: bounds.minX + ((point.x.clamped(to: -1...1) + 1) / 2) * bounds.width,
-                y: bounds.minY + ((1 - point.y.clamped(to: -1...1)) / 2) * bounds.height
+            let x = point.x * cos(rotation) - point.y * sin(rotation)
+            let y = point.x * sin(rotation) + point.y * cos(rotation)
+            return CGPoint(
+                x: bounds.minX + ((x.clamped(to: -1...1) + 1) / 2) * bounds.width,
+                y: bounds.minY + ((1 - y.clamped(to: -1...1)) / 2) * bounds.height
             )
         }
 

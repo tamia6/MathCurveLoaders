@@ -35,8 +35,8 @@ public struct CurveParameters: Equatable, Sendable {
 }
 
 enum CurveKind: Sendable {
-    case originalThinking, thinkingFive, thinkingNine, rose(Int), lissajous, lemniscate, hypotrochoid
-    case petalSpiral(Int), butterfly, cardioidGlow, cardioidHeart, heart, spiral, fourier
+    case thinking(Int), roseOrbit, rose(Int), lissajous, lemniscate, hypotrochoid
+    case petalSpiral(Int), butterfly, cardioidGlow, cardioidHeart, heartWave, spiralSearch, fourierFlow
 }
 
 public struct CurveDefinition: Identifiable, Sendable {
@@ -45,14 +45,17 @@ public struct CurveDefinition: Identifiable, Sendable {
     public let equation: String
     public let summary: String
     public let defaultParameters: CurveParameters
+    /// Whether the renderer rotates this curve around its normalized origin.
+    public let rotates: Bool
     let kind: CurveKind
 
-    init(id: CurveID, title: String, equation: String, summary: String, defaultParameters: CurveParameters, kind: CurveKind) {
+    init(id: CurveID, title: String, equation: String, summary: String, defaultParameters: CurveParameters, rotates: Bool, kind: CurveKind) {
         self.id = id
         self.title = title
         self.equation = equation
         self.summary = summary
         self.defaultParameters = defaultParameters
+        self.rotates = rotates
         self.kind = kind
     }
 }

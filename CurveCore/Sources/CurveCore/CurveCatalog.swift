@@ -1,33 +1,31 @@
 public enum CurveCatalog {
     public static let all: [CurveDefinition] = [
-        definition(.originalThinking, "Original Thinking", "x = 7 cos t - 3s cos 7t; y = 7 sin t - 3s sin 7t", "A pulsing sevenfold trail.", .originalThinking),
-        definition(.thinkingFive, "Thinking Five", "x = 7 cos t - 3s cos 5t; y = 7 sin t - 3s sin 5t", "A pulsing fivefold trail.", .thinkingFive),
-        definition(.thinkingNine, "Thinking Nine", "x = 7 cos t - 3s cos 9t; y = 7 sin t - 3s sin 9t", "A pulsing ninefold trail.", .thinkingNine),
-        definition(.roseOrbit, "Rose Orbit", "r = cos 7t", "A seven-petal polar rose.", .rose(7)),
-        definition(.roseCurve, "Rose Curve", "r = sin 5t", "A five-petal polar rose.", .rose(5)),
-        definition(.roseTwo, "Rose Two", "r = cos 2t", "A four-petal rose.", .rose(2)),
-        definition(.roseThree, "Rose Three", "r = cos 3t", "A three-petal rose.", .rose(3)),
-        definition(.roseFour, "Rose Four", "r = cos 4t", "An eight-petal rose.", .rose(4)),
-        definition(.lissajousDrift, "Lissajous Drift", "x = sin 3t; y = sin(2t + π/2)", "A drifting 3:2 Lissajous curve.", .lissajous),
-        definition(.lemniscateBloom, "Lemniscate Bloom", "r² = cos 2t", "A blooming figure-eight.", .lemniscate),
-        definition(.hypotrochoidLoop, "Hypotrochoid Loop", "x = 5 cos t + 2 cos 3t; y = 5 sin t - 2 sin 3t", "A rolling inner-wheel loop.", .hypotrochoid),
-        definition(.threePetalSpiral, "Three Petal Spiral", "r = t sin 3t", "A three-petal expanding spiral.", .petalSpiral(3)),
-        definition(.fourPetalSpiral, "Four Petal Spiral", "r = t sin 4t", "A four-petal expanding spiral.", .petalSpiral(4)),
-        definition(.fivePetalSpiral, "Five Petal Spiral", "r = t sin 5t", "A five-petal expanding spiral.", .petalSpiral(5)),
-        definition(.sixPetalSpiral, "Six Petal Spiral", "r = t sin 6t", "A six-petal expanding spiral.", .petalSpiral(6)),
-        definition(.butterflyPhase, "Butterfly Phase", "r = e^(sin t) - 2 cos 4t - sin⁵(t/12)", "A phased butterfly curve.", .butterfly),
-        definition(.cardioidGlow, "Cardioid Glow", "r = 1 - cos t", "A glowing inward cardioid.", .cardioidGlow),
-        definition(.cardioidHeart, "Cardioid Heart", "r = 1 + cos t", "A rounded heart-like cardioid.", .cardioidHeart),
-        definition(.heartWave, "Heart Wave", "x = 16 sin³t; y = 13 cos t - 5 cos 2t - 2 cos 3t - cos 4t", "A classic parametric heart.", .heart),
-        definition(.spiralSearch, "Spiral Search", "r = t / 2π", "An outward searching spiral.", .spiral),
-        definition(.fourierFlow, "Fourier Flow", "x = cos t + cos 3t / 3; y = sin t + sin 2t / 2", "A compact harmonic flow.", .fourier),
+        define(.originalThinking, "Original Thinking", "x = 50 + 3.9(7 cos t - 3s cos 7t)", "A sevenfold pulsing orbit.", .thinking(7), true, 64, 0.38, 4.6, 4.2, 28, 5.5),
+        define(.thinkingFive, "Thinking Five", "x = 50 + 3.9(7 cos t - 3s cos 5t)", "A fivefold pulsing orbit.", .thinking(5), true, 62, 0.38, 4.6, 4.2, 28, 5.5),
+        define(.thinkingNine, "Thinking Nine", "x = 50 + 3.9(7 cos t - 3s cos 9t)", "A ninefold pulsing orbit.", .thinking(9), true, 68, 0.39, 4.7, 4.2, 30, 5.5),
+        define(.roseOrbit, "Rose Orbit", "r = 7 - 2.7s cos 7t", "A variable-radius polar orbit.", .roseOrbit, true, 72, 0.42, 5.2, 4.6, 28, 5.2),
+        define(.roseCurve, "Rose Curve", "r = (9.2 + 0.6s)(0.72 + 0.28s) cos 5t", "A breathing five-petal rose.", .rose(5), true, 78, 0.32, 5.4, 4.6, 28, 4.5),
+        define(.roseTwo, "Rose Two", "r = (9.2 + 0.6s)(0.72 + 0.28s) cos 2t", "A breathing two-frequency rose.", .rose(2), true, 74, 0.30, 5.2, 4.3, 28, 4.6),
+        define(.roseThree, "Rose Three", "r = (9.2 + 0.6s)(0.72 + 0.28s) cos 3t", "A breathing three-petal rose.", .rose(3), true, 76, 0.31, 5.3, 4.4, 28, 4.6),
+        define(.roseFour, "Rose Four", "r = (9.2 + 0.6s)(0.72 + 0.28s) cos 4t", "A breathing four-frequency rose.", .rose(4), true, 78, 0.32, 5.4, 4.5, 28, 4.6),
+        define(.lissajousDrift, "Lissajous Drift", "x = 50 + (24 + 6s) sin(3t + 1.57)", "A 3:4 Lissajous trace.", .lissajous, false, 68, 0.34, 6, 5.4, 36, 4.7),
+        define(.lemniscateBloom, "Lemniscate Bloom", "x = 50 + a cos t/(1 + sin²t)", "A denominator-pinched figure eight.", .lemniscate, false, 70, 0.40, 5.6, 5, 34, 4.8),
+        define(.hypotrochoidLoop, "Hypotrochoid Loop", "x = 50 + 3.05((R-r) cos t + d cos((R-r)t/r))", "An inner rolling-circle loop.", .hypotrochoid, false, 82, 0.46, 7.6, 6.2, 42, 4.6),
+        define(.threePetalSpiral, "Three-Petal Spiral", "u = (R-r)(cos t, sin t) + d(cos 2t, -sin 2t)", "A three-loop rolling-circle flower.", .petalSpiral(3), true, 82, 0.34, 4.6, 4.2, 28, 4.4),
+        define(.fourPetalSpiral, "Four-Petal Spiral", "u = (R-r)(cos t, sin t) + d(cos 3t, -sin 3t)", "A four-loop rolling-circle flower.", .petalSpiral(4), true, 84, 0.34, 4.6, 4.2, 28, 4.4),
+        define(.fivePetalSpiral, "Five-Petal Spiral", "u = (R-r)(cos t, sin t) + d(cos 4t, -sin 4t)", "A five-loop rolling-circle flower.", .petalSpiral(5), true, 85, 0.34, 4.6, 4.2, 28, 4.4),
+        define(.sixPetalSpiral, "Six-Petal Spiral", "u = (R-r)(cos t, sin t) + d(cos 5t, -sin 5t)", "A six-loop rolling-circle flower.", .petalSpiral(6), true, 86, 0.34, 4.6, 4.2, 28, 4.4),
+        define(.butterflyPhase, "Butterfly Phase", "B(u) = e^cos(u) - 2 cos 4u - sin⁵(u/12)", "A pulsing butterfly parameterization.", .butterfly, false, 88, 0.32, 9, 7, 50, 4.4),
+        define(.cardioidGlow, "Cardioid Glow", "r = (8.4 + 0.8s)(1 - cos t)", "An outward glowing cardioid.", .cardioidGlow, false, 72, 0.36, 6.2, 5.2, 36, 4.9),
+        define(.cardioidHeart, "Cardioid Heart", "(x, y) = (-r sin t, -r cos t)", "An upright rotated cardioid.", .cardioidHeart, false, 74, 0.36, 6.2, 5.2, 36, 4.9),
+        define(.heartWave, "Heart Wave", "f(x) = |x|^(2/3) + 0.9√(3.3 - x²) sin(6.4πx)", "A wave-filled heart envelope.", .heartWave, false, 104, 0.18, 8.4, 5.6, 22, 3.9),
+        define(.spiralSearch, "Spiral Search", "r = 8 + (1 - cos t)(8.5 + 2.4s)", "A closed expanding search spiral.", .spiralSearch, false, 86, 0.28, 7.8, 6.8, 44, 4.3),
+        define(.fourierFlow, "Fourier Flow", "x = 17 cos t + 7.5 cos(3t + 0.6m) + 3.2 sin(5t - 0.4)", "A pulsing harmonic flow.", .fourierFlow, false, 92, 0.31, 8.4, 6.8, 44, 4.2),
     ]
 
-    public static func definition(for id: CurveID) -> CurveDefinition? {
-        all.first { $0.id == id }
-    }
+    public static func definition(for id: CurveID) -> CurveDefinition? { all.first { $0.id == id } }
 
-    private static func definition(_ id: CurveID, _ title: String, _ equation: String, _ summary: String, _ kind: CurveKind) -> CurveDefinition {
-        CurveDefinition(id: id, title: title, equation: equation, summary: summary, defaultParameters: .init(particleCount: 64, trail: 0.38, loopDuration: 4.6, pulseDuration: 4.2, rotationDuration: 28, strokeWidth: 5.5), kind: kind)
+    private static func define(_ id: CurveID, _ title: String, _ equation: String, _ summary: String, _ kind: CurveKind, _ rotates: Bool, _ particleCount: Int, _ trail: Double, _ loop: Double, _ pulse: Double, _ rotation: Double, _ stroke: Double) -> CurveDefinition {
+        CurveDefinition(id: id, title: title, equation: equation, summary: summary, defaultParameters: .init(particleCount: particleCount, trail: trail, loopDuration: loop, pulseDuration: pulse, rotationDuration: rotation, strokeWidth: stroke), rotates: rotates, kind: kind)
     }
 }

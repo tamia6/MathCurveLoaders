@@ -11,7 +11,7 @@ func checkGallery() {
     assert(CurveGalleryView.definitions(matching: "").count == 21)
     assert(CurveGalleryView.definitions(matching: "ROSE").count == 5)
     assert(CurveGalleryView.definitions(matching: "  rose  ").count == 5)
-    assert(CurveGalleryView.definitions(matching: "π/2").map(\.id) == [.lissajousDrift])
+    assert(CurveGalleryView.definitions(matching: "1.57").map(\.id) == [.lissajousDrift])
     assert(CurveGalleryView.definitions(matching: "no such curve").isEmpty)
 
     for definition in CurveCatalog.all {
