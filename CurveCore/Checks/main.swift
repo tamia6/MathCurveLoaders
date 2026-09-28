@@ -89,7 +89,8 @@ for definition in definitions {
 let newIDs: [CurveID] = [.epicycloid, .hypocycloid, .starTrochoid, .archimedeanSpiral,
                          .logarithmicSpiral, .superellipse, .lissajousKnot, .harmonograph,
                          .fourierDrawing, .deltoid, .nephroid, .heptagonalHypocycloid,
-                         .fourierRosette, .lissajousOrbit, .orbitalPrecession]
+                         .fourierRosette, .lissajousOrbit, .orbitalPrecession, .cassiniOval,
+                         .gielisBloom, .maurerRose, .eulerSpiral, .goldenAngleSpiral, .pursuitPolygon]
 for id in newIDs {
     let definition = CurveCatalog.definition(for: id)!
     assert(definition.aspectRatio == 1)
@@ -98,7 +99,8 @@ for id in newIDs {
     let ys = points.map(\.y)
     assert(xs.max()! - xs.min()! > 0.2)
     assert(ys.max()! - ys.min()! > 0.2)
-    assert(points.allSatisfy { abs($0.x) < 1 && abs($0.y) < 1 })
+    let maximum = points.map { max(abs($0.x), abs($0.y)) }.max()!
+    assert(maximum < 1, "\(id) maximum coordinate is \(maximum)")
 }
 for id in [CurveID.archimedeanSpiral, .logarithmicSpiral] {
     let definition = CurveCatalog.definition(for: id)!

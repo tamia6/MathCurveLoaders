@@ -18,6 +18,15 @@ func checkGallery() {
     assert(CurveGalleryView.definitions(matching: "no such curve").isEmpty)
 
     for definition in CurveCatalog.all {
+        assert((SquareCurveCategory.category(for: definition.id) != nil) == (definition.aspectRatio == 1))
+    }
+    for category in SquareCurveCategory.allCases {
+        assert(CurveCatalog.all.contains { SquareCurveCategory.category(for: $0.id) == category })
+    }
+    assert(CurveGalleryView.groups(for: CurveCatalog.all, language: .english).count == 7)
+    assert(CurveGalleryView.groups(for: CurveCatalog.all, language: .chinese).count == 7)
+
+    for definition in CurveCatalog.all {
         assert(CurveGalleryView.definitions(matching: definition.equation).contains { $0.id == definition.id })
         for language in CurveLanguage.allCases {
             let title = definition.title(in: language)

@@ -37,7 +37,7 @@ public struct CurveAnimationView: View {
             let id = definition.id
             // ponytail: shared tracks finish warming after view cancellation; revisit if integration grows.
             await Task.detached(priority: .userInitiated) {
-                CurveSampler.preparePhysicsTrack(for: id)
+            CurveSampler.prepareStaticTrack(for: id)
             }.value
             guard !Task.isCancelled else { return }
             preparedCurveID = id
@@ -45,7 +45,7 @@ public struct CurveAnimationView: View {
     }
 
     private var needsPreparation: Bool {
-        definition.id == .doublePendulum || definition.id == .lorenzAttractor
+        definition.id == .doublePendulum || definition.id == .lorenzAttractor || definition.id == .eulerSpiral
     }
 
     private func draw(in context: GraphicsContext, size: CGSize, elapsedTime: Double) {

@@ -22,10 +22,11 @@ public enum CurveSampler {
         return 2 * .pi * (elapsedTime.truncatingRemainder(dividingBy: duration) / duration)
     }
 
-    static func preparePhysicsTrack(for id: CurveID) {
+    static func prepareStaticTrack(for id: CurveID) {
         switch id {
         case .doublePendulum: _ = doublePendulumTrack.count
         case .lorenzAttractor: _ = lorenzTrack.count
+        case .eulerSpiral: _ = eulerSpiralTrack.count
         default: break
         }
     }
@@ -153,6 +154,38 @@ public enum CurveSampler {
             let radius = 23 * (0.92 + 0.08 * s) * (1 - eccentricity * eccentricity)
                 / (1 + eccentricity * cos(3 * t + wavePhase))
             screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .cassiniOval:
+            let a = 20 * (0.92 + 0.08 * s)
+            let b = a * (1.04 + 0.12 * s)
+            let sine = sin(2 * t)
+            let root = sqrt(max(0, pow(b, 4) - pow(a, 4) * sine * sine))
+            let radius = sqrt(max(0, a * a * cos(2 * t) + root))
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .gielisBloom:
+            let radial = pow(pow(abs(cos(5 * t) / 0.82), 1.8)
+                + pow(abs(sin(5 * t) / 0.82), 1.8), -1 / 1.15)
+            let radius = 38 * (0.9 + 0.1 * s) * radial
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .maurerRose:
+            let angle = 71 * t + 0.03 * wavePhase
+            let radius = 28 * (0.9 + 0.1 * s) * cos(5 * angle)
+            screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
+        case .eulerSpiral:
+            let point = interpolatedPoint(in: eulerSpiralTrack, progress: t / (2 * .pi))
+            let scale = 0.92 + 0.08 * s
+            screen = (50 + 50 * scale * point.x, 50 + 50 * scale * point.y)
+        case .goldenAngleSpiral:
+            let progress = t / (2 * .pi)
+            let index = 1 + 340 * progress
+            let angle = (sqrt(5) - 1) * .pi * index + 0.02 * wavePhase
+            let radius = 30 * (0.9 + 0.1 * s) * sqrt(index / 341)
+            screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
+        case .pursuitPolygon:
+            let progress = t / (2 * .pi)
+            let q = progress < 0.5 ? 16 * progress : 16 * (1 - progress)
+            let radius = 28 * (0.9 + 0.1 * s) * exp(-0.12 * q)
+            let angle = q * .pi / 2
+            screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
         case .magneticHelix:
             let u = t / (2 * .pi)
             let angle = 4 * .pi * u
@@ -255,6 +288,16 @@ public enum CurveSampler {
         }
         return states.dropFirst(1_000).map { state in
             CurvePoint(x: state[0] / 32, y: state[1] / 36)
+        }
+    }()
+
+    private static let eulerSpiralTrack: [CurvePoint] = {
+        let states = integratedTrack(initial: [-8, 0, 0], steps: 2_400, dt: 16 / 2_400) { state in
+            let u = state[0]
+            return [1, cos(.pi * u * u / 2), sin(.pi * u * u / 2)]
+        }
+        return states.map { state in
+            CurvePoint(x: state[1] / 1.38, y: state[2] / 1.38)
         }
     }()
 

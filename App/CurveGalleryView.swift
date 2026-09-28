@@ -1,6 +1,39 @@
 import CurveCore
 import SwiftUI
 
+enum SquareCurveCategory: CaseIterable {
+    case flowersAndOrbits, rollingAndCusps, spiralsAndGrowth, tracesAndOutlines, physicsAndMotion
+
+    static func category(for id: CurveID) -> SquareCurveCategory? {
+        switch id {
+        case .originalThinking, .thinkingFive, .thinkingNine, .roseOrbit, .roseCurve,
+             .roseTwo, .roseThree, .roseFour, .threePetalSpiral, .fourPetalSpiral,
+             .fivePetalSpiral, .sixPetalSpiral, .fourierRosette, .gielisBloom, .orbitalPrecession:
+            return .flowersAndOrbits
+        case .hypotrochoidLoop, .epicycloid, .hypocycloid, .starTrochoid, .deltoid,
+             .nephroid, .heptagonalHypocycloid:
+            return .rollingAndCusps
+        case .spiralSearch, .archimedeanSpiral, .logarithmicSpiral, .eulerSpiral, .goldenAngleSpiral:
+            return .spiralsAndGrowth
+        case .lissajousDrift, .lemniscateBloom, .butterflyPhase, .cardioidGlow, .cardioidHeart,
+             .heartWave, .fourierFlow, .superellipse, .lissajousKnot, .harmonograph,
+             .fourierDrawing, .lissajousOrbit, .cassiniOval, .maurerRose:
+            return .tracesAndOutlines
+        case .magneticHelix, .doublePendulum, .lorenzAttractor, .pursuitPolygon:
+            return .physicsAndMotion
+        case .horizontalTravelingWave, .horizontalStandingWave, .verticalTravelingWave, .verticalSpring,
+             .horizontalDampedWave, .horizontalChirpWave, .verticalDoubleHelix, .verticalSCurve,
+             .horizontalWavePacket, .horizontalSolitaryPulse, .verticalDampedWave, .verticalCatenary:
+            return nil
+        }
+    }
+}
+
+struct CurveGroup {
+    let title: String
+    let curves: [CurveDefinition]
+}
+
 struct CurveGalleryView: View {
     @Binding var selection: CurveID?
     @Binding var language: CurveLanguage
@@ -9,11 +42,7 @@ struct CurveGalleryView: View {
 
     var body: some View {
         let definitions = Self.definitions(matching: searchText)
-        let groups = [
-            (title: appText(language, "Square", "方形"), curves: definitions.filter { $0.aspectRatio == 1 }),
-            (title: appText(language, "Horizontal", "横向"), curves: definitions.filter { $0.aspectRatio > 1 }),
-            (title: appText(language, "Vertical", "竖向"), curves: definitions.filter { $0.aspectRatio < 1 })
-        ]
+        let groups = Self.groups(for: definitions, language: language)
         List(selection: $selection) {
             ForEach(groups.indices, id: \.self) { index in
                 let group = groups[index]
@@ -93,5 +122,24 @@ struct CurveGalleryView: View {
                         || definition.summary(in: language).localizedStandardContains(query)
                 }
         }
+    }
+
+    static func groups(for definitions: [CurveDefinition], language: CurveLanguage) -> [CurveGroup] {
+        let squareGroups = SquareCurveCategory.allCases.compactMap { category -> CurveGroup? in
+            let curves = definitions.filter { SquareCurveCategory.category(for: $0.id) == category }
+            guard !curves.isEmpty else { return nil }
+            let title = switch category {
+            case .flowersAndOrbits: appText(language, "Flowers & Orbits", "花瓣与轨道")
+            case .rollingAndCusps: appText(language, "Rolling Curves & Cusps", "滚线与尖点")
+            case .spiralsAndGrowth: appText(language, "Spirals & Growth", "螺旋与生长")
+            case .tracesAndOutlines: appText(language, "Traces & Outlines", "轨迹与轮廓")
+            case .physicsAndMotion: appText(language, "Physics & Motion", "物理与运动")
+            }
+            return CurveGroup(title: appText(language, "Square · \(title)", "方形 · \(title)"), curves: curves)
+        }
+        return squareGroups + [
+            CurveGroup(title: appText(language, "Horizontal", "横向"), curves: definitions.filter { $0.aspectRatio > 1 }),
+            CurveGroup(title: appText(language, "Vertical", "竖向"), curves: definitions.filter { $0.aspectRatio < 1 })
+        ]
     }
 }
