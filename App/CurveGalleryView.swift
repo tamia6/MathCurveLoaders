@@ -9,26 +9,38 @@ struct CurveGalleryView: View {
 
     var body: some View {
         let definitions = Self.definitions(matching: searchText)
+        let groups = [
+            (title: appText(language, "Square", "方形"), curves: definitions.filter { $0.aspectRatio == 1 }),
+            (title: appText(language, "Horizontal", "横向"), curves: definitions.filter { $0.aspectRatio > 1 }),
+            (title: appText(language, "Vertical", "竖向"), curves: definitions.filter { $0.aspectRatio < 1 })
+        ]
         List(selection: $selection) {
-            ForEach(definitions) { definition in
-                HStack(spacing: 12) {
-                    CurveAnimationView(definition: definition,
-                                       parameters: definition.defaultParameters,
-                                       isAnimating: scenePhase == .active)
-                        .frame(width: definition.aspectRatio >= 1 ? 96 : 96 * definition.aspectRatio,
-                               height: definition.aspectRatio >= 1 ? 96 / definition.aspectRatio : 96)
-                        .frame(width: 96, height: 96)
-                        .accessibilityHidden(true)
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(definition.title(in: language))
-                            .font(.headline)
-                        Text(definition.equation)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
+            ForEach(groups.indices, id: \.self) { index in
+                let group = groups[index]
+                if !group.curves.isEmpty {
+                    Section(group.title) {
+                        ForEach(group.curves) { definition in
+                            HStack(spacing: 12) {
+                                CurveAnimationView(definition: definition,
+                                                   parameters: definition.defaultParameters,
+                                                   isAnimating: scenePhase == .active)
+                                    .frame(width: definition.aspectRatio >= 1 ? 96 : 96 * definition.aspectRatio,
+                                           height: definition.aspectRatio >= 1 ? 96 / definition.aspectRatio : 96)
+                                    .frame(width: 96, height: 96)
+                                    .accessibilityHidden(true)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(definition.title(in: language))
+                                        .font(.headline)
+                                    Text(definition.equation)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                        .lineLimit(1)
+                                }
+                            }
+                            .tag(definition.id)
+                        }
                     }
                 }
-                .tag(definition.id)
             }
         }
         .listStyle(.sidebar)

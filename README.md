@@ -4,6 +4,8 @@ A native SwiftUI gallery of 45 animated mathematical curves, backed by the reusa
 
 原生 SwiftUI 数学曲线图库，包含 45 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
 
+The gallery groups curves by square, horizontal, and vertical layout; search keeps matching curves in their layout groups. 图库按方形、横向和竖向分组，搜索结果仍保留所属分组。
+
 ## Platforms
 
 - iOS and iPadOS 17.0 or later
