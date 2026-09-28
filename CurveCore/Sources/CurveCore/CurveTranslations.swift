@@ -33,5 +33,9 @@ enum CurveTranslations {
         .magneticHelix: ("磁场螺旋", "两圈三维螺旋经斜投影呈现在平面上。"),
         .doublePendulum: ("双摆轨迹", "数值积分得到第二个摆锤的敏感运动轨迹。"),
         .lorenzAttractor: ("洛伦兹吸引子", "标准洛伦兹方程在 x-y 平面上的混沌投影。"),
+        .horizontalTravelingWave: ("横向行进波", "正弦波沿横向画布持续传播。"),
+        .horizontalStandingWave: ("横向驻波", "固定波节之间的曲线周期性振荡。"),
+        .verticalTravelingWave: ("竖向行进波", "正弦波沿竖向画布向下传播。"),
+        .verticalSpring: ("竖向弹簧", "弹簧线圈沿竖轴伸缩振动。"),
     ]
 }

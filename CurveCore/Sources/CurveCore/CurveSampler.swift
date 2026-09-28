@@ -1,12 +1,13 @@
 import Foundation
 
 public enum CurveSampler {
-    /// `phase` is elapsed animation time in seconds and controls the curve pulse.
+    /// `phase` is elapsed animation time in seconds and controls the curve's shape.
     public static func samples(for definition: CurveDefinition, parameters: CurveParameters, phase: Double, count: Int) -> [CurvePoint] {
         let count = max(0, count)
         let pulse = detailScale(at: phase, duration: parameters.pulseDuration)
+        let wavePhase = wavePhase(at: phase, duration: parameters.pulseDuration)
         return (0..<count).map { index in
-            point(for: definition, progress: Double(index) / Double(count), pulse: pulse)
+            point(for: definition, progress: Double(index) / Double(count), pulse: pulse, wavePhase: wavePhase)
         }
     }
 
@@ -14,6 +15,11 @@ public enum CurveSampler {
         let elapsedTime = elapsedTime.isFinite ? elapsedTime : 0
         let cycle = elapsedTime.truncatingRemainder(dividingBy: duration) / duration
         return 0.52 + ((sin(2 * .pi * cycle + 0.55) + 1) / 2) * 0.48
+    }
+
+    static func wavePhase(at elapsedTime: Double, duration: Double) -> Double {
+        let elapsedTime = elapsedTime.isFinite ? elapsedTime : 0
+        return 2 * .pi * (elapsedTime.truncatingRemainder(dividingBy: duration) / duration)
     }
 
     static func preparePhysicsTrack(for id: CurveID) {
@@ -24,11 +30,11 @@ public enum CurveSampler {
         }
     }
 
-    static func point(for definition: CurveDefinition, progress: Double, pulse: Double) -> CurvePoint {
-        point(for: definition.kind, at: 2 * .pi * progress, pulse: pulse)
+    static func point(for definition: CurveDefinition, progress: Double, pulse: Double, wavePhase: Double) -> CurvePoint {
+        point(for: definition.kind, at: 2 * .pi * progress, pulse: pulse, wavePhase: wavePhase)
     }
 
-    private static func point(for kind: CurveKind, at t: Double, pulse s: Double) -> CurvePoint {
+    private static func point(for kind: CurveKind, at t: Double, pulse s: Double, wavePhase: Double) -> CurvePoint {
         let screen: (Double, Double)
         switch kind {
         case .thinking(let petals):
@@ -137,6 +143,19 @@ public enum CurveSampler {
             let point = interpolatedPoint(in: lorenzTrack, progress: t / (2 * .pi))
             let scale = 0.92 + 0.08 * s
             screen = (50 + 50 * scale * point.x, 50 + 50 * scale * point.y)
+        case .horizontalTravelingWave:
+            let u = t / (2 * .pi)
+            screen = (8 + 84 * u, 50 + 21 * sin(4 * .pi * u - wavePhase))
+        case .horizontalStandingWave:
+            let u = t / (2 * .pi)
+            screen = (8 + 84 * u, 50 + 23 * sin(3 * .pi * u) * cos(wavePhase))
+        case .verticalTravelingWave:
+            let u = t / (2 * .pi)
+            screen = (50 + 21 * sin(4 * .pi * u - wavePhase), 8 + 84 * u)
+        case .verticalSpring:
+            let u = t / (2 * .pi)
+            screen = (50 + 21 * sin(10 * .pi * u) * sin(.pi * u),
+                      50 + (u - 0.5) * (72 + 10 * cos(wavePhase)))
         }
         return CurvePoint(x: (screen.0 - 50) / 50, y: (screen.1 - 50) / 50)
     }

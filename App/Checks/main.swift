@@ -8,7 +8,7 @@ import SwiftUI
 
 @MainActor
 func checkGallery() {
-    assert(CurveGalleryView.definitions(matching: "").count == 33)
+    assert(CurveGalleryView.definitions(matching: "").count == CurveID.allCases.count)
     assert(appText(.english, "Preview", "预览") == "Preview")
     assert(appText(.chinese, "Preview", "预览") == "预览")
     assert(CurveGalleryView.definitions(matching: "ROSE").map(\.id)
@@ -57,7 +57,7 @@ func checkGallery() {
         assert(snippet.contains("rotationDuration: 40.0"))
         assert(snippet.contains("strokeWidth: 7.0"))
         assert(snippet.contains("CurveSampler.samples("))
-        assert(snippet.contains("normalized base points with pulse, without renderer-only rotation"))
+        assert(snippet.contains("normalized animated points, without renderer-only rotation"))
         assert(snippet.contains("full animated preview, including rotation only when definition.rotates is true"))
         assert(snippet.contains(definition.equation))
         if let directory = CommandLine.arguments.dropFirst().first {
@@ -73,7 +73,7 @@ func checkGallery() {
         assert(parameters == definition.defaultParameters)
         assert(detail.parameters == definition.defaultParameters)
     }
-    print("App checks passed: bilingual search and text, six live bindings, clamping, reset, and 33 language-independent Swift snippets.")
+    print("App checks passed: bilingual search and text, six live bindings, clamping, reset, and \(CurveID.allCases.count) language-independent Swift snippets.")
 }
 
 MainActor.assumeIsolated { checkGallery() }

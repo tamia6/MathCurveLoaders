@@ -20,8 +20,8 @@ struct CurveDetailView: View {
             Section(appText(language, "Preview", "预览")) {
                 CurveAnimationView(definition: definition, parameters: parameters,
                                    isAnimating: scenePhase == .active && !reduceMotion)
-                    .aspectRatio(1, contentMode: .fit)
-                    .frame(maxWidth: 300)
+                    .aspectRatio(definition.aspectRatio, contentMode: .fit)
+                    .frame(maxWidth: definition.aspectRatio > 1 ? 600 : definition.aspectRatio < 1 ? 120 : 300)
                     .frame(maxWidth: .infinity)
                     .accessibilityLabel(appText(language,
                                                 "\(definition.title(in: .english)) curve preview",
@@ -58,6 +58,7 @@ struct CurveDetailView: View {
     var swiftSnippet: String {
         """
         import CurveCore
+        import SwiftUI
 
         // \(definition.title): \(definition.equation)
         if let definition = CurveCatalog.definition(for: .\(definition.id.rawValue)) {
@@ -70,13 +71,14 @@ struct CurveDetailView: View {
                 strokeWidth: \(parameters.strokeWidth)
             )
             let elapsedSeconds = 0.0
-            // Sample normalized base points with pulse, without renderer-only rotation.
+            // Sample normalized animated points, without renderer-only rotation.
             let points = CurveSampler.samples(
                 for: definition, parameters: parameters,
                 phase: elapsedSeconds, count: parameters.particleCount
             )
             // Embed the full animated preview, including rotation only when definition.rotates is true.
             let preview = CurveAnimationView(definition: definition, parameters: parameters)
+                .aspectRatio(definition.aspectRatio, contentMode: .fit)
             // Use points for custom drawing, or embed preview in a SwiftUI view.
             _ = (points, preview)
         }

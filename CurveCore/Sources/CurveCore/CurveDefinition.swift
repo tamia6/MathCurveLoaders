@@ -6,6 +6,7 @@ public enum CurveID: String, CaseIterable, Identifiable, Sendable {
     case epicycloid, hypocycloid, starTrochoid, archimedeanSpiral, logarithmicSpiral
     case superellipse, lissajousKnot, harmonograph, fourierDrawing
     case magneticHelix, doublePendulum, lorenzAttractor
+    case horizontalTravelingWave, horizontalStandingWave, verticalTravelingWave, verticalSpring
 
     public var id: Self { self }
 }
@@ -48,6 +49,7 @@ enum CurveKind: Sendable {
     case epicycloid, hypocycloid, starTrochoid, archimedeanSpiral, logarithmicSpiral
     case superellipse, lissajousKnot, harmonograph, fourierDrawing
     case magneticHelix, doublePendulum, lorenzAttractor
+    case horizontalTravelingWave, horizontalStandingWave, verticalTravelingWave, verticalSpring
 }
 
 public struct CurveDefinition: Identifiable, Sendable {
@@ -58,15 +60,18 @@ public struct CurveDefinition: Identifiable, Sendable {
     public let defaultParameters: CurveParameters
     /// Whether the renderer rotates this curve around its normalized origin.
     public let rotates: Bool
+    /// Width divided by height for the intended preview layout.
+    public let aspectRatio: Double
     let kind: CurveKind
 
-    init(id: CurveID, title: String, equation: String, summary: String, defaultParameters: CurveParameters, rotates: Bool, kind: CurveKind) {
+    init(id: CurveID, title: String, equation: String, summary: String, defaultParameters: CurveParameters, rotates: Bool, aspectRatio: Double, kind: CurveKind) {
         self.id = id
         self.title = title
         self.equation = equation
         self.summary = summary
         self.defaultParameters = defaultParameters
         self.rotates = rotates
+        self.aspectRatio = aspectRatio
         self.kind = kind
     }
 

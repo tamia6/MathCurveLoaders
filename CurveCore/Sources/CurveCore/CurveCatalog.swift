@@ -33,11 +33,15 @@ public enum CurveCatalog {
         define(.magneticHelix, "Magnetic Helix", "u=t/(2π), a=0.92+0.08s; (X,Y)=(50,50)+a(18cos4πu+24(u−½), 14sin4πu−18(u−½))", "A two-turn 3D helix shown through an oblique projection.", .magneticHelix, false, 120, 0.20, 8, 6, 40, 4),
         define(.doublePendulum, "Double Pendulum", "m₁=m₂=L₁=L₂=1, g=9.81; θ(0)=(2.1,2.4), ω(0)=0; (x₂,y₂)=0.42(sinθ₁+sinθ₂, cosθ₁+cosθ₂)", "The numerically integrated second bob traces a sensitive trajectory.", .doublePendulum, false, 140, 0.14, 10, 8, 45, 3.6),
         define(.lorenzAttractor, "Lorenz Attractor", "ẋ=10(y−x), ẏ=x(28−z)−y, ż=xy−8z/3; (X,Y)=(50,50)+50(0.92+0.08s)(x/32,y/36)", "The standard Lorenz system projected onto the x-y plane.", .lorenzAttractor, false, 140, 0.22, 12, 9, 45, 3.6),
+        define(.horizontalTravelingWave, "Traveling Wave · Horizontal", "x=8+84u, y=50+21 sin(4πu−2πτ/T)", "A sine wave travels along a horizontal strip.", .horizontalTravelingWave, false, 96, 0.24, 6, 4, 28, 4, 3),
+        define(.horizontalStandingWave, "Standing Wave · Horizontal", "x=8+84u, y=50+23 sin(3πu) cos(2πτ/T)", "Fixed nodes frame an oscillating standing wave.", .horizontalStandingWave, false, 96, 0.24, 6, 4, 28, 4, 3),
+        define(.verticalTravelingWave, "Traveling Wave · Vertical", "x=50+21 sin(4πu−2πτ/T), y=8+84u", "A sine wave travels down a vertical strip.", .verticalTravelingWave, false, 96, 0.24, 6, 4, 28, 4, 1.0 / 3),
+        define(.verticalSpring, "Vertical Spring", "x=50+21 sin(10πu) sin(πu), y=50+(u−½)(72+10 cos(2πτ/T))", "A coil expands and contracts along a vertical axis.", .verticalSpring, false, 110, 0.22, 6, 4, 28, 3.8, 1.0 / 3),
     ]
 
     public static func definition(for id: CurveID) -> CurveDefinition? { all.first { $0.id == id } }
 
-    private static func define(_ id: CurveID, _ title: String, _ equation: String, _ summary: String, _ kind: CurveKind, _ rotates: Bool, _ particleCount: Int, _ trail: Double, _ loop: Double, _ pulse: Double, _ rotation: Double, _ stroke: Double) -> CurveDefinition {
-        CurveDefinition(id: id, title: title, equation: equation, summary: summary, defaultParameters: .init(particleCount: particleCount, trail: trail, loopDuration: loop, pulseDuration: pulse, rotationDuration: rotation, strokeWidth: stroke), rotates: rotates, kind: kind)
+    private static func define(_ id: CurveID, _ title: String, _ equation: String, _ summary: String, _ kind: CurveKind, _ rotates: Bool, _ particleCount: Int, _ trail: Double, _ loop: Double, _ pulse: Double, _ rotation: Double, _ stroke: Double, _ aspectRatio: Double = 1) -> CurveDefinition {
+        CurveDefinition(id: id, title: title, equation: equation, summary: summary, defaultParameters: .init(particleCount: particleCount, trail: trail, loopDuration: loop, pulseDuration: pulse, rotationDuration: rotation, strokeWidth: stroke), rotates: rotates, aspectRatio: aspectRatio, kind: kind)
     }
 }

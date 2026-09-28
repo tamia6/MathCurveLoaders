@@ -55,13 +55,14 @@ public struct CurveAnimationView: View {
         let scale = side / 100
         let center = CGPoint(x: size.width / 2, y: size.height / 2)
         let pulse = CurveSampler.detailScale(at: elapsedTime, duration: parameters.pulseDuration)
+        let wavePhase = CurveSampler.wavePhase(at: elapsedTime, duration: parameters.pulseDuration)
         let rotation = definition.rotates ? -2 * Double.pi * (elapsedTime.truncatingRemainder(dividingBy: parameters.rotationDuration) / parameters.rotationDuration) : 0
         let cosine = cos(rotation)
         let sine = sin(rotation)
         func canvasPoint(_ point: CurvePoint) -> CGPoint {
             CGPoint(
-                x: center.x + (point.x * cosine - point.y * sine) * side / 2,
-                y: center.y + (point.x * sine + point.y * cosine) * side / 2
+                x: center.x + (point.x * cosine - point.y * sine) * size.width / 2,
+                y: center.y + (point.x * sine + point.y * cosine) * size.height / 2
             )
         }
 
@@ -69,7 +70,7 @@ public struct CurveAnimationView: View {
         let segments = integratedTrack ? 3_200 : 480
         var curve = Path()
         for step in 0...segments {
-            let point = CurveSampler.point(for: definition, progress: Double(step) / Double(segments), pulse: pulse)
+            let point = CurveSampler.point(for: definition, progress: Double(step) / Double(segments), pulse: pulse, wavePhase: wavePhase)
             let position = canvasPoint(point)
             if step == 0 { curve.move(to: position) } else { curve.addLine(to: position) }
         }
@@ -86,7 +87,7 @@ public struct CurveAnimationView: View {
             for step in 0...steps {
                 let phase = progress - parameters.trail + parameters.trail * Double(step) / Double(steps)
                 let wrapped = phase - floor(phase)
-                let position = canvasPoint(CurveSampler.point(for: definition, progress: wrapped, pulse: pulse))
+                let position = canvasPoint(CurveSampler.point(for: definition, progress: wrapped, pulse: pulse, wavePhase: wavePhase))
                 if step == 0 || wrapped < previous { trail.move(to: position) } else { trail.addLine(to: position) }
                 previous = wrapped
             }
@@ -100,7 +101,7 @@ public struct CurveAnimationView: View {
             let offset = Double(index) / Double(count - 1)
             let phase = progress - offset * parameters.trail
             let wrapped = phase - floor(phase)
-            let point = CurveSampler.point(for: definition, progress: wrapped, pulse: pulse)
+            let point = CurveSampler.point(for: definition, progress: wrapped, pulse: pulse, wavePhase: wavePhase)
             let position = canvasPoint(point)
             let fade = pow(1 - offset, 0.56)
             let radius = integratedTrack

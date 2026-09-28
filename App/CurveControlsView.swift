@@ -14,7 +14,12 @@ struct CurveControlsView: View {
                 .accessibilityValue("\(parameters.particleCount)")
             slider(appText(language, "Trail length", "拖尾长度"), keyPath: \.trail, range: 0.12...0.68, step: 0.01, unit: "")
             slider(appText(language, "Loop duration", "循环时长"), keyPath: \.loopDuration, range: 2.4...12, step: 0.1, unit: appText(language, "seconds", "秒"))
-            slider(appText(language, "Pulse duration", "脉动时长"), keyPath: \.pulseDuration, range: 1.8...10, step: 0.1, unit: appText(language, "seconds", "秒"))
+            slider(definition.id == .verticalSpring
+                   ? appText(language, "Oscillation period", "振动周期")
+                   : definition.aspectRatio != 1
+                   ? appText(language, "Wave period", "波动周期")
+                   : appText(language, "Pulse duration", "脉动时长"),
+                   keyPath: \.pulseDuration, range: 1.8...10, step: 0.1, unit: appText(language, "seconds", "秒"))
             if definition.rotates {
                 slider(appText(language, "Rotation duration", "旋转时长"), keyPath: \.rotationDuration, range: 6...60, step: 1, unit: appText(language, "seconds", "秒"))
             }

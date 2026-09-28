@@ -1,8 +1,8 @@
 # Math Curve Loaders
 
-A native SwiftUI gallery of 33 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent globe menu in the sidebar toolbar.
+A native SwiftUI gallery of 37 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent globe menu in the sidebar toolbar.
 
-原生 SwiftUI 数学曲线图库，包含 33 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
+原生 SwiftUI 数学曲线图库，包含 37 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
 
 ## Platforms
 
@@ -45,6 +45,8 @@ Additional curves: `epicycloid`, `hypocycloid`, `starTrochoid`, `archimedeanSpir
 
 Physics curves: `magneticHelix`, `doublePendulum`, `lorenzAttractor`. The helix uses an oblique 2D projection; double pendulum and Lorenz paths are numerically integrated once and interpolated during animation. Lorenz is a state-space trajectory, not a particle path.
 
+Directional curves: `horizontalTravelingWave`, `horizontalStandingWave`, `verticalTravelingWave`, `verticalSpring`. Each definition exposes `aspectRatio` (`3` for horizontal, `1/3` for vertical). Use it when sizing `CurveAnimationView` in another SwiftUI app; `CurveSampler.samples` accepts elapsed seconds and returns normalized animated points.
+
 ## Reuse CurveCore
 
 Add the local package to another Swift package during development:
@@ -61,6 +63,18 @@ Remote reuse requires pushing this repository, then replacing the local path wit
 
 `CurveCore` exposes curve definitions, sampling, and `CurveAnimationView`. Its metadata supports `definition.title(in: .chinese)` and `definition.summary(in: .english)`; curve IDs and mathematical equations stay language independent. The gallery app remains separate from that public package boundary.
 
+For horizontal and vertical curves, size the view using the definition's ratio:
+
+```swift
+import CurveCore
+import SwiftUI
+
+if let curve = CurveCatalog.definition(for: .horizontalTravelingWave) {
+    CurveAnimationView(definition: curve, parameters: curve.defaultParameters)
+        .aspectRatio(curve.aspectRatio, contentMode: .fit)
+}
+```
+
 ## Source reference
 
-The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional twelve curves use standard mathematical and physics parameterizations. This repository does not copy the reference source.
+The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional sixteen curves use standard mathematical and physics parameterizations. This repository does not copy the reference source.

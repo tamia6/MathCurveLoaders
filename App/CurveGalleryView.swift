@@ -15,6 +15,8 @@ struct CurveGalleryView: View {
                     CurveAnimationView(definition: definition,
                                        parameters: definition.defaultParameters,
                                        isAnimating: scenePhase == .active)
+                        .frame(width: definition.aspectRatio >= 1 ? 96 : 96 * definition.aspectRatio,
+                               height: definition.aspectRatio >= 1 ? 96 / definition.aspectRatio : 96)
                         .frame(width: 96, height: 96)
                         .accessibilityHidden(true)
                     VStack(alignment: .leading, spacing: 4) {
