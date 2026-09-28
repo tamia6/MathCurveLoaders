@@ -30,6 +30,9 @@ public enum CurveCatalog {
         define(.lissajousKnot, "Lissajous Knot", "x = 50+a sin(5t+π/4), y = 50+a sin 4t, a = 29(0.9+0.1s)", "A 5:4 Lissajous rhythm with a phase offset.", .lissajousKnot, false, 92, 0.31, 6, 5, 30, 4.5),
         define(.harmonograph, "Harmonograph", "u=6t, A=(0.9+0.1s)e^(-0.045u); x=50+A(18 sin(1.05u+0.4)+10 sin 1.52u); y=50+A(18 sin 1.37u+10 sin(0.96u+1.1))", "Damped harmonics weave an intricate open trace.", .harmonograph, false, 120, 0.16, 10, 8, 40, 3.8),
         define(.fourierDrawing, "Fourier Drawing", "z(t) = (0.92+0.08s)(22e^(it)+7e^(-4it)+4e^(7it))", "Rotating harmonics draw a star-like contour.", .fourierDrawing, false, 96, 0.31, 7.5, 6, 35, 4.2),
+        define(.magneticHelix, "Magnetic Helix", "u=t/(2π), a=0.92+0.08s; (X,Y)=(50,50)+a(18cos4πu+24(u−½), 14sin4πu−18(u−½))", "A two-turn 3D helix shown through an oblique projection.", .magneticHelix, false, 120, 0.20, 8, 6, 40, 4),
+        define(.doublePendulum, "Double Pendulum", "m₁=m₂=L₁=L₂=1, g=9.81; θ(0)=(2.1,2.4), ω(0)=0; (x₂,y₂)=0.42(sinθ₁+sinθ₂, cosθ₁+cosθ₂)", "The numerically integrated second bob traces a sensitive trajectory.", .doublePendulum, false, 140, 0.14, 10, 8, 45, 3.6),
+        define(.lorenzAttractor, "Lorenz Attractor", "ẋ=10(y−x), ẏ=x(28−z)−y, ż=xy−8z/3; (X,Y)=(50,50)+50(0.92+0.08s)(x/32,y/36)", "The standard Lorenz system projected onto the x-y plane.", .lorenzAttractor, false, 140, 0.22, 12, 9, 45, 3.6),
     ]
 
     public static func definition(for id: CurveID) -> CurveDefinition? { all.first { $0.id == id } }

@@ -30,5 +30,8 @@ enum CurveTranslations {
         .lissajousKnot: ("李萨如结", "带相位偏移的 5 比 4 李萨如节奏。"),
         .harmonograph: ("谐振曲线", "衰减谐波交织出精细的开放轨迹。"),
         .fourierDrawing: ("傅里叶绘图", "旋转谐波描出星状轮廓。"),
+        .magneticHelix: ("磁场螺旋", "两圈三维螺旋经斜投影呈现在平面上。"),
+        .doublePendulum: ("双摆轨迹", "数值积分得到第二个摆锤的敏感运动轨迹。"),
+        .lorenzAttractor: ("洛伦兹吸引子", "标准洛伦兹方程在 x-y 平面上的混沌投影。"),
     ]
 }

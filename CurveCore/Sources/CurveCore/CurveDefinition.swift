@@ -5,6 +5,7 @@ public enum CurveID: String, CaseIterable, Identifiable, Sendable {
     case spiralSearch, fourierFlow
     case epicycloid, hypocycloid, starTrochoid, archimedeanSpiral, logarithmicSpiral
     case superellipse, lissajousKnot, harmonograph, fourierDrawing
+    case magneticHelix, doublePendulum, lorenzAttractor
 
     public var id: Self { self }
 }
@@ -46,6 +47,7 @@ enum CurveKind: Sendable {
     case petalSpiral(Int), butterfly, cardioidGlow, cardioidHeart, heartWave, spiralSearch, fourierFlow
     case epicycloid, hypocycloid, starTrochoid, archimedeanSpiral, logarithmicSpiral
     case superellipse, lissajousKnot, harmonograph, fourierDrawing
+    case magneticHelix, doublePendulum, lorenzAttractor
 }
 
 public struct CurveDefinition: Identifiable, Sendable {

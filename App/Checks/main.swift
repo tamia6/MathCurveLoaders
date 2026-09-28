@@ -8,7 +8,7 @@ import SwiftUI
 
 @MainActor
 func checkGallery() {
-    assert(CurveGalleryView.definitions(matching: "").count == 30)
+    assert(CurveGalleryView.definitions(matching: "").count == 33)
     assert(appText(.english, "Preview", "预览") == "Preview")
     assert(appText(.chinese, "Preview", "预览") == "预览")
     assert(CurveGalleryView.definitions(matching: "ROSE").map(\.id)
@@ -73,7 +73,7 @@ func checkGallery() {
         assert(parameters == definition.defaultParameters)
         assert(detail.parameters == definition.defaultParameters)
     }
-    print("App checks passed: bilingual search and text, six live bindings, clamping, reset, and 30 language-independent Swift snippets.")
+    print("App checks passed: bilingual search and text, six live bindings, clamping, reset, and 33 language-independent Swift snippets.")
 }
 
 MainActor.assumeIsolated { checkGallery() }

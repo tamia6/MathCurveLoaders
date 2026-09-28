@@ -16,6 +16,14 @@ public enum CurveSampler {
         return 0.52 + ((sin(2 * .pi * cycle + 0.55) + 1) / 2) * 0.48
     }
 
+    static func preparePhysicsTrack(for id: CurveID) {
+        switch id {
+        case .doublePendulum: _ = doublePendulumTrack.count
+        case .lorenzAttractor: _ = lorenzTrack.count
+        default: break
+        }
+    }
+
     static func point(for definition: CurveDefinition, progress: Double, pulse: Double) -> CurvePoint {
         point(for: definition.kind, at: 2 * .pi * progress, pulse: pulse)
     }
@@ -115,7 +123,79 @@ public enum CurveSampler {
             let scale = 0.92 + 0.08 * s
             screen = (50 + scale * (22 * cos(t) + 7 * cos(-4 * t) + 4 * cos(7 * t)),
                       50 + scale * (22 * sin(t) + 7 * sin(-4 * t) + 4 * sin(7 * t)))
+        case .magneticHelix:
+            let u = t / (2 * .pi)
+            let angle = 4 * .pi * u
+            let scale = 0.92 + 0.08 * s
+            screen = (50 + scale * (18 * cos(angle) + 24 * (u - 0.5)),
+                      50 + scale * (14 * sin(angle) - 18 * (u - 0.5)))
+        case .doublePendulum:
+            let point = interpolatedPoint(in: doublePendulumTrack, progress: t / (2 * .pi))
+            let scale = 0.92 + 0.08 * s
+            screen = (50 + 50 * scale * point.x, 50 + 50 * scale * point.y)
+        case .lorenzAttractor:
+            let point = interpolatedPoint(in: lorenzTrack, progress: t / (2 * .pi))
+            let scale = 0.92 + 0.08 * s
+            screen = (50 + 50 * scale * point.x, 50 + 50 * scale * point.y)
         }
         return CurvePoint(x: (screen.0 - 50) / 50, y: (screen.1 - 50) / 50)
+    }
+
+    private static func interpolatedPoint(in track: [CurvePoint], progress: Double) -> CurvePoint {
+        let position = min(max(progress, 0), 1) * Double(track.count - 1)
+        let lower = Int(position)
+        let upper = min(lower + 1, track.count - 1)
+        let fraction = position - Double(lower)
+        return CurvePoint(x: track[lower].x + (track[upper].x - track[lower].x) * fraction,
+                          y: track[lower].y + (track[upper].y - track[lower].y) * fraction)
+    }
+
+    private static let doublePendulumTrack: [CurvePoint] = {
+        let gravity = 9.81
+        // Equal masses and lengths are one; state is [θ₁, θ₂, ω₁, ω₂].
+        let states = integratedTrack(initial: [2.1, 2.4, 0, 0], steps: 6_000, dt: 0.006) { state in
+            let first = state[0], second = state[1]
+            let firstVelocity = state[2], secondVelocity = state[3]
+            let difference = first - second
+            let divisor = 3 - cos(2 * difference)
+            let firstAcceleration = (-3 * gravity * sin(first) - gravity * sin(first - 2 * second)
+                                     - 2 * sin(difference) * (secondVelocity * secondVelocity
+                                     + firstVelocity * firstVelocity * cos(difference))) / divisor
+            let secondAcceleration = (2 * sin(difference) * (2 * firstVelocity * firstVelocity
+                                      + 2 * gravity * cos(first)
+                                      + secondVelocity * secondVelocity * cos(difference))) / divisor
+            return [firstVelocity, secondVelocity, firstAcceleration, secondAcceleration]
+        }
+        return states.map { state in
+            CurvePoint(x: 0.42 * (sin(state[0]) + sin(state[1])),
+                       y: 0.42 * (cos(state[0]) + cos(state[1])))
+        }
+    }()
+
+    private static let lorenzTrack: [CurvePoint] = {
+        let states = integratedTrack(initial: [0.1, 0, 0], steps: 10_000, dt: 0.005) { state in
+            let x = state[0], y = state[1], z = state[2]
+            return [10 * (y - x), x * (28 - z) - y, x * y - (8.0 / 3.0) * z]
+        }
+        return states.dropFirst(1_000).map { state in
+            CurvePoint(x: state[0] / 32, y: state[1] / 36)
+        }
+    }()
+
+    private static func integratedTrack(initial: [Double], steps: Int, dt: Double,
+                                        derivative: ([Double]) -> [Double]) -> [[Double]] {
+        // Fixed-step RK4 runs once for each static track, never on a Canvas frame.
+        var state = initial
+        var result = [state]
+        result.reserveCapacity(steps + 1)
+        for _ in 0..<steps {
+            let k1 = derivative(state)
+            let k2 = derivative(zip(state, k1).map { $0 + dt * $1 / 2 })
+            let k3 = derivative(zip(state, k2).map { $0 + dt * $1 / 2 })
+            let k4 = derivative(zip(state, k3).map { $0 + dt * $1 })
+            state = state.indices.map { state[$0] + dt * (k1[$0] + 2 * k2[$0] + 2 * k3[$0] + k4[$0]) / 6 }
+            result.append(state)
+        }
+        return result
     }
 }

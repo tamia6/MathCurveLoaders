@@ -1,8 +1,8 @@
 import CurveCore
 
 let definitions = CurveCatalog.all
-assert(definitions.count == 30)
-assert(Set(definitions.map(\.id)).count == 30)
+assert(definitions.count == 33)
+assert(Set(definitions.map(\.id)).count == 33)
 for id in CurveID.allCases {
     assert(CurveCatalog.definition(for: id)?.id == id)
 }

@@ -1,8 +1,8 @@
 # Math Curve Loaders
 
-A native SwiftUI gallery of 30 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent switch above the gallery.
+A native SwiftUI gallery of 33 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent switch above the gallery.
 
-原生 SwiftUI 数学曲线图库，包含 30 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
+原生 SwiftUI 数学曲线图库，包含 33 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
 
 ## Platforms
 
@@ -43,6 +43,8 @@ Original reference set: `originalThinking`, `thinkingFive`, `thinkingNine`, `ros
 
 Additional curves: `epicycloid`, `hypocycloid`, `starTrochoid`, `archimedeanSpiral`, `logarithmicSpiral`, `superellipse`, `lissajousKnot`, `harmonograph`, `fourierDrawing`. The existing `butterflyPhase` is the butterfly curve from the reference set.
 
+Physics curves: `magneticHelix`, `doublePendulum`, `lorenzAttractor`. The helix uses an oblique 2D projection; double pendulum and Lorenz paths are numerically integrated once and interpolated during animation. Lorenz is a state-space trajectory, not a particle path.
+
 ## Reuse CurveCore
 
 Add the local package to another Swift package during development:
@@ -61,4 +63,4 @@ Remote reuse requires pushing this repository, then replacing the local path wit
 
 ## Source reference
 
-The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The nine added curves use standard mathematical parameterizations. This repository does not copy the reference source.
+The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional twelve curves use standard mathematical and physics parameterizations. This repository does not copy the reference source.
