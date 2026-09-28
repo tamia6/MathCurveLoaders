@@ -129,6 +129,30 @@ public enum CurveSampler {
             let scale = 0.92 + 0.08 * s
             screen = (50 + scale * (22 * cos(t) + 7 * cos(-4 * t) + 4 * cos(7 * t)),
                       50 + scale * (22 * sin(t) + 7 * sin(-4 * t) + 4 * sin(7 * t)))
+        case .deltoid:
+            let scale = 12.2 * (0.9 + 0.1 * s)
+            screen = (50 + scale * (2 * cos(t) + cos(2 * t)),
+                      50 + scale * (2 * sin(t) - sin(2 * t)))
+        case .nephroid:
+            let scale = 8.3 * (0.9 + 0.1 * s)
+            screen = (50 + scale * (3 * cos(t) - cos(3 * t)),
+                      50 + scale * (3 * sin(t) - sin(3 * t)))
+        case .heptagonalHypocycloid:
+            let scale = 5.2 * (0.9 + 0.1 * s)
+            screen = (50 + scale * (6 * cos(t) + cos(6 * t)),
+                      50 + scale * (6 * sin(t) - sin(6 * t)))
+        case .fourierRosette:
+            let radius = (21 + 2 * s) * (0.86 + 0.14 * cos(8 * t + wavePhase)) + 2 * sin(16 * t)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .lissajousOrbit:
+            let amplitude = 27 * (0.9 + 0.1 * s)
+            screen = (50 + amplitude * sin(3 * t + .pi / 6),
+                      50 + amplitude * sin(5 * t + wavePhase))
+        case .orbitalPrecession:
+            let eccentricity = 0.62
+            let radius = 23 * (0.92 + 0.08 * s) * (1 - eccentricity * eccentricity)
+                / (1 + eccentricity * cos(3 * t + wavePhase))
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
         case .magneticHelix:
             let u = t / (2 * .pi)
             let angle = 4 * .pi * u

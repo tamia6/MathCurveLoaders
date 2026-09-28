@@ -88,9 +88,11 @@ for definition in definitions {
 
 let newIDs: [CurveID] = [.epicycloid, .hypocycloid, .starTrochoid, .archimedeanSpiral,
                          .logarithmicSpiral, .superellipse, .lissajousKnot, .harmonograph,
-                         .fourierDrawing]
+                         .fourierDrawing, .deltoid, .nephroid, .heptagonalHypocycloid,
+                         .fourierRosette, .lissajousOrbit, .orbitalPrecession]
 for id in newIDs {
     let definition = CurveCatalog.definition(for: id)!
+    assert(definition.aspectRatio == 1)
     let points = CurveSampler.samples(for: definition, parameters: definition.defaultParameters, phase: 1, count: 480)
     let xs = points.map(\.x)
     let ys = points.map(\.y)
