@@ -1,6 +1,6 @@
 # Math Curve Loaders
 
-A native SwiftUI gallery of 33 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent switch above the gallery.
+A native SwiftUI gallery of 33 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent globe menu in the sidebar toolbar.
 
 原生 SwiftUI 数学曲线图库，包含 33 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
 
