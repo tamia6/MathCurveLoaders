@@ -37,6 +37,10 @@ public enum CurveCatalog {
         define(.horizontalStandingWave, "Standing Wave · Horizontal", "x=8+84u, y=50+23 sin(3πu) cos(2πτ/T)", "Fixed nodes frame an oscillating standing wave.", .horizontalStandingWave, false, 96, 0.24, 6, 4, 28, 4, 3),
         define(.verticalTravelingWave, "Traveling Wave · Vertical", "x=50+21 sin(4πu−2πτ/T), y=8+84u", "A sine wave travels down a vertical strip.", .verticalTravelingWave, false, 96, 0.24, 6, 4, 28, 4, 1.0 / 3),
         define(.verticalSpring, "Vertical Spring", "x=50+21 sin(10πu) sin(πu), y=50+(u−½)(72+10 cos(2πτ/T))", "A coil expands and contracts along a vertical axis.", .verticalSpring, false, 110, 0.22, 6, 4, 28, 3.8, 1.0 / 3),
+        define(.horizontalDampedWave, "Damped Wave · Horizontal", "x=8+84u, y=50+24e^(−2.2u)sin(6πu−2πτ/T)", "A wave fades as it travels from left to right.", .horizontalDampedWave, false, 100, 0.25, 6, 4.5, 28, 4, 3),
+        define(.horizontalChirpWave, "Chirp Wave · Horizontal", "x=8+84u, y=50+19sin(2π(u+2u²)−2πτ/T)", "Wave spacing tightens across the strip.", .horizontalChirpWave, false, 110, 0.22, 7, 4.5, 28, 3.8, 3),
+        define(.verticalDoubleHelix, "Double Helix · Vertical", "x±=50±18sin(4πu−2πτ/T)sin(πu), y=8+84u", "Two strands weave around a shared vertical axis.", .verticalDoubleHelix, false, 120, 0.27, 7, 5, 28, 3.8, 1.0 / 3),
+        define(.verticalSCurve, "S Curve · Vertical", "x=23+54(3u²−2u³)+4sin(2πu−2πτ/T)sin(πu), y=8+84u", "A gently shifting S-shaped streamline.", .verticalSCurve, false, 90, 0.28, 7, 6, 28, 4, 1.0 / 3),
     ]
 
     public static func definition(for id: CurveID) -> CurveDefinition? { all.first { $0.id == id } }

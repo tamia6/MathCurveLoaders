@@ -156,6 +156,23 @@ public enum CurveSampler {
             let u = t / (2 * .pi)
             screen = (50 + 21 * sin(10 * .pi * u) * sin(.pi * u),
                       50 + (u - 0.5) * (72 + 10 * cos(wavePhase)))
+        case .horizontalDampedWave:
+            let u = t / (2 * .pi)
+            screen = (8 + 84 * u, 50 + 24 * exp(-2.2 * u) * sin(6 * .pi * u - wavePhase))
+        case .horizontalChirpWave:
+            let u = t / (2 * .pi)
+            screen = (8 + 84 * u, 50 + 19 * sin(2 * .pi * (u + 2 * u * u) - wavePhase))
+        case .verticalDoubleHelix:
+            let u = t / (2 * .pi)
+            let firstStrand = u < 0.5
+            let v = firstStrand ? 2 * u : 2 - 2 * u
+            let direction = firstStrand ? 1.0 : -1.0
+            screen = (50 + direction * 18 * sin(4 * .pi * v - wavePhase) * sin(.pi * v),
+                      8 + 84 * v)
+        case .verticalSCurve:
+            let u = t / (2 * .pi)
+            screen = (23 + 54 * (3 * u * u - 2 * u * u * u)
+                      + 4 * sin(2 * .pi * u - wavePhase) * sin(.pi * u), 8 + 84 * u)
         }
         return CurvePoint(x: (screen.0 - 50) / 50, y: (screen.1 - 50) / 50)
     }

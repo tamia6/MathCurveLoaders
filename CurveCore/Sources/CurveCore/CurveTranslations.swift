@@ -37,5 +37,9 @@ enum CurveTranslations {
         .horizontalStandingWave: ("横向驻波", "固定波节之间的曲线周期性振荡。"),
         .verticalTravelingWave: ("竖向行进波", "正弦波沿竖向画布向下传播。"),
         .verticalSpring: ("竖向弹簧", "弹簧线圈沿竖轴伸缩振动。"),
+        .horizontalDampedWave: ("横向阻尼波", "波幅从左向右逐渐衰减。"),
+        .horizontalChirpWave: ("横向变频波", "波纹间距由疏变密。"),
+        .verticalDoubleHelix: ("竖向双螺旋投影", "两条曲线围绕同一竖轴交错延伸。"),
+        .verticalSCurve: ("竖向 S 形流线", "平滑的 S 形轨迹轻微摆动。"),
     ]
 }
