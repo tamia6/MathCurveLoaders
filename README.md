@@ -1,8 +1,8 @@
 # Math Curve Loaders
 
-A native SwiftUI gallery of 41 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent globe menu in the sidebar toolbar.
+A native SwiftUI gallery of 45 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent globe menu in the sidebar toolbar.
 
-原生 SwiftUI 数学曲线图库，包含 41 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
+原生 SwiftUI 数学曲线图库，包含 45 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
 
 ## Platforms
 
@@ -45,7 +45,7 @@ Additional curves: `epicycloid`, `hypocycloid`, `starTrochoid`, `archimedeanSpir
 
 Physics curves: `magneticHelix`, `doublePendulum`, `lorenzAttractor`. The helix uses an oblique 2D projection; double pendulum and Lorenz paths are numerically integrated once and interpolated during animation. Lorenz is a state-space trajectory, not a particle path.
 
-Directional curves: `horizontalTravelingWave`, `horizontalStandingWave`, `horizontalDampedWave`, `horizontalChirpWave`, `verticalTravelingWave`, `verticalSpring`, `verticalDoubleHelix`, `verticalSCurve`. Each definition exposes `aspectRatio` (`3` for horizontal, `1/3` for vertical). Use it when sizing `CurveAnimationView` in another SwiftUI app; `CurveSampler.samples` accepts elapsed seconds and returns normalized animated points.
+Directional curves: `horizontalTravelingWave`, `horizontalStandingWave`, `horizontalDampedWave`, `horizontalChirpWave`, `horizontalWavePacket`, `horizontalSolitaryPulse`, `verticalTravelingWave`, `verticalSpring`, `verticalDoubleHelix`, `verticalSCurve`, `verticalDampedWave`, `verticalCatenary`. Each definition exposes `aspectRatio` (`3` for horizontal, `1/3` for vertical). Use it when sizing `CurveAnimationView` in another SwiftUI app; `CurveSampler.samples` accepts elapsed seconds and returns normalized animated points.
 
 ## Reuse CurveCore
 
@@ -77,4 +77,4 @@ if let curve = CurveCatalog.definition(for: .horizontalTravelingWave) {
 
 ## Source reference
 
-The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional twenty curves use standard mathematical and physics parameterizations. This repository does not copy the reference source.
+The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional twenty-four curves use standard mathematical and physics parameterizations. This repository does not copy the reference source.

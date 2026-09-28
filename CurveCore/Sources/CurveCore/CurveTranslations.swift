@@ -41,5 +41,9 @@ enum CurveTranslations {
         .horizontalChirpWave: ("横向变频波", "波纹间距由疏变密。"),
         .verticalDoubleHelix: ("竖向双螺旋投影", "两条曲线围绕同一竖轴交错延伸。"),
         .verticalSCurve: ("竖向 S 形流线", "平滑的 S 形轨迹轻微摆动。"),
+        .horizontalWavePacket: ("横向高斯波包", "高斯包络内的一组紧凑波纹持续振荡。"),
+        .horizontalSolitaryPulse: ("横向孤立脉冲", "单个平滑脉冲沿横向来回移动。"),
+        .verticalDampedWave: ("竖向阻尼波", "振荡幅度沿竖向逐渐减小。"),
+        .verticalCatenary: ("竖向悬链弧", "横置的悬链线轮廓缓慢舒展。"),
     ]
 }

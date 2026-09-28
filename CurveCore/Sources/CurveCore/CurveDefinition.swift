@@ -8,6 +8,7 @@ public enum CurveID: String, CaseIterable, Identifiable, Sendable {
     case magneticHelix, doublePendulum, lorenzAttractor
     case horizontalTravelingWave, horizontalStandingWave, verticalTravelingWave, verticalSpring
     case horizontalDampedWave, horizontalChirpWave, verticalDoubleHelix, verticalSCurve
+    case horizontalWavePacket, horizontalSolitaryPulse, verticalDampedWave, verticalCatenary
 
     public var id: Self { self }
 }
@@ -52,6 +53,7 @@ enum CurveKind: Sendable {
     case magneticHelix, doublePendulum, lorenzAttractor
     case horizontalTravelingWave, horizontalStandingWave, verticalTravelingWave, verticalSpring
     case horizontalDampedWave, horizontalChirpWave, verticalDoubleHelix, verticalSCurve
+    case horizontalWavePacket, horizontalSolitaryPulse, verticalDampedWave, verticalCatenary
 }
 
 public struct CurveDefinition: Identifiable, Sendable {

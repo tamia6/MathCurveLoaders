@@ -173,6 +173,22 @@ public enum CurveSampler {
             let u = t / (2 * .pi)
             screen = (23 + 54 * (3 * u * u - 2 * u * u * u)
                       + 4 * sin(2 * .pi * u - wavePhase) * sin(.pi * u), 8 + 84 * u)
+        case .horizontalWavePacket:
+            let u = t / (2 * .pi)
+            let distance = (u - 0.5) / 0.21
+            screen = (8 + 84 * u, 50 + 23 * exp(-distance * distance) * sin(12 * .pi * u - wavePhase))
+        case .horizontalSolitaryPulse:
+            let u = t / (2 * .pi)
+            let center = 0.5 + 0.28 * sin(wavePhase)
+            let envelope = cosh(12 * (u - center))
+            screen = (8 + 84 * u, 50 + 25 / (envelope * envelope))
+        case .verticalDampedWave:
+            let u = t / (2 * .pi)
+            screen = (50 + 24 * exp(-2.2 * u) * sin(6 * .pi * u - wavePhase), 8 + 84 * u)
+        case .verticalCatenary:
+            let u = t / (2 * .pi)
+            let arc = (cosh(2.4 * (u - 0.5)) - 1) / (cosh(1.2) - 1)
+            screen = (18 + (42 + 6 * cos(wavePhase)) * arc, 8 + 84 * u)
         }
         return CurvePoint(x: (screen.0 - 50) / 50, y: (screen.1 - 50) / 50)
     }

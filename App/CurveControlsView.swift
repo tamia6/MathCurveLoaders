@@ -30,7 +30,8 @@ struct CurveControlsView: View {
     private var periodTitle: String {
         switch definition.id {
         case .verticalSpring: appText(language, "Oscillation period", "振动周期")
-        case .verticalDoubleHelix, .verticalSCurve: appText(language, "Motion period", "运动周期")
+        case .verticalDoubleHelix, .verticalSCurve, .horizontalSolitaryPulse, .verticalCatenary:
+            appText(language, "Motion period", "运动周期")
         default: definition.aspectRatio == 1
             ? appText(language, "Pulse duration", "脉动时长")
             : appText(language, "Wave period", "波动周期")

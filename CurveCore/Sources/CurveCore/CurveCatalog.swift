@@ -41,6 +41,10 @@ public enum CurveCatalog {
         define(.horizontalChirpWave, "Chirp Wave · Horizontal", "x=8+84u, y=50+19sin(2π(u+2u²)−2πτ/T)", "Wave spacing tightens across the strip.", .horizontalChirpWave, false, 110, 0.22, 7, 4.5, 28, 3.8, 3),
         define(.verticalDoubleHelix, "Double Helix · Vertical", "x±=50±18sin(4πu−2πτ/T)sin(πu), y=8+84u", "Two strands weave around a shared vertical axis.", .verticalDoubleHelix, false, 120, 0.27, 7, 5, 28, 3.8, 1.0 / 3),
         define(.verticalSCurve, "S Curve · Vertical", "x=23+54(3u²−2u³)+4sin(2πu−2πτ/T)sin(πu), y=8+84u", "A gently shifting S-shaped streamline.", .verticalSCurve, false, 90, 0.28, 7, 6, 28, 4, 1.0 / 3),
+        define(.horizontalWavePacket, "Gaussian Wave Packet · Horizontal", "x=8+84u, y=50+23e^(−((u−½)/0.21)²)sin(12πu−2πτ/T)", "A compact group of ripples oscillates inside a Gaussian envelope.", .horizontalWavePacket, false, 110, 0.22, 7, 4.6, 28, 3.8, 3),
+        define(.horizontalSolitaryPulse, "Solitary Pulse · Horizontal", "x=8+84u, y=50+25 sech²(12(u−c)), c=½+0.28sin(2πτ/T)", "A single smooth pulse moves from side to side.", .horizontalSolitaryPulse, false, 100, 0.25, 7, 5.2, 28, 4, 3),
+        define(.verticalDampedWave, "Damped Wave · Vertical", "x=50+24e^(−2.2u)sin(6πu−2πτ/T), y=8+84u", "Oscillations fade down the vertical strip.", .verticalDampedWave, false, 100, 0.25, 6, 4.5, 28, 4, 1.0 / 3),
+        define(.verticalCatenary, "Sideways Catenary · Vertical", "x=18+(42+6cos(2πτ/T))(cosh(2.4(u−½))−1)/(cosh1.2−1), y=8+84u", "A sideways hanging-chain profile gently breathes.", .verticalCatenary, false, 90, 0.29, 7, 5.5, 28, 4.2, 1.0 / 3),
     ]
 
     public static func definition(for id: CurveID) -> CurveDefinition? { all.first { $0.id == id } }
