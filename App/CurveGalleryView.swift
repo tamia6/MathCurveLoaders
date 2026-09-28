@@ -43,11 +43,24 @@ struct CurveGalleryView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Menu {
-                    Picker("", selection: $language) {
-                        Text("EN").tag(CurveLanguage.english)
-                        Text("中文").tag(CurveLanguage.chinese)
+                    Button {
+                        language = .english
+                    } label: {
+                        if language == .english {
+                            Label("EN", systemImage: "checkmark")
+                        } else {
+                            Text("EN")
+                        }
                     }
-                    .labelsHidden()
+                    Button {
+                        language = .chinese
+                    } label: {
+                        if language == .chinese {
+                            Label("中文", systemImage: "checkmark")
+                        } else {
+                            Text("中文")
+                        }
+                    }
                 } label: {
                     Image(systemName: "globe")
                 }
