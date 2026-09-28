@@ -186,6 +186,31 @@ public enum CurveSampler {
             let radius = 28 * (0.9 + 0.1 * s) * exp(-0.12 * q)
             let angle = q * .pi / 2
             screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
+        case .fermatSpiral:
+            let progress = t / (2 * .pi)
+            let angle = 16 * .pi * (progress - 0.5)
+            let radius = 4.8 * sqrt(abs(angle)) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
+        case .lituusSpiral:
+            let progress = t / (2 * .pi)
+            let angle = 32 * .pi * (progress - 0.5)
+            let radius = 10 * (0.9 + 0.1 * s) / sqrt(max(0.25, abs(angle)))
+            screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
+        case .fourierTrefoil:
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + scale * (20 * cos(t) + 7 * cos(3 * t) + 4 * cos(5 * t)),
+                      50 + scale * (20 * sin(t) + 7 * sin(3 * t) - 4 * sin(5 * t)))
+        case .interferenceRing:
+            let radius = (22 + 2 * s) * (1 + 0.14 * cos(2 * t) * cos(6 * t - wavePhase))
+                + 2 * sin(12 * t)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .chladniRing:
+            let radius = (22 + 2 * s) * (1 + 0.12 * cos(8 * t) * cos(wavePhase))
+                + 1.5 * sin(16 * t)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .higherOrderRose:
+            let radius = (23 + 2 * s) * (cos(9 * t + wavePhase) + 0.35 * cos(18 * t - wavePhase))
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
         case .magneticHelix:
             let u = t / (2 * .pi)
             let angle = 4 * .pi * u

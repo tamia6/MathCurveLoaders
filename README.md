@@ -1,8 +1,8 @@
 # Math Curve Loaders
 
-A native SwiftUI gallery of 57 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent globe menu in the sidebar toolbar.
+A native SwiftUI gallery of 63 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent globe menu in the sidebar toolbar.
 
-原生 SwiftUI 数学曲线图库，包含 57 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
+原生 SwiftUI 数学曲线图库，包含 63 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
 
 The gallery groups curves by square, horizontal, and vertical layout. Square curves are subdivided into flowers and orbits, rolling curves and cusps, spirals and growth, traces and outlines, and physics and motion; search keeps matching curves in their groups. 图库按方形、横向和竖向分组；方形曲线继续按花瓣与轨道、滚线与尖点、螺旋与生长、轨迹与轮廓、物理与运动细分，搜索结果仍保留所属分组。
 
@@ -49,6 +49,8 @@ Additional square curves: `deltoid`, `nephroid`, `heptagonalHypocycloid`, `fouri
 
 Advanced square curves: `cassiniOval`, `gielisBloom`, `maurerRose`, `eulerSpiral`, `goldenAngleSpiral`, `pursuitPolygon`. The gallery groups these by visual family while `CurveCore` keeps their IDs and sampling APIs language independent.
 
+Further square curves: `fermatSpiral`, `lituusSpiral`, `fourierTrefoil`, `interferenceRing`, `chladniRing`, `higherOrderRose`. These extend the existing square shape groups with inverse-root spirals, harmonic knot traces, wave-driven rings, and a higher-order rose.
+
 Physics curves: `magneticHelix`, `doublePendulum`, `lorenzAttractor`. The helix uses an oblique 2D projection; double pendulum and Lorenz paths are numerically integrated once and interpolated during animation. Lorenz is a state-space trajectory, not a particle path.
 
 Directional curves: `horizontalTravelingWave`, `horizontalStandingWave`, `horizontalDampedWave`, `horizontalChirpWave`, `horizontalWavePacket`, `horizontalSolitaryPulse`, `verticalTravelingWave`, `verticalSpring`, `verticalDoubleHelix`, `verticalSCurve`, `verticalDampedWave`, `verticalCatenary`. Each definition exposes `aspectRatio` (`3` for horizontal, `1/3` for vertical). Use it when sizing `CurveAnimationView` in another SwiftUI app; `CurveSampler.samples` accepts elapsed seconds and returns normalized animated points.
@@ -83,4 +85,4 @@ if let curve = CurveCatalog.definition(for: .horizontalTravelingWave) {
 
 ## Source reference
 
-The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional thirty-six curves use standard mathematical and physics parameterizations. This repository does not copy the reference source.
+The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional forty-two curves use standard mathematical and physics parameterizations. This repository does not copy the reference source.

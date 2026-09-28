@@ -8,18 +8,21 @@ enum SquareCurveCategory: CaseIterable {
         switch id {
         case .originalThinking, .thinkingFive, .thinkingNine, .roseOrbit, .roseCurve,
              .roseTwo, .roseThree, .roseFour, .threePetalSpiral, .fourPetalSpiral,
-             .fivePetalSpiral, .sixPetalSpiral, .fourierRosette, .gielisBloom, .orbitalPrecession:
+             .fivePetalSpiral, .sixPetalSpiral, .fourierRosette, .gielisBloom, .orbitalPrecession,
+             .higherOrderRose:
             return .flowersAndOrbits
         case .hypotrochoidLoop, .epicycloid, .hypocycloid, .starTrochoid, .deltoid,
              .nephroid, .heptagonalHypocycloid:
             return .rollingAndCusps
-        case .spiralSearch, .archimedeanSpiral, .logarithmicSpiral, .eulerSpiral, .goldenAngleSpiral:
+        case .spiralSearch, .archimedeanSpiral, .logarithmicSpiral, .eulerSpiral, .goldenAngleSpiral,
+             .fermatSpiral, .lituusSpiral:
             return .spiralsAndGrowth
         case .lissajousDrift, .lemniscateBloom, .butterflyPhase, .cardioidGlow, .cardioidHeart,
              .heartWave, .fourierFlow, .superellipse, .lissajousKnot, .harmonograph,
-             .fourierDrawing, .lissajousOrbit, .cassiniOval, .maurerRose:
+             .fourierDrawing, .lissajousOrbit, .cassiniOval, .maurerRose, .fourierTrefoil:
             return .tracesAndOutlines
-        case .magneticHelix, .doublePendulum, .lorenzAttractor, .pursuitPolygon:
+        case .magneticHelix, .doublePendulum, .lorenzAttractor, .pursuitPolygon,
+             .interferenceRing, .chladniRing:
             return .physicsAndMotion
         case .horizontalTravelingWave, .horizontalStandingWave, .verticalTravelingWave, .verticalSpring,
              .horizontalDampedWave, .horizontalChirpWave, .verticalDoubleHelix, .verticalSCurve,
