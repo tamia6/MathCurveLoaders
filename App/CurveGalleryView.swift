@@ -12,14 +12,15 @@ enum SquareCurveCategory: CaseIterable {
              .higherOrderRose:
             return .flowersAndOrbits
         case .hypotrochoidLoop, .epicycloid, .hypocycloid, .starTrochoid, .deltoid,
-             .nephroid, .heptagonalHypocycloid:
+             .nephroid, .heptagonalHypocycloid, .bicorn:
             return .rollingAndCusps
         case .spiralSearch, .archimedeanSpiral, .logarithmicSpiral, .eulerSpiral, .goldenAngleSpiral,
-             .fermatSpiral, .lituusSpiral:
+             .fermatSpiral, .lituusSpiral, .cochleoid:
             return .spiralsAndGrowth
         case .lissajousDrift, .lemniscateBloom, .butterflyPhase, .cardioidGlow, .cardioidHeart,
              .heartWave, .fourierFlow, .superellipse, .lissajousKnot, .harmonograph,
-             .fourierDrawing, .lissajousOrbit, .cassiniOval, .maurerRose, .fourierTrefoil:
+             .fourierDrawing, .lissajousOrbit, .cassiniOval, .maurerRose, .fourierTrefoil,
+             .nicomedesConchoid, .superformulaHexagon:
             return .tracesAndOutlines
         case .magneticHelix, .doublePendulum, .lorenzAttractor, .pursuitPolygon,
              .interferenceRing, .chladniRing:

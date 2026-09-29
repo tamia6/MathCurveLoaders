@@ -211,6 +211,25 @@ public enum CurveSampler {
         case .higherOrderRose:
             let radius = (23 + 2 * s) * (cos(9 * t + wavePhase) + 0.35 * cos(18 * t - wavePhase))
             screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .bicorn:
+            let angle = 30 * (0.9 + 0.1 * s)
+            screen = (50 + angle * sin(t),
+                      50 + angle * (cos(t) * cos(t) * (2 + cos(t)) / (3 + sin(t) * sin(t)) - 0.5))
+        case .cochleoid:
+            let angle = 8 * .pi * (t / (2 * .pi) - 0.5)
+            let sinc = abs(angle) < 0.000_001 ? 1 : sin(angle) / angle
+            let radius = 32 * (0.9 + 0.1 * s) * sinc
+            screen = (50 + radius * cos(angle) - 9, 50 + radius * sin(angle))
+        case .nicomedesConchoid:
+            let angle = 2 * (t / (2 * .pi) - 0.5)
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + 2 * scale * (22 * cos(angle) - 15),
+                      50 + 0.85 * scale * (14 * tan(angle) + 22 * sin(angle)))
+        case .superformulaHexagon:
+            let angle = 1.5 * t
+            let denominator = pow(abs(cos(angle)), 6) + pow(abs(sin(angle)), 6)
+            let radius = 28 * (0.9 + 0.1 * s) * pow(denominator, -1 / 6)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
         case .magneticHelix:
             let u = t / (2 * .pi)
             let angle = 4 * .pi * u
