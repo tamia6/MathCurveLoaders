@@ -9,22 +9,26 @@ enum SquareCurveCategory: CaseIterable {
         case .originalThinking, .thinkingFive, .thinkingNine, .roseOrbit, .roseCurve,
              .roseTwo, .roseThree, .roseFour, .threePetalSpiral, .fourPetalSpiral,
              .fivePetalSpiral, .sixPetalSpiral, .fourierRosette, .gielisBloom, .orbitalPrecession,
-             .higherOrderRose:
+             .higherOrderRose, .moireRosette, .asymmetricOrbit, .polarDaisy:
             return .flowersAndOrbits
         case .hypotrochoidLoop, .epicycloid, .hypocycloid, .starTrochoid, .deltoid,
-             .nephroid, .heptagonalHypocycloid, .bicorn, .rightStrophoid:
+             .nephroid, .heptagonalHypocycloid, .bicorn, .rightStrophoid,
+             .cycloidArch, .tschirnhausenCubic, .tenToothSprocket:
             return .rollingAndCusps
         case .spiralSearch, .archimedeanSpiral, .logarithmicSpiral, .eulerSpiral, .goldenAngleSpiral,
-             .fermatSpiral, .lituusSpiral, .cochleoid:
+             .fermatSpiral, .lituusSpiral, .cochleoid, .circleInvolute,
+             .hyperbolicSpiral, .rippleSpiral, .chirpedSpiral:
             return .spiralsAndGrowth
         case .lissajousDrift, .lemniscateBloom, .butterflyPhase, .cardioidGlow, .cardioidHeart,
              .heartWave, .fourierFlow, .superellipse, .lissajousKnot, .harmonograph,
              .fourierDrawing, .lissajousOrbit, .cassiniOval, .maurerRose, .fourierTrefoil,
              .nicomedesConchoid, .superformulaHexagon, .piriform, .descartesFolium,
-             .innerLoopLimacon:
+             .innerLoopLimacon, .cissoidOfDiocles, .witchOfAgnesi, .tractrix,
+             .serpentineCurve, .superformulaTriangle, .harmonicStar:
             return .tracesAndOutlines
         case .magneticHelix, .doublePendulum, .lorenzAttractor, .pursuitPolygon,
-             .interferenceRing, .chladniRing:
+             .interferenceRing, .chladniRing, .beatOrbit, .dampedPhasePortrait,
+             .drivenOscillator, .dipoleFieldLine:
             return .physicsAndMotion
         case .horizontalTravelingWave, .horizontalStandingWave, .verticalTravelingWave, .verticalSpring,
              .horizontalDampedWave, .horizontalChirpWave, .verticalDoubleHelix, .verticalSCurve,

@@ -10,6 +10,11 @@ public enum CurveID: String, CaseIterable, Identifiable, Sendable {
     case fermatSpiral, lituusSpiral, fourierTrefoil, interferenceRing, chladniRing, higherOrderRose
     case bicorn, cochleoid, nicomedesConchoid, superformulaHexagon
     case piriform, descartesFolium, innerLoopLimacon, rightStrophoid
+    case circleInvolute, hyperbolicSpiral, cissoidOfDiocles, witchOfAgnesi
+    case tractrix, serpentineCurve, cycloidArch, tschirnhausenCubic
+    case superformulaTriangle, harmonicStar, rippleSpiral, chirpedSpiral
+    case tenToothSprocket, moireRosette, asymmetricOrbit, polarDaisy
+    case beatOrbit, dampedPhasePortrait, drivenOscillator, dipoleFieldLine
     case magneticHelix, doublePendulum, lorenzAttractor
     case horizontalTravelingWave, horizontalStandingWave, verticalTravelingWave, verticalSpring
     case horizontalDampedWave, horizontalChirpWave, verticalDoubleHelix, verticalSCurve
@@ -60,6 +65,11 @@ enum CurveKind: Sendable {
     case fermatSpiral, lituusSpiral, fourierTrefoil, interferenceRing, chladniRing, higherOrderRose
     case bicorn, cochleoid, nicomedesConchoid, superformulaHexagon
     case piriform, descartesFolium, innerLoopLimacon, rightStrophoid
+    case circleInvolute, hyperbolicSpiral, cissoidOfDiocles, witchOfAgnesi
+    case tractrix, serpentineCurve, cycloidArch, tschirnhausenCubic
+    case superformulaTriangle, harmonicStar, rippleSpiral, chirpedSpiral
+    case tenToothSprocket, moireRosette, asymmetricOrbit, polarDaisy
+    case beatOrbit, dampedPhasePortrait, drivenOscillator, dipoleFieldLine
     case magneticHelix, doublePendulum, lorenzAttractor
     case horizontalTravelingWave, horizontalStandingWave, verticalTravelingWave, verticalSpring
     case horizontalDampedWave, horizontalChirpWave, verticalDoubleHelix, verticalSCurve

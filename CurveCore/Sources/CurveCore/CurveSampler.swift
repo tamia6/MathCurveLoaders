@@ -249,6 +249,87 @@ public enum CurveSampler {
             let denominator = c * c + u * u
             screen = (32.5 + c * (c * c - u * u) / denominator,
                       50 + 2 * u * (u * u - c * c) / denominator)
+        case .circleInvolute:
+            let a = 4.8 * (0.9 + 0.1 * s)
+            screen = (50 + a * (cos(t) + t * sin(t)),
+                      50 + a * (sin(t) - t * cos(t)))
+        case .hyperbolicSpiral:
+            let angle = 0.9 + 3 * t
+            let radius = 30 * (0.9 + 0.1 * s) / angle
+            screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
+        case .cissoidOfDiocles:
+            let u = 2.4 * (t / (2 * .pi) - 0.5)
+            let a = 17 * (0.9 + 0.1 * s)
+            let denominator = 1 + u * u
+            screen = (40 + 2 * a * u * u / denominator,
+                      50 + 2 * a * u * u * u / denominator)
+        case .witchOfAgnesi:
+            let u = 6 * (t / (2 * .pi) - 0.5)
+            let a = 11 * (0.9 + 0.1 * s)
+            screen = (50 + a * u, 39 + 2 * a / (1 + u * u))
+        case .tractrix:
+            let u = 6 * (t / (2 * .pi) - 0.5)
+            let a = 16 * (0.9 + 0.1 * s)
+            screen = (50 + a * (u - tanh(u)), 42 + a / cosh(u))
+        case .serpentineCurve:
+            let u = 6 * (t / (2 * .pi) - 0.5)
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + 10 * scale * u, 50 + 38 * scale * u / (1 + u * u))
+        case .cycloidArch:
+            let a = 11 * (0.9 + 0.1 * s)
+            screen = (50 + a * (t - sin(t) - .pi),
+                      50 + a * (1 - cos(t) - 1))
+        case .tschirnhausenCubic:
+            let u = 2.4 * (t / (2 * .pi) - 0.5)
+            let a = 10 * (0.9 + 0.1 * s)
+            screen = (61.5 + a * (1 - 3 * u * u),
+                      50 + a * u * (3 - u * u))
+        case .superformulaTriangle:
+            let angle = 0.75 * t
+            let denominator = pow(abs(cos(angle)), 8) + pow(abs(sin(angle)), 8)
+            let radius = 26 * (0.9 + 0.1 * s) * pow(denominator, -1 / 8)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .harmonicStar:
+            let radius = (21 + 8 * cos(5 * t) + 2 * cos(10 * t)) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .rippleSpiral:
+            let u = t / (2 * .pi)
+            let angle = 4 * t
+            let radius = (3 + 28 * u) * (1 + 0.18 * sin(12 * .pi * u + 0.3 * wavePhase)) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
+        case .chirpedSpiral:
+            let u = t / (2 * .pi)
+            let angle = 2 * .pi * (2 * u + 2 * u * u)
+            let radius = (3 + 28 * u) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(angle), 50 + radius * sin(angle))
+        case .tenToothSprocket:
+            let radius = (23 + 5 * cos(10 * t) + 2 * cos(20 * t)) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .moireRosette:
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + scale * (20 * cos(t) + 9 * cos(11 * t)),
+                      50 + scale * (20 * sin(t) - 9 * sin(11 * t)))
+        case .asymmetricOrbit:
+            let radius = (23 + 6 * cos(3 * t) + 3 * sin(7 * t + 0.3 * wavePhase)) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .polarDaisy:
+            let radius = (13 + 17 * cos(6 * t)) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .beatOrbit:
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + scale * (22 + 5 * cos(3 * t)) * cos(t),
+                      50 + scale * (18 + 5 * cos(4 * t)) * sin(t))
+        case .dampedPhasePortrait:
+            let u = t / (2 * .pi)
+            let radius = 30 * exp(-2.2 * u) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(4 * t), 50 + radius * sin(4 * t))
+        case .drivenOscillator:
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + 27 * scale * cos(t),
+                      50 + 23 * scale * sin(t + 0.55 * sin(3 * t + wavePhase)))
+        case .dipoleFieldLine:
+            let radius = 32 * sin(t) * sin(t) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
         case .magneticHelix:
             let u = t / (2 * .pi)
             let angle = 4 * .pi * u

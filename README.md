@@ -1,8 +1,8 @@
 # Math Curve Loaders
 
-A native SwiftUI gallery of 71 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent globe menu in the sidebar toolbar.
+A native SwiftUI gallery of 91 animated mathematical curves, backed by the reusable, dependency-free `CurveCore` Swift package. The app offers English and Chinese through a persistent globe menu in the sidebar toolbar.
 
-原生 SwiftUI 数学曲线图库，包含 71 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
+原生 SwiftUI 数学曲线图库，包含 91 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
 
 The gallery groups curves by square, horizontal, and vertical layout. Square curves are subdivided into flowers and orbits, rolling curves and cusps, spirals and growth, traces and outlines, and physics and motion; search keeps matching curves in their groups. 图库按方形、横向和竖向分组；方形曲线继续按花瓣与轨道、滚线与尖点、螺旋与生长、轨迹与轮廓、物理与运动细分，搜索结果仍保留所属分组。
 
@@ -55,6 +55,8 @@ More square outlines: `bicorn`, `cochleoid`, `nicomedesConchoid`, `superformulaH
 
 Latest square curves: `piriform`, `descartesFolium`, `innerLoopLimacon`, `rightStrophoid`. These add a pear outline, diagonal leaf loop, nested polar loop, and side-facing strophoid loop to the existing square groups.
 
+Expanded square set (20): `circleInvolute`, `hyperbolicSpiral`, `cissoidOfDiocles`, `witchOfAgnesi`, `tractrix`, `serpentineCurve`, `cycloidArch`, `tschirnhausenCubic`, `superformulaTriangle`, `harmonicStar`, `rippleSpiral`, `chirpedSpiral`, `tenToothSprocket`, `moireRosette`, `asymmetricOrbit`, `polarDaisy`, `beatOrbit`, `dampedPhasePortrait`, `drivenOscillator`, `dipoleFieldLine`. The first eight use classical named equations; the remaining twelve are explicit parametric compositions. All retain `aspectRatio == 1`, English and Chinese metadata, and the public `CurveSampler` API.
+
 Physics curves: `magneticHelix`, `doublePendulum`, `lorenzAttractor`. The helix uses an oblique 2D projection; double pendulum and Lorenz paths are numerically integrated once and interpolated during animation. Lorenz is a state-space trajectory, not a particle path.
 
 Directional curves: `horizontalTravelingWave`, `horizontalStandingWave`, `horizontalDampedWave`, `horizontalChirpWave`, `horizontalWavePacket`, `horizontalSolitaryPulse`, `verticalTravelingWave`, `verticalSpring`, `verticalDoubleHelix`, `verticalSCurve`, `verticalDampedWave`, `verticalCatenary`. Each definition exposes `aspectRatio` (`3` for horizontal, `1/3` for vertical). Use it when sizing `CurveAnimationView` in another SwiftUI app; `CurveSampler.samples` accepts elapsed seconds and returns normalized animated points.
@@ -89,4 +91,4 @@ if let curve = CurveCatalog.definition(for: .horizontalTravelingWave) {
 
 ## Source reference
 
-The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional fifty curves use mathematical and physics parameterizations. The latest four follow [Wolfram MathWorld's piriform](https://mathworld.wolfram.com/PiriformCurve.html), [Descartes folium](https://mathworld.wolfram.com/FoliumofDescartes.html), [limaçon](https://mathworld.wolfram.com/Limacon.html), and [right strophoid](https://mathworld.wolfram.com/RightStrophoid.html) equations. This repository does not copy the reference source.
+The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional seventy curves use mathematical and physics parameterizations. Named curves in the expanded square set were checked against [Wolfram MathWorld](https://mathworld.wolfram.com/), including its [circle involute](https://mathworld.wolfram.com/CircleInvolute.html), [cissoid](https://mathworld.wolfram.com/CissoidofDiocles.html), [tractrix](https://mathworld.wolfram.com/Tractrix.html), and [cycloid](https://mathworld.wolfram.com/Cycloid.html) references. This repository does not copy the reference source.
