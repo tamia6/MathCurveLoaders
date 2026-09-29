@@ -230,6 +230,25 @@ public enum CurveSampler {
             let denominator = pow(abs(cos(angle)), 6) + pow(abs(sin(angle)), 6)
             let radius = 28 * (0.9 + 0.1 * s) * pow(denominator, -1 / 6)
             screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .piriform:
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + 18 * scale * sin(t),
+                      50 + 22 * scale * cos(t) * (1 + sin(t)))
+        case .descartesFolium:
+            let u = tan(t / 4)
+            let denominator = 1 + u * u * u
+            let scale = 20 * (0.9 + 0.1 * s)
+            screen = (34 + 3 * scale * u / denominator,
+                      34 + 3 * scale * u * u / denominator)
+        case .innerLoopLimacon:
+            let radius = (12 + 23 * cos(t)) * (0.9 + 0.1 * s)
+            screen = (38 + radius * cos(t), 50 + radius * sin(t))
+        case .rightStrophoid:
+            let c = 35 * (0.9 + 0.1 * s)
+            let u = c * (t / .pi - 1)
+            let denominator = c * c + u * u
+            screen = (32.5 + c * (c * c - u * u) / denominator,
+                      50 + 2 * u * (u * u - c * c) / denominator)
         case .magneticHelix:
             let u = t / (2 * .pi)
             let angle = 4 * .pi * u

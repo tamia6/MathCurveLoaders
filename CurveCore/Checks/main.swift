@@ -93,7 +93,8 @@ let newIDs: [CurveID] = [.epicycloid, .hypocycloid, .starTrochoid, .archimedeanS
                          .gielisBloom, .maurerRose, .eulerSpiral, .goldenAngleSpiral, .pursuitPolygon,
                          .fermatSpiral, .lituusSpiral, .fourierTrefoil, .interferenceRing,
                          .chladniRing, .higherOrderRose, .bicorn, .cochleoid,
-                         .nicomedesConchoid, .superformulaHexagon]
+                         .nicomedesConchoid, .superformulaHexagon, .piriform,
+                         .descartesFolium, .innerLoopLimacon, .rightStrophoid]
 for id in newIDs {
     let definition = CurveCatalog.definition(for: id)!
     assert(definition.aspectRatio == 1)

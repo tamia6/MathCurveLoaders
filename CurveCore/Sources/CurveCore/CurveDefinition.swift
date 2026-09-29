@@ -9,6 +9,7 @@ public enum CurveID: String, CaseIterable, Identifiable, Sendable {
     case cassiniOval, gielisBloom, maurerRose, eulerSpiral, goldenAngleSpiral, pursuitPolygon
     case fermatSpiral, lituusSpiral, fourierTrefoil, interferenceRing, chladniRing, higherOrderRose
     case bicorn, cochleoid, nicomedesConchoid, superformulaHexagon
+    case piriform, descartesFolium, innerLoopLimacon, rightStrophoid
     case magneticHelix, doublePendulum, lorenzAttractor
     case horizontalTravelingWave, horizontalStandingWave, verticalTravelingWave, verticalSpring
     case horizontalDampedWave, horizontalChirpWave, verticalDoubleHelix, verticalSCurve
@@ -58,6 +59,7 @@ enum CurveKind: Sendable {
     case cassiniOval, gielisBloom, maurerRose, eulerSpiral, goldenAngleSpiral, pursuitPolygon
     case fermatSpiral, lituusSpiral, fourierTrefoil, interferenceRing, chladniRing, higherOrderRose
     case bicorn, cochleoid, nicomedesConchoid, superformulaHexagon
+    case piriform, descartesFolium, innerLoopLimacon, rightStrophoid
     case magneticHelix, doublePendulum, lorenzAttractor
     case horizontalTravelingWave, horizontalStandingWave, verticalTravelingWave, verticalSpring
     case horizontalDampedWave, horizontalChirpWave, verticalDoubleHelix, verticalSCurve
