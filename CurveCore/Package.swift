@@ -7,9 +7,11 @@ let package = Package(
     products: [
         .library(name: "CurveCore", targets: ["CurveCore"]),
         .executable(name: "CurveCoreCheck", targets: ["CurveCoreCheck"]),
+        .executable(name: "CurveWebExport", targets: ["CurveWebExport"]),
     ],
     targets: [
         .target(name: "CurveCore"),
         .executableTarget(name: "CurveCoreCheck", dependencies: ["CurveCore"], path: "Checks"),
+        .executableTarget(name: "CurveWebExport", dependencies: ["CurveCore"]),
     ]
 )

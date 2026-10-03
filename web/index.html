@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="91 animated mathematical curves. Native SwiftUI and interactive HTML5 Canvas gallery. 中英双语数学曲线图库。">
+  <meta name="theme-color" content="#111113">
+  <title>Math Curve Loaders · 数学曲线</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">∿</span> Math Curve Loaders</a>
+    <div class="header-actions"><a id="repository" hidden>GitHub ↗</a><button id="language" aria-label="Switch language / 切换语言">🌐 EN</button></div>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow" data-en="MATHEMATICS IN MOTION" data-zh="让数学动起来">让数学动起来</p>
+      <h1 data-en="A formula. A little motion." data-zh="一个公式，一段流动。">一个公式，一段流动。</h1>
+      <p data-en="Explore 91 curves, from unfolding spirals to chaotic paths. Select a shape and make it your own." data-zh="探索 91 种曲线，从舒展的螺旋到混沌轨迹。选择一种图案，调整它的节奏。">探索 91 种曲线，从舒展的螺旋到混沌轨迹。选择一种图案，调整它的节奏。</p>
+    </section>
+    <section class="workspace" aria-label="Curve explorer">
+      <div class="preview-panel">
+        <div id="preview-stage"><canvas id="preview" aria-label="Animated mathematical curve"></canvas><p id="preview-status" role="status"></p></div>
+        <div class="preview-info"><div><p id="shape-type" class="eyebrow"></p><h2 id="curve-title"></h2></div><button id="pause" aria-pressed="false">暂停</button></div>
+        <p id="curve-summary"></p><code id="curve-equation"></code>
+      </div>
+      <aside class="controls"><div class="controls-heading"><h2 data-en="Make it move" data-zh="调整节奏">调整节奏</h2><button id="reset" data-en="Reset" data-zh="重置">重置</button></div><div id="sliders"></div><button id="copy" class="copy-button" data-en="Copy SwiftUI code" data-zh="复制 SwiftUI 代码">复制 SwiftUI 代码</button><p id="copy-status" role="status"></p></aside>
+    </section>
+    <section class="gallery-section">
+      <div class="gallery-heading"><h2 data-en="Find your curve" data-zh="找到你的曲线">找到你的曲线</h2><label class="search-label"><span data-en="Search" data-zh="搜索">搜索</span><input id="search" type="search" autocomplete="off" placeholder="名称、公式 / Name, formula"></label></div>
+      <nav id="filters" aria-label="Curve categories"></nav><div id="gallery"></div><p id="gallery-status" role="status">正在加载曲线…</p>
+    </section>
+  </main>
+  <footer><p data-en="HTML5 Canvas · iOS / iPadOS / macOS · MIT License" data-zh="HTML5 Canvas · iOS / iPadOS / macOS · MIT 开源许可">HTML5 Canvas · iOS / iPadOS / macOS · MIT 开源许可</p></footer>
+</body>
+</html>

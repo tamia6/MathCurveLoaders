@@ -1,0 +1,1826 @@
+{
+  "curves": [
+    {
+      "equation": "x = 50 + 3.9(7 cos t - 3s cos 7t)",
+      "id": "originalThinking",
+      "parameters": {
+        "loopDuration": 4.6,
+        "particleCount": 64,
+        "pulseDuration": 4.2,
+        "rotationDuration": 28,
+        "strokeWidth": 5.5,
+        "trail": 0.38
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A sevenfold pulsing orbit.",
+      "title": "Original Thinking",
+      "zhSummary": "圆周叠加七重余弦细节，形成呼吸般的花环。",
+      "zhTitle": "原始思考",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "x = 50 + 3.9(7 cos t - 3s cos 5t)",
+      "id": "thinkingFive",
+      "parameters": {
+        "loopDuration": 4.6,
+        "particleCount": 62,
+        "pulseDuration": 4.2,
+        "rotationDuration": 28,
+        "strokeWidth": 5.5,
+        "trail": 0.38
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A fivefold pulsing orbit.",
+      "title": "Thinking Five",
+      "zhSummary": "五重余弦细节让花瓣节奏更简洁。",
+      "zhTitle": "五瓣思考",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "x = 50 + 3.9(7 cos t - 3s cos 9t)",
+      "id": "thinkingNine",
+      "parameters": {
+        "loopDuration": 4.7,
+        "particleCount": 68,
+        "pulseDuration": 4.2,
+        "rotationDuration": 30,
+        "strokeWidth": 5.5,
+        "trail": 0.39
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A ninefold pulsing orbit.",
+      "title": "Thinking Nine",
+      "zhSummary": "九重余弦细节织出更密集的花环。",
+      "zhTitle": "九瓣思考",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "r = 7 - 2.7s cos 7t",
+      "id": "roseOrbit",
+      "parameters": {
+        "loopDuration": 5.2,
+        "particleCount": 72,
+        "pulseDuration": 4.6,
+        "rotationDuration": 28,
+        "strokeWidth": 5.2,
+        "trail": 0.42
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A variable-radius polar orbit.",
+      "title": "Rose Orbit",
+      "zhSummary": "半径随余弦变化，在圆轨道上起伏成瓣。",
+      "zhTitle": "玫瑰轨道",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "r = (9.2 + 0.6s)(0.72 + 0.28s) cos 5t",
+      "id": "roseCurve",
+      "parameters": {
+        "loopDuration": 5.4,
+        "particleCount": 78,
+        "pulseDuration": 4.6,
+        "rotationDuration": 28,
+        "strokeWidth": 4.5,
+        "trail": 0.32
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A breathing five-petal rose.",
+      "title": "Rose Curve",
+      "zhSummary": "呼吸变化的五瓣极坐标玫瑰。",
+      "zhTitle": "玫瑰曲线",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "r = (9.2 + 0.6s)(0.72 + 0.28s) cos 2t",
+      "id": "roseTwo",
+      "parameters": {
+        "loopDuration": 5.2,
+        "particleCount": 74,
+        "pulseDuration": 4.3,
+        "rotationDuration": 28,
+        "strokeWidth": 4.6,
+        "trail": 0.3
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A breathing two-frequency rose.",
+      "title": "Rose Two",
+      "zhSummary": "二阶余弦半径绘出对称花瓣。",
+      "zhTitle": "二阶玫瑰",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "r = (9.2 + 0.6s)(0.72 + 0.28s) cos 3t",
+      "id": "roseThree",
+      "parameters": {
+        "loopDuration": 5.3,
+        "particleCount": 76,
+        "pulseDuration": 4.4,
+        "rotationDuration": 28,
+        "strokeWidth": 4.6,
+        "trail": 0.31
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A breathing three-petal rose.",
+      "title": "Rose Three",
+      "zhSummary": "三阶余弦半径绘出三瓣轮廓。",
+      "zhTitle": "三阶玫瑰",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "r = (9.2 + 0.6s)(0.72 + 0.28s) cos 4t",
+      "id": "roseFour",
+      "parameters": {
+        "loopDuration": 5.4,
+        "particleCount": 78,
+        "pulseDuration": 4.5,
+        "rotationDuration": 28,
+        "strokeWidth": 4.6,
+        "trail": 0.32
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A breathing four-frequency rose.",
+      "title": "Rose Four",
+      "zhSummary": "四阶余弦半径绘出均衡的多瓣图形。",
+      "zhTitle": "四阶玫瑰",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "x = 50 + (24 + 6s) sin(3t + 1.57)",
+      "id": "lissajousDrift",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 68,
+        "pulseDuration": 5.4,
+        "rotationDuration": 36,
+        "strokeWidth": 4.7,
+        "trail": 0.34
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A 3:4 Lissajous trace.",
+      "title": "Lissajous Drift",
+      "zhSummary": "3 比 4 的正弦频率交织成漂移轨迹。",
+      "zhTitle": "李萨如漂移",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = 50 + a cos t/(1 + sin²t)",
+      "id": "lemniscateBloom",
+      "parameters": {
+        "loopDuration": 5.6,
+        "particleCount": 70,
+        "pulseDuration": 5,
+        "rotationDuration": 34,
+        "strokeWidth": 4.8,
+        "trail": 0.4
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A denominator-pinched figure eight.",
+      "title": "Lemniscate Bloom",
+      "zhSummary": "分母收紧中心，形成呼吸的无穷符号。",
+      "zhTitle": "双纽线绽放",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = 50 + 3.05((R-r) cos t + d cos((R-r)t/r))",
+      "id": "hypotrochoidLoop",
+      "parameters": {
+        "loopDuration": 7.6,
+        "particleCount": 82,
+        "pulseDuration": 6.2,
+        "rotationDuration": 42,
+        "strokeWidth": 4.6,
+        "trail": 0.46
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "An inner rolling-circle loop.",
+      "title": "Hypotrochoid Loop",
+      "zhSummary": "内滚圆的参数项描出紧凑回环。",
+      "zhTitle": "内旋轮线环",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "u = (R-r)(cos t, sin t) + d(cos 2t, -sin 2t)",
+      "id": "threePetalSpiral",
+      "parameters": {
+        "loopDuration": 4.6,
+        "particleCount": 82,
+        "pulseDuration": 4.2,
+        "rotationDuration": 28,
+        "strokeWidth": 4.4,
+        "trail": 0.34
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A three-loop rolling-circle flower.",
+      "title": "Three-Petal Spiral",
+      "zhSummary": "滚动圆轨迹展开为三瓣回环。",
+      "zhTitle": "三瓣螺旋",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "u = (R-r)(cos t, sin t) + d(cos 3t, -sin 3t)",
+      "id": "fourPetalSpiral",
+      "parameters": {
+        "loopDuration": 4.6,
+        "particleCount": 84,
+        "pulseDuration": 4.2,
+        "rotationDuration": 28,
+        "strokeWidth": 4.4,
+        "trail": 0.34
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A four-loop rolling-circle flower.",
+      "title": "Four-Petal Spiral",
+      "zhSummary": "滚动圆轨迹展开为四瓣回环。",
+      "zhTitle": "四瓣螺旋",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "u = (R-r)(cos t, sin t) + d(cos 4t, -sin 4t)",
+      "id": "fivePetalSpiral",
+      "parameters": {
+        "loopDuration": 4.6,
+        "particleCount": 85,
+        "pulseDuration": 4.2,
+        "rotationDuration": 28,
+        "strokeWidth": 4.4,
+        "trail": 0.34
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A five-loop rolling-circle flower.",
+      "title": "Five-Petal Spiral",
+      "zhSummary": "滚动圆轨迹展开为五瓣回环。",
+      "zhTitle": "五瓣螺旋",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "u = (R-r)(cos t, sin t) + d(cos 5t, -sin 5t)",
+      "id": "sixPetalSpiral",
+      "parameters": {
+        "loopDuration": 4.6,
+        "particleCount": 86,
+        "pulseDuration": 4.2,
+        "rotationDuration": 28,
+        "strokeWidth": 4.4,
+        "trail": 0.34
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "A six-loop rolling-circle flower.",
+      "title": "Six-Petal Spiral",
+      "zhSummary": "滚动圆轨迹展开为六瓣回环。",
+      "zhTitle": "六瓣螺旋",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "B(u) = e^cos(u) - 2 cos 4u - sin⁵(u/12)",
+      "id": "butterflyPhase",
+      "parameters": {
+        "loopDuration": 9,
+        "particleCount": 88,
+        "pulseDuration": 7,
+        "rotationDuration": 50,
+        "strokeWidth": 4.4,
+        "trail": 0.32
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A pulsing butterfly parameterization.",
+      "title": "Butterfly Curve",
+      "zhSummary": "指数与高频余弦共同描出经典蝴蝶曲线。",
+      "zhTitle": "蝴蝶曲线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r = (8.4 + 0.8s)(1 - cos t)",
+      "id": "cardioidGlow",
+      "parameters": {
+        "loopDuration": 6.2,
+        "particleCount": 72,
+        "pulseDuration": 5.2,
+        "rotationDuration": 36,
+        "strokeWidth": 4.9,
+        "trail": 0.36
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "An outward glowing cardioid.",
+      "title": "Cardioid Glow",
+      "zhSummary": "随呼吸起伏的心形线轮廓。",
+      "zhTitle": "心形线光晕",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "(x, y) = (-r sin t, -r cos t)",
+      "id": "cardioidHeart",
+      "parameters": {
+        "loopDuration": 6.2,
+        "particleCount": 74,
+        "pulseDuration": 5.2,
+        "rotationDuration": 36,
+        "strokeWidth": 4.9,
+        "trail": 0.36
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "An upright rotated cardioid.",
+      "title": "Cardioid Heart",
+      "zhSummary": "旋转后的心形线呈现直立爱心。",
+      "zhTitle": "直立心形线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "f(x) = |x|^(2/3) + 0.9√(3.3 - x²) sin(6.4πx)",
+      "id": "heartWave",
+      "parameters": {
+        "loopDuration": 8.4,
+        "particleCount": 104,
+        "pulseDuration": 5.6,
+        "rotationDuration": 22,
+        "strokeWidth": 3.9,
+        "trail": 0.18
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A wave-filled heart envelope.",
+      "title": "Heart Wave",
+      "zhSummary": "心形包络中叠加横向正弦波纹。",
+      "zhTitle": "心形波",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r = 8 + (1 - cos t)(8.5 + 2.4s)",
+      "id": "spiralSearch",
+      "parameters": {
+        "loopDuration": 7.8,
+        "particleCount": 86,
+        "pulseDuration": 6.8,
+        "rotationDuration": 44,
+        "strokeWidth": 4.3,
+        "trail": 0.28
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A closed expanding search spiral.",
+      "title": "Spiral Search",
+      "zhSummary": "余弦调制半径形成闭合的搜索轨迹。",
+      "zhTitle": "搜索螺旋",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "x = 17 cos t + 7.5 cos(3t + 0.6m) + 3.2 sin(5t - 0.4)",
+      "id": "fourierFlow",
+      "parameters": {
+        "loopDuration": 8.4,
+        "particleCount": 92,
+        "pulseDuration": 6.8,
+        "rotationDuration": 44,
+        "strokeWidth": 4.2,
+        "trail": 0.31
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A pulsing harmonic flow.",
+      "title": "Fourier Flow",
+      "zhSummary": "多组谐波叠加成持续变化的轮廓。",
+      "zhTitle": "傅里叶流",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = 50 + 1.45(1.05+0.1s)(21 cos t - 3 cos 7t)",
+      "id": "epicycloid",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 90,
+        "pulseDuration": 5,
+        "rotationDuration": 32,
+        "strokeWidth": 4.4,
+        "trail": 0.34
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "An outer rolling circle with six cusps.",
+      "title": "Epicycloid",
+      "zhSummary": "外滚圆描出六个尖点。",
+      "zhTitle": "外摆线",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "x = 50 + 1.3(0.95+0.1s)(18 cos t + 6 cos 3t)",
+      "id": "hypocycloid",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 84,
+        "pulseDuration": 5,
+        "rotationDuration": 32,
+        "strokeWidth": 4.4,
+        "trail": 0.33
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "An inner rolling circle with four cusps.",
+      "title": "Hypocycloid",
+      "zhSummary": "内滚圆描出四个尖点。",
+      "zhTitle": "内摆线",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "x = 50 + (0.95+0.1s)(20 cos t + 10 cos 5t)",
+      "id": "starTrochoid",
+      "parameters": {
+        "loopDuration": 6.5,
+        "particleCount": 94,
+        "pulseDuration": 5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.2,
+        "trail": 0.32
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "An offset inner rolling circle draws a six-point star.",
+      "title": "Star Trochoid",
+      "zhSummary": "偏心内滚圆描出六角星。",
+      "zhTitle": "星形旋轮线",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "r = (2+29u)(0.9+0.1s), θ = 8πu",
+      "id": "archimedeanSpiral",
+      "parameters": {
+        "loopDuration": 9,
+        "particleCount": 100,
+        "pulseDuration": 7,
+        "rotationDuration": 40,
+        "strokeWidth": 4,
+        "trail": 0.2
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Radius grows evenly over each turn.",
+      "title": "Archimedean Spiral",
+      "zhSummary": "半径随每一圈均匀增长。",
+      "zhTitle": "阿基米德螺线",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "r = 2e^((ln 15)u)(0.9+0.1s), θ = 8πu",
+      "id": "logarithmicSpiral",
+      "parameters": {
+        "loopDuration": 9,
+        "particleCount": 100,
+        "pulseDuration": 7,
+        "rotationDuration": 40,
+        "strokeWidth": 4,
+        "trail": 0.2
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Radius grows exponentially with angle.",
+      "title": "Logarithmic Spiral",
+      "zhSummary": "半径随角度呈指数增长。",
+      "zhTitle": "对数螺线",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "|(x-50)/a|⁴ + |(y-50)/a|⁴ = 1, a = 30(0.92+0.08s)",
+      "id": "superellipse",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 80,
+        "pulseDuration": 5,
+        "rotationDuration": 32,
+        "strokeWidth": 4.5,
+        "trail": 0.3
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A rounded square traced by a power-law curve.",
+      "title": "Superellipse",
+      "zhSummary": "幂律曲线描出圆角方形。",
+      "zhTitle": "超椭圆",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = 50+a sin(5t+π/4), y = 50+a sin 4t, a = 29(0.9+0.1s)",
+      "id": "lissajousKnot",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 92,
+        "pulseDuration": 5,
+        "rotationDuration": 30,
+        "strokeWidth": 4.5,
+        "trail": 0.31
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A 5:4 Lissajous rhythm with a phase offset.",
+      "title": "Lissajous Knot",
+      "zhSummary": "带相位偏移的 5 比 4 李萨如节奏。",
+      "zhTitle": "李萨如结",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "u=6t, A=(0.9+0.1s)e^(-0.045u); x=50+A(18 sin(1.05u+0.4)+10 sin 1.52u); y=50+A(18 sin 1.37u+10 sin(0.96u+1.1))",
+      "id": "harmonograph",
+      "parameters": {
+        "loopDuration": 10,
+        "particleCount": 120,
+        "pulseDuration": 8,
+        "rotationDuration": 40,
+        "strokeWidth": 3.8,
+        "trail": 0.16
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Damped harmonics weave an intricate open trace.",
+      "title": "Harmonograph",
+      "zhSummary": "衰减谐波交织出精细的开放轨迹。",
+      "zhTitle": "谐振曲线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "z(t) = (0.92+0.08s)(22e^(it)+7e^(-4it)+4e^(7it))",
+      "id": "fourierDrawing",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 96,
+        "pulseDuration": 6,
+        "rotationDuration": 35,
+        "strokeWidth": 4.2,
+        "trail": 0.31
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Rotating harmonics draw a star-like contour.",
+      "title": "Fourier Drawing",
+      "zhSummary": "旋转谐波描出星状轮廓。",
+      "zhTitle": "傅里叶绘图",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = 50+a(2 cos t+cos 2t), y = 50+a(2 sin t−sin 2t), a = 12.2(0.9+0.1s)",
+      "id": "deltoid",
+      "parameters": {
+        "loopDuration": 6.5,
+        "particleCount": 88,
+        "pulseDuration": 5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.4,
+        "trail": 0.32
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A three-cusped hypocycloid breathes inside a square.",
+      "title": "Deltoid",
+      "zhSummary": "内滚圆描出三个圆润尖点与三段内凹弧。",
+      "zhTitle": "三尖内摆线",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "x = 50+a(3 cos t−cos 3t), y = 50+a(3 sin t−sin 3t), a = 8.3(0.9+0.1s)",
+      "id": "nephroid",
+      "parameters": {
+        "loopDuration": 6.5,
+        "particleCount": 90,
+        "pulseDuration": 5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.4,
+        "trail": 0.32
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A kidney-shaped rolling-circle curve with rounded lobes.",
+      "title": "Nephroid",
+      "zhSummary": "外滚圆轨迹形成圆润的肾形双弧。",
+      "zhTitle": "肾形线",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "x = 50+a(6 cos t+cos 6t), y = 50+a(6 sin t−sin 6t), a = 5.2(0.9+0.1s)",
+      "id": "heptagonalHypocycloid",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 92,
+        "pulseDuration": 5.4,
+        "rotationDuration": 38,
+        "strokeWidth": 4.2,
+        "trail": 0.33
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Seven evenly spaced cusps trace a compact hypocycloid.",
+      "title": "Heptagonal Hypocycloid",
+      "zhSummary": "七个等距尖点围成紧凑的内摆线。",
+      "zhTitle": "七尖内摆线",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "r = (21+2s)(0.86+0.14 cos(8t+2πτ/T))+2 sin 16t, θ = t",
+      "id": "fourierRosette",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 100,
+        "pulseDuration": 5.5,
+        "rotationDuration": 38,
+        "strokeWidth": 4.1,
+        "trail": 0.3
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Eightfold harmonics reshape a breathing circular rosette.",
+      "title": "Fourier Rosette",
+      "zhSummary": "八重谐波叠加成缓慢呼吸的圆形花环。",
+      "zhTitle": "傅里叶花环",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "x = 50+a sin(3t+π/6), y = 50+a sin(5t+2πτ/T), a = 27(0.9+0.1s)",
+      "id": "lissajousOrbit",
+      "parameters": {
+        "loopDuration": 6.2,
+        "particleCount": 86,
+        "pulseDuration": 5,
+        "rotationDuration": 34,
+        "strokeWidth": 4.5,
+        "trail": 0.34
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A 3:5 harmonic orbit opens and closes through its cycle.",
+      "title": "Lissajous Orbit",
+      "zhSummary": "3 比 5 的谐波轨道在周期内开合变化。",
+      "zhTitle": "李萨如星环",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r = a(1−e²)/(1+e cos(3t+2πτ/T)), θ = t, e = 0.62",
+      "id": "orbitalPrecession",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 94,
+        "pulseDuration": 6,
+        "rotationDuration": 40,
+        "strokeWidth": 4.2,
+        "trail": 0.28
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "An orbital equation sweeps a three-lobed precessing path.",
+      "title": "Precessing Orbit",
+      "zhSummary": "轨道方程扫出带有三重进动的花瓣路径。",
+      "zhTitle": "进动轨道",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "(x²+y²)²−2a²(x²−y²)=b⁴−a⁴, b/a = 1.04+0.12s",
+      "id": "cassiniOval",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 96,
+        "pulseDuration": 5.8,
+        "rotationDuration": 38,
+        "strokeWidth": 4.2,
+        "trail": 0.29
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A closed Cassini family moves between a pinched oval and a soft peanut.",
+      "title": "Cassini Oval",
+      "zhSummary": "闭合轮廓在压紧卵形与柔和花生形之间变化。",
+      "zhTitle": "卡西尼卵形线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r = R[|cos(5t)/0.82|¹·⁸+|sin(5t)/0.82|¹·⁸]^(-1/1.15)",
+      "id": "gielisBloom",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 98,
+        "pulseDuration": 5.4,
+        "rotationDuration": 36,
+        "strokeWidth": 4.3,
+        "trail": 0.31
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A superformula flower combines fivefold symmetry with rounded lobes.",
+      "title": "Gielis Bloom",
+      "zhSummary": "超公式把五重对称与圆润花瓣组合在一起。",
+      "zhTitle": "吉里斯花",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "θ = 71t+0.03ω, r = R cos 5θ, R = 28(0.9+0.1s)",
+      "id": "maurerRose",
+      "parameters": {
+        "loopDuration": 9,
+        "particleCount": 120,
+        "pulseDuration": 7,
+        "rotationDuration": 42,
+        "strokeWidth": 3.6,
+        "trail": 0.18
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A rose sampled at a fixed angular step weaves an intricate line rose.",
+      "title": "Maurer Rose",
+      "zhSummary": "固定角度步进的玫瑰线交织成细密线花。",
+      "zhTitle": "莫勒玫瑰",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = C(u), y = S(u), u ∈ [−8,8]",
+      "id": "eulerSpiral",
+      "parameters": {
+        "loopDuration": 8.5,
+        "particleCount": 110,
+        "pulseDuration": 6.5,
+        "rotationDuration": 38,
+        "strokeWidth": 3.9,
+        "trail": 0.22
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Fresnel integrals trace a clothoid whose curvature changes evenly.",
+      "title": "Euler Spiral",
+      "zhSummary": "菲涅尔积分描出曲率均匀变化的回旋曲线。",
+      "zhTitle": "欧拉螺线",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "θ = nγ, r = R√(n/341), γ = (√5−1)π",
+      "id": "goldenAngleSpiral",
+      "parameters": {
+        "loopDuration": 9,
+        "particleCount": 126,
+        "pulseDuration": 7,
+        "rotationDuration": 42,
+        "strokeWidth": 3.5,
+        "trail": 0.17
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Golden-angle directions arrange points in a sunflower-like spiral.",
+      "title": "Golden Angle Spiral",
+      "zhSummary": "黄金角方向把采样点排成向日葵式螺旋。",
+      "zhTitle": "黄金角螺线",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "P(q) = e^(−0.12q)(cos(πq/2),sin(πq/2)), q ∈ [0,8]",
+      "id": "pursuitPolygon",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 104,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A square pursuit limit contracts through two rotating turns.",
+      "title": "Pursuit Polygon",
+      "zhSummary": "正方形追逐过程收缩为两圈旋转轨迹。",
+      "zhTitle": "追逐多边形",
+      "group": "physicsAndMotion"
+    },
+    {
+      "equation": "r = 4.8√|θ|(0.9+0.1s), θ = 16π(u−½)",
+      "id": "fermatSpiral",
+      "parameters": {
+        "loopDuration": 8.5,
+        "particleCount": 112,
+        "pulseDuration": 6.5,
+        "rotationDuration": 38,
+        "strokeWidth": 3.8,
+        "trail": 0.21
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Two square-root arms grow symmetrically from the center.",
+      "title": "Fermat Spiral",
+      "zhSummary": "平方根半径从中心向两侧展开成对称双臂。",
+      "zhTitle": "费马螺线",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "r = 10(0.9+0.1s)/√max(0.25,|θ|), θ = 32π(u−½)",
+      "id": "lituusSpiral",
+      "parameters": {
+        "loopDuration": 8.5,
+        "particleCount": 112,
+        "pulseDuration": 6.5,
+        "rotationDuration": 38,
+        "strokeWidth": 3.8,
+        "trail": 0.22
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Inverse-root radius creates two hooked spiral arms.",
+      "title": "Lituus Spiral",
+      "zhSummary": "反平方根半径形成两道细长钩状旋臂。",
+      "zhTitle": "Lituus 螺线",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "z(t) = (0.9+0.1s)(20e^(it)+7e^(3it)+4e^(-5it))",
+      "id": "fourierTrefoil",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 106,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.27
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Three harmonic rotations weave a compact trefoil contour.",
+      "title": "Fourier Trefoil",
+      "zhSummary": "三组旋转谐波交织出紧凑的三叶轮廓。",
+      "zhTitle": "傅里叶三叶结",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r = (22+2s)[1+0.14cos 2t cos(6t−2πτ/T)]+2 sin 12t",
+      "id": "interferenceRing",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 112,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 3.9,
+        "trail": 0.24
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Two coherent angular waves reshape a common ring.",
+      "title": "Two-Source Interference",
+      "zhSummary": "两列相干角向波共同重塑圆环轮廓。",
+      "zhTitle": "双源干涉环",
+      "group": "physicsAndMotion"
+    },
+    {
+      "equation": "r = (22+2s)[1+0.12cos 8t cos(2πτ/T)]+1.5 sin 16t",
+      "id": "chladniRing",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 112,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 3.9,
+        "trail": 0.24
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A circular standing-wave mode breathes through alternating nodes.",
+      "title": "Chladni Ring",
+      "zhSummary": "圆形驻波模态在交替波节之间缓慢呼吸。",
+      "zhTitle": "克拉尼环形驻波",
+      "group": "physicsAndMotion"
+    },
+    {
+      "equation": "r = (23+2s)[cos(9t+2πτ/T)+0.35 cos(18t−2πτ/T)]",
+      "id": "higherOrderRose",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 118,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 3.8,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Ninefold petals carry an oscillating second harmonic.",
+      "title": "Higher-Order Rose",
+      "zhSummary": "九重花瓣叠加持续振荡的二次谐波。",
+      "zhTitle": "高阶玫瑰",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "x = a sin t, y = a cos²t(2+cos t)/(3+sin²t)",
+      "id": "bicorn",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 100,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.1,
+        "trail": 0.3
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A closed two-horned outline with pointed ends.",
+      "title": "Bicorn",
+      "zhSummary": "闭合轮廓的两端收成尖角，形似双角帽。",
+      "zhTitle": "双角帽曲线",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "r = a sin θ/θ, θ ∈ [−4π,4π]",
+      "id": "cochleoid",
+      "parameters": {
+        "loopDuration": 8.5,
+        "particleCount": 120,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 3.8,
+        "trail": 0.22
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A shell-like trace with shrinking nested loops.",
+      "title": "Cochleoid",
+      "zhSummary": "层层缩小的回环组成贝壳状轨迹。",
+      "zhTitle": "蜗形线",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "r = 22+14 sec θ, θ ∈ [−1,1]",
+      "id": "nicomedesConchoid",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 110,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A conchoid branch arches away from its directrix.",
+      "title": "Nicomedes Conchoid",
+      "zhSummary": "蚌线的一支沿准线方向舒展成弧。",
+      "zhTitle": "尼科梅德斯蚌线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r = 28[|cos(3t/2)|⁶+|sin(3t/2)|⁶]^(−1/6)",
+      "id": "superformulaHexagon",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 108,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.2,
+        "trail": 0.29
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Six rounded corners form a softly breathing polygon.",
+      "title": "Superformula Hexagon",
+      "zhSummary": "六个圆润的角组成缓慢呼吸的多边形。",
+      "zhTitle": "超公式六角形",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = a(1+sin t), y = b cos t(1+sin t)",
+      "id": "piriform",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 104,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.1,
+        "trail": 0.29
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A closed pear outline narrows to a single tip.",
+      "title": "Piriform Curve",
+      "zhSummary": "不对称的闭合轮廓在一端收成尖点。",
+      "zhTitle": "梨形线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = 3au/(1+u³), y = 3au²/(1+u³)",
+      "id": "descartesFolium",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 110,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A diagonal leaf loops back to its origin.",
+      "title": "Folium of Descartes",
+      "zhSummary": "斜向叶片回环后回到起点。",
+      "zhTitle": "笛卡尔叶形线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r = 12+23 cos t",
+      "id": "innerLoopLimacon",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 108,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.1,
+        "trail": 0.27
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A smaller inner loop nests inside an asymmetric outer arc.",
+      "title": "Inner-Loop Limaçon",
+      "zhSummary": "较小的内环嵌在不对称的外弧中。",
+      "zhTitle": "内环利马松曲线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = c(c²−u²)/(c²+u²), y = u(u²−c²)/(c²+u²)",
+      "id": "rightStrophoid",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 108,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.26
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A side-facing loop pinches together at one point.",
+      "title": "Right Strophoid",
+      "zhSummary": "侧向回环在一点收紧相交。",
+      "zhTitle": "直角扭结线",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "x = a(cos θ+θ sin θ), y = a(sin θ−θ cos θ)",
+      "id": "circleInvolute",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 112,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 3.9,
+        "trail": 0.21
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "An unwinding tangent traces a widening spiral.",
+      "title": "Circle Involute",
+      "zhSummary": "展开的切线描出逐渐变宽的螺旋。",
+      "zhTitle": "圆渐开线",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "r = a/θ, θ ∈ [0.9,0.9+6π]",
+      "id": "hyperbolicSpiral",
+      "parameters": {
+        "loopDuration": 8.5,
+        "particleCount": 118,
+        "pulseDuration": 6.5,
+        "rotationDuration": 38,
+        "strokeWidth": 3.8,
+        "trail": 0.21
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Inverse-angle growth wraps tightly around the center.",
+      "title": "Hyperbolic Spiral",
+      "zhSummary": "反比半径让轨迹向中心紧密盘绕。",
+      "zhTitle": "双曲螺线",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "x = 2au²/(1+u²), y = 2au³/(1+u²)",
+      "id": "cissoidOfDiocles",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 104,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.1,
+        "trail": 0.27
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Two branches meet at a sharp cusp.",
+      "title": "Cissoid of Diocles",
+      "zhSummary": "两条分支在尖点处相接。",
+      "zhTitle": "戴奥克利斯蔓叶线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "y = 2a/(1+u²), x = au",
+      "id": "witchOfAgnesi",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 100,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.2,
+        "trail": 0.28
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A rational bell rises from a nearly flat baseline.",
+      "title": "Witch of Agnesi",
+      "zhSummary": "有理函数绘出从平缓底边升起的钟形弧。",
+      "zhTitle": "阿涅西曲线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = a(u−tanh u), y = a sech u",
+      "id": "tractrix",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 106,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.26
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A pulled-point curve bends into a narrow crest.",
+      "title": "Tractrix",
+      "zhSummary": "受牵引的点沿窄峰两侧弯曲。",
+      "zhTitle": "曳物线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "y = bu/(1+u²), x = au",
+      "id": "serpentineCurve",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 104,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.1,
+        "trail": 0.28
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A rational S-shaped trace crosses the center.",
+      "title": "Serpentine Curve",
+      "zhSummary": "有理函数描出穿过中心的 S 形轨迹。",
+      "zhTitle": "蛇形线",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "x = a(θ−sin θ), y = a(1−cos θ)",
+      "id": "cycloidArch",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 108,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "One rolling-circle arch joins two cusps.",
+      "title": "Cycloid Arch",
+      "zhSummary": "滚动圆的一段轨迹连接两个尖点。",
+      "zhTitle": "摆线单拱",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "x = a(1−3u²), y = au(3−u²)",
+      "id": "tschirnhausenCubic",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 110,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.24
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A cubic trace folds into a broad sideways cusp.",
+      "title": "Tschirnhausen Cubic",
+      "zhSummary": "三次曲线折成宽阔的侧向尖弧。",
+      "zhTitle": "齐尔恩豪森三次曲线",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "r = 26[|cos(3t/4)|⁸+|sin(3t/4)|⁸]^(−1/8)",
+      "id": "superformulaTriangle",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 100,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.2,
+        "trail": 0.29
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Three rounded corners soften a triangular outline.",
+      "title": "Superformula Triangle",
+      "zhSummary": "三个圆润的角组成柔和的三角轮廓。",
+      "zhTitle": "超公式圆角三角形",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r = 21+8 cos 5t+2 cos 10t",
+      "id": "harmonicStar",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 104,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4.1,
+        "trail": 0.28
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Two radial harmonics shape a rounded five-point star.",
+      "title": "Harmonic Star",
+      "zhSummary": "两组径向谐波组成圆润的五角星。",
+      "zhTitle": "谐波星形",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r = (3+28u)[1+0.18 sin(12πu+0.3ω)]",
+      "id": "rippleSpiral",
+      "parameters": {
+        "loopDuration": 9,
+        "particleCount": 124,
+        "pulseDuration": 7,
+        "rotationDuration": 40,
+        "strokeWidth": 3.7,
+        "trail": 0.19
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Regular ripples ride an expanding spiral.",
+      "title": "Ripple Spiral",
+      "zhSummary": "均匀波纹沿着向外扩张的螺旋起伏。",
+      "zhTitle": "波纹螺旋",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "r = 3+28u, θ = 2π(2u+2u²)",
+      "id": "chirpedSpiral",
+      "parameters": {
+        "loopDuration": 9,
+        "particleCount": 120,
+        "pulseDuration": 7,
+        "rotationDuration": 40,
+        "strokeWidth": 3.8,
+        "trail": 0.2
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Turns grow closer as angular speed rises.",
+      "title": "Chirped Spiral",
+      "zhSummary": "角速度逐渐升高，使圈距由疏变密。",
+      "zhTitle": "变频螺旋",
+      "group": "spiralsAndGrowth"
+    },
+    {
+      "equation": "r = 23+5 cos 10t+2 cos 20t",
+      "id": "tenToothSprocket",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 114,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 3.9,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Ten broad teeth surround a compact gear ring.",
+      "title": "Ten-Tooth Sprocket",
+      "zhSummary": "十个宽齿围成紧凑的齿轮环。",
+      "zhTitle": "十齿轮廓",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "x = 20 cos t+9 cos 11t, y = 20 sin t−9 sin 11t",
+      "id": "moireRosette",
+      "parameters": {
+        "loopDuration": 9,
+        "particleCount": 124,
+        "pulseDuration": 7,
+        "rotationDuration": 40,
+        "strokeWidth": 3.7,
+        "trail": 0.2
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Counter-rotating circles weave a dense rosette.",
+      "title": "Moiré Rosette",
+      "zhSummary": "反向旋转的圆轨迹交织成密集花环。",
+      "zhTitle": "莫尔花环",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "r = 23+6 cos 3t+3 sin(7t+0.3ω)",
+      "id": "asymmetricOrbit",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 108,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4,
+        "trail": 0.27
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Unequal radial frequencies bend a round orbit.",
+      "title": "Asymmetric Orbit",
+      "zhSummary": "不同频率的径向波动让圆轨道轻微偏折。",
+      "zhTitle": "非对称轨道",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "r = 13+17 cos 6t",
+      "id": "polarDaisy",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 112,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Six petals fold into tiny inner loops.",
+      "title": "Polar Daisy",
+      "zhSummary": "六片花瓣向内折出细小回环。",
+      "zhTitle": "极坐标雏菊",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "x = (22+5 cos 3t)cos t, y = (18+5 cos 4t)sin t",
+      "id": "beatOrbit",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 112,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.24
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Different horizontal and vertical beats reshape an orbit.",
+      "title": "Beat Orbit",
+      "zhSummary": "水平与竖直方向的不同拍频重塑轨道。",
+      "zhTitle": "拍频轨道",
+      "group": "physicsAndMotion"
+    },
+    {
+      "equation": "r = 30e^(−2.2u), θ = 8πu",
+      "id": "dampedPhasePortrait",
+      "parameters": {
+        "loopDuration": 9,
+        "particleCount": 120,
+        "pulseDuration": 7,
+        "rotationDuration": 40,
+        "strokeWidth": 3.8,
+        "trail": 0.2
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A dissipating oscillator contracts through four turns.",
+      "title": "Damped Phase Portrait",
+      "zhSummary": "耗散振子沿四圈螺旋逐步收缩。",
+      "zhTitle": "阻尼相轨迹",
+      "group": "physicsAndMotion"
+    },
+    {
+      "equation": "x = 27 cos t, y = 23 sin[t+0.55 sin(3t+ω)]",
+      "id": "drivenOscillator",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 112,
+        "pulseDuration": 6,
+        "rotationDuration": 38,
+        "strokeWidth": 4,
+        "trail": 0.24
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A periodic drive folds a phase trace into moving lobes.",
+      "title": "Driven Oscillator",
+      "zhSummary": "周期驱动让相轨迹折成不断变化的瓣。",
+      "zhTitle": "受迫振子",
+      "group": "physicsAndMotion"
+    },
+    {
+      "equation": "r = 32 sin²t",
+      "id": "dipoleFieldLine",
+      "parameters": {
+        "loopDuration": 7.5,
+        "particleCount": 106,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4,
+        "trail": 0.27
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A dipole field-line equation forms paired lobes.",
+      "title": "Dipole Field Line",
+      "zhSummary": "偶极场线方程形成上下成对的回环。",
+      "zhTitle": "偶极场线",
+      "group": "physicsAndMotion"
+    },
+    {
+      "equation": "u=t/(2π), a=0.92+0.08s; (X,Y)=(50,50)+a(18cos4πu+24(u−½), 14sin4πu−18(u−½))",
+      "id": "magneticHelix",
+      "parameters": {
+        "loopDuration": 8,
+        "particleCount": 120,
+        "pulseDuration": 6,
+        "rotationDuration": 40,
+        "strokeWidth": 4,
+        "trail": 0.2
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A two-turn 3D helix shown through an oblique projection.",
+      "title": "Magnetic Helix",
+      "zhSummary": "两圈三维螺旋经斜投影呈现在平面上。",
+      "zhTitle": "磁场螺旋",
+      "group": "physicsAndMotion"
+    },
+    {
+      "equation": "m₁=m₂=L₁=L₂=1, g=9.81; θ(0)=(2.1,2.4), ω(0)=0; (x₂,y₂)=0.42(sinθ₁+sinθ₂, cosθ₁+cosθ₂)",
+      "id": "doublePendulum",
+      "parameters": {
+        "loopDuration": 10,
+        "particleCount": 140,
+        "pulseDuration": 8,
+        "rotationDuration": 45,
+        "strokeWidth": 3.6,
+        "trail": 0.14
+      },
+      "points": 3200,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "The numerically integrated second bob traces a sensitive trajectory.",
+      "title": "Double Pendulum",
+      "zhSummary": "数值积分得到第二个摆锤的敏感运动轨迹。",
+      "zhTitle": "双摆轨迹",
+      "group": "physicsAndMotion"
+    },
+    {
+      "equation": "ẋ=10(y−x), ẏ=x(28−z)−y, ż=xy−8z/3; (X,Y)=(50,50)+50(0.92+0.08s)(x/32,y/36)",
+      "id": "lorenzAttractor",
+      "parameters": {
+        "loopDuration": 12,
+        "particleCount": 140,
+        "pulseDuration": 9,
+        "rotationDuration": 45,
+        "strokeWidth": 3.6,
+        "trail": 0.22
+      },
+      "points": 3200,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "The standard Lorenz system projected onto the x-y plane.",
+      "title": "Lorenz Attractor",
+      "zhSummary": "标准洛伦兹方程在 x-y 平面上的混沌投影。",
+      "zhTitle": "洛伦兹吸引子",
+      "group": "physicsAndMotion"
+    },
+    {
+      "equation": "x=8+84u, y=50+21 sin(4πu−2πτ/T)",
+      "id": "horizontalTravelingWave",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 96,
+        "pulseDuration": 4,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.24
+      },
+      "points": 480,
+      "ratio": 3,
+      "rotates": false,
+      "summary": "A sine wave travels along a horizontal strip.",
+      "title": "Traveling Wave · Horizontal",
+      "zhSummary": "正弦波沿横向画布持续传播。",
+      "zhTitle": "横向行进波",
+      "group": "horizontal"
+    },
+    {
+      "equation": "x=8+84u, y=50+23 sin(3πu) cos(2πτ/T)",
+      "id": "horizontalStandingWave",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 96,
+        "pulseDuration": 4,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.24
+      },
+      "points": 480,
+      "ratio": 3,
+      "rotates": false,
+      "summary": "Fixed nodes frame an oscillating standing wave.",
+      "title": "Standing Wave · Horizontal",
+      "zhSummary": "固定波节之间的曲线周期性振荡。",
+      "zhTitle": "横向驻波",
+      "group": "horizontal"
+    },
+    {
+      "equation": "x=50+21 sin(4πu−2πτ/T), y=8+84u",
+      "id": "verticalTravelingWave",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 96,
+        "pulseDuration": 4,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.24
+      },
+      "points": 480,
+      "ratio": 0.3333333333333333,
+      "rotates": false,
+      "summary": "A sine wave travels down a vertical strip.",
+      "title": "Traveling Wave · Vertical",
+      "zhSummary": "正弦波沿竖向画布向下传播。",
+      "zhTitle": "竖向行进波",
+      "group": "vertical"
+    },
+    {
+      "equation": "x=50+21 sin(10πu) sin(πu), y=50+(u−½)(72+10 cos(2πτ/T))",
+      "id": "verticalSpring",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 110,
+        "pulseDuration": 4,
+        "rotationDuration": 28,
+        "strokeWidth": 3.8,
+        "trail": 0.22
+      },
+      "points": 480,
+      "ratio": 0.3333333333333333,
+      "rotates": false,
+      "summary": "A coil expands and contracts along a vertical axis.",
+      "title": "Vertical Spring",
+      "zhSummary": "弹簧线圈沿竖轴伸缩振动。",
+      "zhTitle": "竖向弹簧",
+      "group": "vertical"
+    },
+    {
+      "equation": "x=8+84u, y=50+24e^(−2.2u)sin(6πu−2πτ/T)",
+      "id": "horizontalDampedWave",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 100,
+        "pulseDuration": 4.5,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 3,
+      "rotates": false,
+      "summary": "A wave fades as it travels from left to right.",
+      "title": "Damped Wave · Horizontal",
+      "zhSummary": "波幅从左向右逐渐衰减。",
+      "zhTitle": "横向阻尼波",
+      "group": "horizontal"
+    },
+    {
+      "equation": "x=8+84u, y=50+19sin(2π(u+2u²)−2πτ/T)",
+      "id": "horizontalChirpWave",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 110,
+        "pulseDuration": 4.5,
+        "rotationDuration": 28,
+        "strokeWidth": 3.8,
+        "trail": 0.22
+      },
+      "points": 480,
+      "ratio": 3,
+      "rotates": false,
+      "summary": "Wave spacing tightens across the strip.",
+      "title": "Chirp Wave · Horizontal",
+      "zhSummary": "波纹间距由疏变密。",
+      "zhTitle": "横向变频波",
+      "group": "horizontal"
+    },
+    {
+      "equation": "x±=50±18sin(4πu−2πτ/T)sin(πu), y=8+84u",
+      "id": "verticalDoubleHelix",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 120,
+        "pulseDuration": 5,
+        "rotationDuration": 28,
+        "strokeWidth": 3.8,
+        "trail": 0.27
+      },
+      "points": 480,
+      "ratio": 0.3333333333333333,
+      "rotates": false,
+      "summary": "Two strands weave around a shared vertical axis.",
+      "title": "Double Helix · Vertical",
+      "zhSummary": "两条曲线围绕同一竖轴交错延伸。",
+      "zhTitle": "竖向双螺旋投影",
+      "group": "vertical"
+    },
+    {
+      "equation": "x=23+54(3u²−2u³)+4sin(2πu−2πτ/T)sin(πu), y=8+84u",
+      "id": "verticalSCurve",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 90,
+        "pulseDuration": 6,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.28
+      },
+      "points": 480,
+      "ratio": 0.3333333333333333,
+      "rotates": false,
+      "summary": "A gently shifting S-shaped streamline.",
+      "title": "S Curve · Vertical",
+      "zhSummary": "平滑的 S 形轨迹轻微摆动。",
+      "zhTitle": "竖向 S 形流线",
+      "group": "vertical"
+    },
+    {
+      "equation": "x=8+84u, y=50+23e^(−((u−½)/0.21)²)sin(12πu−2πτ/T)",
+      "id": "horizontalWavePacket",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 110,
+        "pulseDuration": 4.6,
+        "rotationDuration": 28,
+        "strokeWidth": 3.8,
+        "trail": 0.22
+      },
+      "points": 480,
+      "ratio": 3,
+      "rotates": false,
+      "summary": "A compact group of ripples oscillates inside a Gaussian envelope.",
+      "title": "Gaussian Wave Packet · Horizontal",
+      "zhSummary": "高斯包络内的一组紧凑波纹持续振荡。",
+      "zhTitle": "横向高斯波包",
+      "group": "horizontal"
+    },
+    {
+      "equation": "x=8+84u, y=50+25 sech²(12(u−c)), c=½+0.28sin(2πτ/T)",
+      "id": "horizontalSolitaryPulse",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 100,
+        "pulseDuration": 5.2,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 3,
+      "rotates": false,
+      "summary": "A single smooth pulse moves from side to side.",
+      "title": "Solitary Pulse · Horizontal",
+      "zhSummary": "单个平滑脉冲沿横向来回移动。",
+      "zhTitle": "横向孤立脉冲",
+      "group": "horizontal"
+    },
+    {
+      "equation": "x=50+24e^(−2.2u)sin(6πu−2πτ/T), y=8+84u",
+      "id": "verticalDampedWave",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 100,
+        "pulseDuration": 4.5,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 0.3333333333333333,
+      "rotates": false,
+      "summary": "Oscillations fade down the vertical strip.",
+      "title": "Damped Wave · Vertical",
+      "zhSummary": "振荡幅度沿竖向逐渐减小。",
+      "zhTitle": "竖向阻尼波",
+      "group": "vertical"
+    },
+    {
+      "equation": "x=18+(42+6cos(2πτ/T))(cosh(2.4(u−½))−1)/(cosh1.2−1), y=8+84u",
+      "id": "verticalCatenary",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 90,
+        "pulseDuration": 5.5,
+        "rotationDuration": 28,
+        "strokeWidth": 4.2,
+        "trail": 0.29
+      },
+      "points": 480,
+      "ratio": 0.3333333333333333,
+      "rotates": false,
+      "summary": "A sideways hanging-chain profile gently breathes.",
+      "title": "Sideways Catenary · Vertical",
+      "zhSummary": "横置的悬链线轮廓缓慢舒展。",
+      "zhTitle": "竖向悬链弧",
+      "group": "vertical"
+    }
+  ],
+  "frames": 48,
+  "points": 480
+}

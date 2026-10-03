@@ -18,6 +18,8 @@ xcodebuild -project MathCurveLoaders.xcodeproj -scheme MathCurveLoaders -destina
 - Keep Chinese curve titles and descriptions in `CurveCore/Sources/CurveCore/CurveTranslations.swift`; access them through `CurveDefinition.title(in:)` and `summary(in:)`. Curve IDs and equations are language independent.
 - SwiftUI app ownership is in `App/`: `MathCurveLoadersApp.swift` starts the app, `ContentView.swift` owns navigation and selection, `CurveGalleryView.swift` owns the gallery, `CurveDetailView.swift` owns preview and copy UI, and `CurveControlsView.swift` owns parameter controls.
 - `MathCurveLoaders.xcodeproj` owns the universal iOS/iPadOS and macOS app target and the local `CurveCore` dependency.
+- `web/` is the dependency-free H5 demo. `CurveWebExport` generates its binary samples and metadata from the native package; `script/export_web.py` adds the existing gallery groups. Do not hand-edit `web/data/` or duplicate formulas in JavaScript. Run `python3 script/export_web.py` after changing native formulas, catalog entries, translations, defaults, or square groups.
+- Verify web data with `node web/check.mjs`; preview with `python3 -m http.server 8765 --directory web`. `.github/workflows/pages.yml` deploys the static directory to GitHub Pages. Add the confirmed live URL to README and the GitHub repository homepage after deployment.
 
 ## Constraints
 

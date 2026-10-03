@@ -4,6 +4,10 @@ A native SwiftUI gallery of 91 animated mathematical curves, backed by the reusa
 
 原生 SwiftUI 数学曲线图库，包含 91 种动画曲线；应用内可切换中文和英文。`CurveCore` 是可供其他项目直接引用的 Swift Package。
 
+The repository also includes an interactive HTML5 Canvas demo of all 91 curves in `web/`, with bilingual search, layout groups, live controls, and SwiftUI snippet copying.
+
+仓库内还提供覆盖全部 91 种曲线的 H5 演示，支持中英双语搜索、布局分类、实时参数控制和复制 SwiftUI 代码。
+
 The gallery groups curves by square, horizontal, and vertical layout. Square curves are subdivided into flowers and orbits, rolling curves and cusps, spirals and growth, traces and outlines, and physics and motion; search keeps matching curves in their groups. 图库按方形、横向和竖向分组；方形曲线继续按花瓣与轨道、滚线与尖点、螺旋与生长、轨迹与轮廓、物理与运动细分，搜索结果仍保留所属分组。
 
 ## Platforms
@@ -38,6 +42,27 @@ xcodebuild -project MathCurveLoaders.xcodeproj -scheme MathCurveLoaders -destina
 xcodebuild -project MathCurveLoaders.xcodeproj -scheme MathCurveLoaders -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
 ./script/build_and_run.sh --verify
 ```
+
+## H5 demo / 网页演示
+
+Serve the static site from the repository root, then open `http://localhost:8765`:
+
+```sh
+python3 -m http.server 8765 --directory web
+```
+
+The website has no third-party dependencies or JavaScript build step. It loads curve data only when a preview is visible. Curve data is generated from `CurveCore`, using 48 shape phases and 480 path samples per curve (3,200 for the double pendulum and Lorenz paths). The browser interpolates neighboring phases and samples; this is an approximation of the native sampler. Playback respects reduced-motion preferences and pauses rendering in hidden tabs.
+
+网页采用原生 Canvas，无第三方依赖，预览出现时才加载对应曲线。曲线数据来自 `CurveCore`；浏览器插值播放，因此网页形变是原生采样器的近似。页面遵循系统“减少动态效果”设置，后台标签页停止绘制。
+
+After changing formulas, metadata, defaults, or gallery groups, regenerate the checked-in assets on macOS:
+
+```sh
+python3 script/export_web.py
+node web/check.mjs
+```
+
+`.github/workflows/pages.yml` publishes `web/` using GitHub Actions. Enable **Settings → Pages → Source → GitHub Actions** in the linked GitHub repository, then push the site or run the workflow manually. `web/site.json` stores the repository link shown in the page header. The public demo URL must be added here after the deployment succeeds.
 
 ## Curve IDs
 
