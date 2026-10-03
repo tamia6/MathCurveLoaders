@@ -65,6 +65,32 @@ function makeControls() {
   }
 }
 
+function openCurve(curve, updateURL = true) {
+  const dialog = $("detail-dialog");
+  if (!dialog.open) dialog.showModal();
+  document.body.classList.add("detail-open");
+  dialog.scrollTop = 0;
+  playing = true;
+  $("copy-status").textContent = "";
+  selectCurve(curve, updateURL);
+}
+$("close-detail").addEventListener("click", () => $("detail-dialog").close());
+$("detail-dialog").addEventListener("click", event => {
+  if (event.target !== $("detail-dialog")) return;
+  const box = event.target.getBoundingClientRect();
+  if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) event.target.close();
+});
+$("detail-dialog").addEventListener("close", () => {
+  document.body.classList.remove("detail-open");
+  history.replaceState(null, "", location.pathname + location.search);
+  dirty = true;
+});
+addEventListener("hashchange", () => {
+  const curve = manifest?.curves.find(item => item.id === location.hash.slice(1));
+  if (curve) openCurve(curve, false);
+  else if ($("detail-dialog").open) $("detail-dialog").close();
+});
+
 async function selectCurve(curve, updateURL = true) {
   selected = curve; parameters = {...curve.parameters}; elapsed = 0;
   $("preview").curveData = null; $("preview-status").textContent = text("正在加载…", "Loading…");
@@ -106,14 +132,17 @@ function renderGallery() {
     for (const curve of curves) {
       const card = document.createElement("button"); card.className = "curve-card"; card.dataset.id = curve.id;
       card.setAttribute("aria-pressed", String(selected?.id === curve.id));
-      card.addEventListener("click", () => { selectCurve(curve); if (matchMedia("(max-width: 760px)").matches) $("preview-stage").scrollIntoView({block: "start", behavior: reducedMotion.matches ? "instant" : "smooth"}); });
+      card.setAttribute("aria-haspopup", "dialog");
+      card.addEventListener("click", () => openCurve(curve));
       const stage = document.createElement("span"); stage.className = "card-canvas";
       const canvas = document.createElement("canvas"); canvas.setAttribute("aria-hidden", "true"); canvas.curveItem = {curve};
       stage.append(canvas);
       const caption = document.createElement("span"); caption.className = "card-caption";
       const name = document.createElement("strong"); name.textContent = title(curve);
       const equation = document.createElement("small"); equation.textContent = curve.equation;
-      caption.append(name, equation); card.append(stage, caption); grid.append(card); observer.observe(canvas);
+      const summary = document.createElement("span"); summary.className = "card-summary";
+      summary.textContent = text(curve.zhSummary, curve.summary);
+      caption.append(name, equation, summary); card.append(stage, caption); grid.append(card); observer.observe(canvas);
     }
     section.append(heading, grid); $("gallery").append(section);
   }
@@ -133,7 +162,10 @@ function localize() {
     button.setAttribute("aria-pressed", String(filter === key));
     button.addEventListener("click", () => { filter = key; localize(); }); $("filters").append(button);
   }
-  if (manifest) { updateDetail(); makeControls(); renderGallery(); }
+  if (manifest) {
+    if (selected) { updateDetail(); makeControls(); }
+    renderGallery();
+  }
 }
 $("language").addEventListener("click", () => {
   language = language === "zh" ? "en" : "zh";
@@ -166,13 +198,14 @@ $("copy").addEventListener("click", async () => {
 addEventListener("resize", () => { dirty = true; }); reducedMotion.addEventListener("change", () => { dirty = true; });
 let last = 0, thumbnailsAt = 0;
 function animate(now) {
-  const active = playing && !reducedMotion.matches && !document.hidden;
+  const modalOpen = $("detail-dialog").open;
+  const active = (!modalOpen || playing) && !reducedMotion.matches && !document.hidden;
   if (active && last) elapsed += Math.min((now - last) / 1000, .1);
   last = now;
-  if (!document.hidden && (active || dirty) && selected) {
+  if (!document.hidden && (active || dirty)) {
     const time = reducedMotion.matches ? 0 : elapsed;
-    if ($("preview").curveData) drawCurve($("preview"), selected, $("preview").curveData, manifest, parameters, time);
-    if (dirty || now - thumbnailsAt > 33) {
+    if (modalOpen && selected && $("preview").curveData) drawCurve($("preview"), selected, $("preview").curveData, manifest, parameters, time);
+    if (!modalOpen && (dirty || now - thumbnailsAt > 33)) {
       for (const [canvas, item] of visible) if (item.data) drawCurve(canvas, item.curve, item.data, manifest, item.curve.parameters, time);
       thumbnailsAt = now;
     }
@@ -184,8 +217,10 @@ async function start() {
   try {
     const response = await fetch("./data/catalog.json"); if (!response.ok) throw new Error(`HTTP ${response.status}`);
     manifest = await response.json();
-    const curve = manifest.curves.find(item => item.id === location.hash.slice(1)) || manifest.curves[0];
-    await selectCurve(curve, false); localize(); requestAnimationFrame(animate);
+    localize();
+    const curve = manifest.curves.find(item => item.id === location.hash.slice(1));
+    if (curve) openCurve(curve, false);
+    requestAnimationFrame(animate);
   } catch {
     const button = document.createElement("button"); button.textContent = text("加载失败，重试", "Load failed. Retry");
     button.addEventListener("click", start); $("gallery-status").replaceChildren(button);

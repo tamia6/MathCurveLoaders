@@ -15,26 +15,27 @@
     <div class="header-actions"><a id="repository" hidden>GitHub ↗</a><button id="language" aria-label="Switch language / 切换语言">🌐 EN</button></div>
   </header>
   <main>
-    <aside class="gallery-section" aria-label="Loading patterns">
-      <div class="gallery-heading"><h2 data-en="Loading patterns" data-zh="Loading 图案">Loading 图案</h2><label class="search-label"><span data-en="Search" data-zh="搜索">搜索</span><input id="search" type="search" autocomplete="off" placeholder="名称、公式 / Name, formula"></label></div>
-      <nav id="filters" aria-label="Curve categories"></nav><div id="gallery"></div><p id="gallery-status" role="status">正在加载曲线…</p>
-    </aside>
-
-    <section class="workspace" aria-label="Loading animation preview">
     <section class="intro">
       <p class="eyebrow" data-en="MATH-BASED LOADING ANIMATIONS" data-zh="基于数学的 Loading 图案">基于数学的 Loading 图案</p>
-      <h1 data-en="Math-based loading animations." data-zh="基于数学的 Loading 动画。">基于数学的 Loading 动画。</h1>
+      <h1 data-en="A gallery of mathematical loading animations." data-zh="基于数学的 Loading 动画画廊。">基于数学的 Loading 动画画廊。</h1>
       <p data-en="Preview 103 loading patterns built from mathematical curves. Tune their speed, trails, and appearance, then copy ready-to-use H5 code for loading states in your app." data-zh="用数学曲线描绘等待。预览 103 种 Loading 图案，实时调整速度、拖尾与线条，再复制 H5 代码，为应用中的加载过程加入动画。">用数学曲线描绘等待。预览 103 种 Loading 图案，实时调整速度、拖尾与线条，再复制 H5 代码，为应用中的加载过程加入动画。</p>
     </section>
+    <section class="gallery-section" aria-label="Loading patterns">
+      <div class="gallery-heading"><h2 data-en="Loading patterns" data-zh="Loading 图案">Loading 图案</h2><label class="search-label"><span data-en="Search" data-zh="搜索">搜索</span><input id="search" type="search" autocomplete="off" placeholder="名称、公式 / Name, formula"></label></div>
+      <nav id="filters" aria-label="Curve categories"></nav><div id="gallery"></div><p id="gallery-status" role="status">正在加载曲线…</p>
+    </section>
+  </main>
+  <dialog id="detail-dialog" aria-labelledby="curve-title">
+    <button id="close-detail" class="close-detail" aria-label="Close preview / 关闭预览" autofocus>×</button>
+    <div class="workspace">
       <div class="preview-panel">
         <div id="preview-stage"><canvas id="preview" aria-label="Animated mathematical curve"></canvas><p id="preview-status" role="status"></p></div>
         <div class="preview-info"><div><p id="shape-type" class="eyebrow"></p><h2 id="curve-title"></h2></div><button id="pause" aria-pressed="false">暂停</button></div>
         <p id="curve-summary"></p><code id="curve-equation"></code>
       </div>
       <aside class="controls"><div class="controls-heading"><h2 data-en="Tune the animation" data-zh="调整动画">调整动画</h2><button id="reset" data-en="Reset" data-zh="重置">重置</button></div><div id="sliders"></div><button id="copy" class="copy-button" data-en="Copy H5 code" data-zh="复制 H5 代码">复制 H5 代码</button><p id="copy-status" role="status"></p></aside>
-    </section>
-
-  </main>
+    </div>
+  </dialog>
   <footer><p data-en="HTML5 Canvas · iOS / iPadOS / macOS · MIT License" data-zh="HTML5 Canvas · iOS / iPadOS / macOS · MIT 开源许可">HTML5 Canvas · iOS / iPadOS / macOS · MIT 开源许可</p></footer>
 </body>
 </html>

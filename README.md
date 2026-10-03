@@ -53,9 +53,9 @@ Use the browser demo to choose a loading pattern, preview parameter changes in r
 
 网页演示用于挑选 Loading 图案、实时预览参数变化，并复制可直接粘贴到网页中使用的 H5 代码。
 
-The desktop layout follows the macOS app: a searchable, grouped pattern grid with two cards per row on the left and a large preview, equation, and live controls on the right. Each pane scrolls independently. Narrow screens stack the pattern list above the detail view.
+The H5 demo uses a responsive gallery of animated cards with names, equations, and descriptions. Search and layout filters retain the existing subcategories. Click a card to open a modal with a large preview, equation, live controls, and H5 copying. Close it with the close button, Escape, or the backdrop to return to the same gallery position. Direct curve links open the matching modal.
 
-桌面布局与 macOS 应用保持一致：左侧以每排两个图案的网格展示，支持搜索和分类选择，右侧显示大预览、公式与实时参数控制，两侧独立滚动。窄屏下改为上方选图、下方预览与调参。
+H5 使用自适应画廊网格，每张卡片展示动画、名称、公式和说明，支持搜索及布局筛选，并保留已有小分类。点击卡片弹窗放大，显示公式、实时参数控制和 H5 代码复制。可通过关闭按钮、Esc 或点击遮罩关闭，回到画廊原来的滚动位置；图案直达链接会打开对应弹窗。
 
 Click **Copy H5 code**, then paste the snippet into the body of an HTML page. The snippet embeds the selected curve samples, renderer, and current parameters; no dependencies, extra files, or network requests are needed. Repeat it for multiple independent loaders. Change the canvas inline width and height to resize it. In framework projects, mount the canvas and run the script through the framework lifecycle; inserting a script via `innerHTML` does not execute it.
 
