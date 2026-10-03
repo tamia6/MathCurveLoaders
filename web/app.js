@@ -106,7 +106,7 @@ function renderGallery() {
     for (const curve of curves) {
       const card = document.createElement("button"); card.className = "curve-card"; card.dataset.id = curve.id;
       card.setAttribute("aria-pressed", String(selected?.id === curve.id));
-      card.addEventListener("click", () => { selectCurve(curve); $("preview-stage").scrollIntoView({block: "center", behavior: reducedMotion.matches ? "instant" : "smooth"}); });
+      card.addEventListener("click", () => { selectCurve(curve); if (matchMedia("(max-width: 760px)").matches) $("preview-stage").scrollIntoView({block: "start", behavior: reducedMotion.matches ? "instant" : "smooth"}); });
       const stage = document.createElement("span"); stage.className = "card-canvas";
       const canvas = document.createElement("canvas"); canvas.setAttribute("aria-hidden", "true"); canvas.curveItem = {curve};
       stage.append(canvas);
