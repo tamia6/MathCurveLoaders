@@ -20,6 +20,7 @@ xcodebuild -project MathCurveLoaders.xcodeproj -scheme MathCurveLoaders -destina
 - `MathCurveLoaders.xcodeproj` owns the universal iOS/iPadOS and macOS app target and the local `CurveCore` dependency.
 - `web/` is the dependency-free H5 demo. `CurveWebExport` generates its binary samples and metadata from the native package; `script/export_web.py` adds the existing gallery groups. Do not hand-edit `web/data/` or duplicate formulas in JavaScript. Run `python3 script/export_web.py` after changing native formulas, catalog entries, translations, defaults, or square groups.
 - Verify web data with `node web/check.mjs`; preview with `python3 -m http.server 8765 --directory web`. `.github/workflows/pages.yml` deploys the static directory to GitHub Pages. Add the confirmed live URL to README and the GitHub repository homepage after deployment.
+- H5 code copying is implemented in `web/snippet.mjs`. Export self-contained HTML with inline styles, sampled data, and the shared renderer; preserve current parameters and avoid remote dependencies. Native SwiftUI copying remains in the app.
 
 ## Constraints
 

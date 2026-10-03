@@ -6,9 +6,9 @@
 
 **基于数学的 Loading 图案，为应用中的等待加入动画。** Math Curve Loaders 将数学曲线转化为 91 种加载动画。你可以预览图案、调整速度、拖尾和线条，再将它用于数据加载、请求等待或任务处理等场景。
 
-The native SwiftUI app is a playground for choosing and tuning loading animations on iOS, iPadOS, and macOS. The dependency-free `CurveCore` Swift package provides reusable animation views and mathematical sampling APIs. The H5 demo in `web/` lets you try the same 91 patterns in a browser and copy the SwiftUI code with your chosen parameters. Both demos support English and Chinese.
+The native SwiftUI app is a playground for choosing and tuning loading animations on iOS, iPadOS, and macOS. The dependency-free `CurveCore` Swift package provides reusable animation views and mathematical sampling APIs. The H5 demo in `web/` lets you try the same 91 patterns in a browser and copy standalone HTML, CSS, and JavaScript with your chosen parameters. Both demos support English and Chinese.
 
-原生 SwiftUI 应用用于在 iOS、iPadOS 和 macOS 上挑选与调试 Loading 动画；无第三方依赖的 `CurveCore` Swift Package 提供可直接复用的动画视图和数学采样接口。`web/` 中的 H5 演示让你在浏览器中体验同一套 91 种图案，并复制带有当前参数的 SwiftUI 代码。两种演示均支持中文和英文。
+原生 SwiftUI 应用用于在 iOS、iPadOS 和 macOS 上挑选与调试 Loading 动画；无第三方依赖的 `CurveCore` Swift Package 提供可直接复用的动画视图和数学采样接口。`web/` 中的 H5 演示让你在浏览器中体验同一套 91 种图案，并复制带有当前参数的独立 HTML、CSS 和 JavaScript 代码。两种演示均支持中文和英文。
 
 Loading patterns are grouped into square, horizontal, and vertical layouts to fit different loading areas. Square patterns are subdivided into flowers and orbits, rolling curves and cusps, spirals and growth, traces and outlines, and physics and motion. Each pattern includes its equation and bilingual description.
 
@@ -49,9 +49,13 @@ xcodebuild -project MathCurveLoaders.xcodeproj -scheme MathCurveLoaders -destina
 
 ## H5 demo / 网页演示
 
-Use the browser demo to choose a loading pattern, preview parameter changes in real time, and copy a SwiftUI snippet for your app.
+Use the browser demo to choose a loading pattern, preview parameter changes in real time, and copy a ready-to-use H5 snippet for your website.
 
-网页演示用于挑选 Loading 图案、实时预览参数变化，并复制可在应用中使用的 SwiftUI 代码。
+网页演示用于挑选 Loading 图案、实时预览参数变化，并复制可直接粘贴到网页中使用的 H5 代码。
+
+Click **Copy H5 code**, then paste the snippet into the body of an HTML page. The snippet embeds the selected curve samples, renderer, and current parameters; no dependencies, extra files, or network requests are needed. Repeat it for multiple independent loaders. Change the canvas inline width and height to resize it. In framework projects, mount the canvas and run the script through the framework lifecycle; inserting a script via `innerHTML` does not execute it.
+
+点击 **复制 H5 代码**，将代码粘贴到 HTML 页面的 body 中即可运行。代码内嵌所选图案数据、绘制逻辑和当前参数，无需依赖、额外文件或网络请求；可重复粘贴多个独立动画。调整 canvas 的内联宽高即可改变尺寸。框架项目需在生命周期中挂载 canvas 并执行脚本，通过 `innerHTML` 插入的脚本不会自动执行。
 
 Serve the static site from the repository root, then open `http://localhost:8765`:
 

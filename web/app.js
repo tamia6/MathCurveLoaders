@@ -1,4 +1,5 @@
 import {drawCurve} from "./renderer.mjs";
+import {htmlSnippet} from "./snippet.mjs";
 
 const $ = id => document.getElementById(id);
 const groups = {
@@ -143,10 +144,24 @@ $("pause").addEventListener("click", () => { playing = !playing; updateDetail();
 $("reset").addEventListener("click", () => { if (!selected) return; parameters = {...selected.parameters}; makeControls(); dirty = true; });
 $("copy").addEventListener("click", async () => {
   if (!selected) return;
-  const p = parameters;
-  const code = `import CurveCore\nimport SwiftUI\n\nif let curve = CurveCatalog.definition(for: .${selected.id}) {\n    CurveAnimationView(\n        definition: curve,\n        parameters: .init(particleCount: ${p.particleCount}, trail: ${p.trail},\n                          loopDuration: ${p.loopDuration}, pulseDuration: ${p.pulseDuration},\n                          rotationDuration: ${p.rotationDuration}, strokeWidth: ${p.strokeWidth})\n    ).aspectRatio(curve.aspectRatio, contentMode: .fit)\n}`;
-  try { await navigator.clipboard.writeText(code); $("copy-status").textContent = text("已复制", "Copied"); }
-  catch { $("copy-status").textContent = text("无法访问剪贴板，请使用 HTTPS 打开页面", "Clipboard unavailable. Open this page over HTTPS."); }
+  const curve = selected, settings = {...parameters}, label = title(curve);
+  $("copy").disabled = true;
+  $("copy-status").textContent = text("正在生成代码…", "Generating code…");
+  try {
+    const data = await loadData(curve);
+    const code = htmlSnippet(curve, data, manifest, settings, label);
+    try {
+      await navigator.clipboard.writeText(code);
+      $("copy-status").textContent = text("已复制，粘贴到 HTML 中即可使用", "Copied. Paste into HTML to use.");
+    } catch {
+      const textarea = document.createElement("textarea"); textarea.value = code;
+      textarea.setAttribute("aria-label", text("H5 代码", "H5 code"));
+      textarea.style.cssText = "width:100%;height:120px";
+      $("copy-status").textContent = text("请全选并复制下方代码", "Select and copy the code below.");
+      $("copy-status").append(textarea); textarea.focus(); textarea.select();
+    }
+  } catch { $("copy-status").textContent = text("代码生成失败，请重试", "Could not generate code. Try again."); }
+  finally { $("copy").disabled = false; }
 });
 addEventListener("resize", () => { dirty = true; }); reducedMotion.addEventListener("change", () => { dirty = true; });
 let last = 0, thumbnailsAt = 0;
