@@ -3,8 +3,8 @@ import {readFile} from "node:fs/promises";
 import {pointAt} from "./renderer.mjs";
 
 const catalog = JSON.parse(await readFile(new URL("./data/catalog.json", import.meta.url)));
-assert.equal(catalog.curves.length, 91);
-assert.equal(new Set(catalog.curves.map(curve => curve.id)).size, 91);
+assert.equal(catalog.curves.length, 103);
+assert.equal(new Set(catalog.curves.map(curve => curve.id)).size, 103);
 for (const curve of catalog.curves) {
   assert(curve.title && curve.zhTitle && curve.summary && curve.zhSummary && curve.group);
   const buffer = await readFile(new URL(`./data/${curve.id}.bin`, import.meta.url));

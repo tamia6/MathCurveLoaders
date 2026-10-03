@@ -9,11 +9,11 @@ enum SquareCurveCategory: CaseIterable {
         case .originalThinking, .thinkingFive, .thinkingNine, .roseOrbit, .roseCurve,
              .roseTwo, .roseThree, .roseFour, .threePetalSpiral, .fourPetalSpiral,
              .fivePetalSpiral, .sixPetalSpiral, .fourierRosette, .gielisBloom, .orbitalPrecession,
-             .higherOrderRose, .moireRosette, .asymmetricOrbit, .polarDaisy:
+             .higherOrderRose, .moireRosette, .asymmetricOrbit, .polarDaisy, .breathingCircle, .beanOrbit:
             return .flowersAndOrbits
         case .hypotrochoidLoop, .epicycloid, .hypocycloid, .starTrochoid, .deltoid,
              .nephroid, .heptagonalHypocycloid, .bicorn, .rightStrophoid,
-             .cycloidArch, .tschirnhausenCubic, .tenToothSprocket:
+             .cycloidArch, .tschirnhausenCubic, .tenToothSprocket, .epitrochoidBloom:
             return .rollingAndCusps
         case .spiralSearch, .archimedeanSpiral, .logarithmicSpiral, .eulerSpiral, .goldenAngleSpiral,
              .fermatSpiral, .lituusSpiral, .cochleoid, .circleInvolute,
@@ -24,7 +24,8 @@ enum SquareCurveCategory: CaseIterable {
              .fourierDrawing, .lissajousOrbit, .cassiniOval, .maurerRose, .fourierTrefoil,
              .nicomedesConchoid, .superformulaHexagon, .piriform, .descartesFolium,
              .innerLoopLimacon, .cissoidOfDiocles, .witchOfAgnesi, .tractrix,
-             .serpentineCurve, .superformulaTriangle, .harmonicStar:
+             .serpentineCurve, .superformulaTriangle, .harmonicStar, .torusKnotProjection, .vivianiWindow, .hippopedeLoop,
+             .harmonicRibbon, .roundedCross:
             return .tracesAndOutlines
         case .magneticHelix, .doublePendulum, .lorenzAttractor, .pursuitPolygon,
              .interferenceRing, .chladniRing, .beatOrbit, .dampedPhasePortrait,
@@ -32,7 +33,8 @@ enum SquareCurveCategory: CaseIterable {
             return .physicsAndMotion
         case .horizontalTravelingWave, .horizontalStandingWave, .verticalTravelingWave, .verticalSpring,
              .horizontalDampedWave, .horizontalChirpWave, .verticalDoubleHelix, .verticalSCurve,
-             .horizontalWavePacket, .horizontalSolitaryPulse, .verticalDampedWave, .verticalCatenary:
+             .horizontalWavePacket, .horizontalSolitaryPulse, .verticalDampedWave, .verticalCatenary, .horizontalInfinity, .verticalInfinity,
+             .horizontalCapsuleOrbit, .verticalCapsuleOrbit:
             return nil
         }
     }

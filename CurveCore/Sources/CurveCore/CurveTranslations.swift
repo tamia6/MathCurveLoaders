@@ -91,5 +91,17 @@ enum CurveTranslations {
         .horizontalSolitaryPulse: ("横向孤立脉冲", "单个平滑脉冲沿横向来回移动。"),
         .verticalDampedWave: ("竖向阻尼波", "振荡幅度沿竖向逐渐减小。"),
         .verticalCatenary: ("竖向悬链弧", "横置的悬链线轮廓缓慢舒展。"),
+        .breathingCircle: ("呼吸圆环", "简洁圆环轻轻伸缩，适合常规加载状态。"),
+        .torusKnotProjection: ("环面结投影", "2:3 环面结经斜投影交织成三个圆润回环。"),
+        .vivianiWindow: ("维维亚尼窗", "球面与圆柱交线的斜投影形成折叠的双窗轮廓。"),
+        .hippopedeLoop: ("马蹄椭圆", "马蹄曲线的正半径分支形成腰部收紧的平滑椭圆。"),
+        .epitrochoidBloom: ("外旋轮花", "外滚圆上的偏心点绘出三个带回环的花瓣。"),
+        .harmonicRibbon: ("谐波丝带", "两组谐波叠加成带有圆润交叉的闭合丝带。"),
+        .roundedCross: ("圆润十字", "四重径向谐波形成柔和的十字轮廓。"),
+        .beanOrbit: ("豆形轨道", "单瓣半径变化形成带浅腰的不对称豆形。"),
+        .horizontalInfinity: ("横向无穷环", "闭合的杰罗诺式无穷环适合横向加载区域。"),
+        .verticalInfinity: ("竖向无穷环", "沿竖轴铺开的闭合无穷环适合竖向加载区域。"),
+        .horizontalCapsuleOrbit: ("横向胶囊环", "直线与相切半圆连接成连续的胶囊加载轨道。"),
+        .verticalCapsuleOrbit: ("竖向胶囊环", "竖向胶囊闭环适合狭长的加载占位区域。"),
     ]
 }

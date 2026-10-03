@@ -330,6 +330,50 @@ public enum CurveSampler {
         case .dipoleFieldLine:
             let radius = 32 * sin(t) * sin(t) * (0.9 + 0.1 * s)
             screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .breathingCircle:
+            let radius = 26 * (0.85 + 0.15 * s)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .torusKnotProjection:
+            let scale = 0.9 + 0.1 * s
+            let radius = 22 + 8 * cos(3 * t)
+            screen = (50 + scale * radius * cos(2 * t),
+                      50 + scale * (0.8 * radius * sin(2 * t) + 6 * sin(3 * t)))
+        case .vivianiWindow:
+            let scale = 0.9 + 0.1 * s
+            // The space curve (a(1+cos 2t), a sin 2t, 2a sin t), obliquely projected.
+            screen = (50 + scale * (24 * sin(2 * t) + 8 * cos(2 * t)),
+                      50 + 30 * scale * sin(t))
+        case .hippopedeLoop:
+            let radius = 30 * (0.9 + 0.1 * s) * sqrt(1 - 0.82 * pow(sin(t), 2))
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .epitrochoidBloom:
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + scale * (22 * cos(t) - 10 * cos(4 * t)),
+                      50 + scale * (22 * sin(t) - 10 * sin(4 * t)))
+        case .harmonicRibbon:
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + scale * (24 * sin(t) + 8 * sin(3 * t)),
+                      50 + scale * (22 * sin(2 * t) + 5 * sin(4 * t)))
+        case .roundedCross:
+            let radius = (23 + 7 * cos(4 * t)) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .beanOrbit:
+            let radius = (23 + 7 * cos(t) - 5 * pow(sin(t), 2)) * (0.9 + 0.1 * s)
+            screen = (50 + radius * cos(t), 50 + radius * sin(t))
+        case .horizontalInfinity:
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + 40 * scale * cos(t), 50 + 28 * scale * sin(2 * t))
+        case .verticalInfinity:
+            let scale = 0.9 + 0.1 * s
+            screen = (50 + 28 * scale * sin(2 * t), 50 + 40 * scale * cos(t))
+        case .horizontalCapsuleOrbit, .verticalCapsuleOrbit:
+            let point = capsulePoint(at: t)
+            let scale = 0.9 + 0.1 * s
+            if case .horizontalCapsuleOrbit = kind {
+                screen = (50 + scale * point.x, 50 + scale * point.y)
+            } else {
+                screen = (50 + scale * point.y, 50 + scale * point.x)
+            }
         case .magneticHelix:
             let u = t / (2 * .pi)
             let angle = 4 * .pi * u
@@ -392,6 +436,30 @@ public enum CurveSampler {
             screen = (18 + (42 + 6 * cos(wavePhase)) * arc, 8 + 84 * u)
         }
         return CurvePoint(x: (screen.0 - 50) / 50, y: (screen.1 - 50) / 50)
+    }
+
+    private static func capsulePoint(at t: Double) -> CurvePoint {
+        // Arc-length parameterization; scaling the long axis compensates for the 3:1 canvas.
+        let halfStraight = 108.0, radius = 18.0
+        let arc = Double.pi * radius
+        let perimeter = 4 * halfStraight + 2 * arc
+        var distance = (t / (2 * .pi)).truncatingRemainder(dividingBy: 1) * perimeter
+        if distance < 0 { distance += perimeter }
+        if distance < arc {
+            let angle = -.pi / 2 + distance / radius
+            return CurvePoint(x: (halfStraight + radius * cos(angle)) / 3, y: radius * sin(angle))
+        }
+        distance -= arc
+        if distance < 2 * halfStraight {
+            return CurvePoint(x: (halfStraight - distance) / 3, y: radius)
+        }
+        distance -= 2 * halfStraight
+        if distance < arc {
+            let angle = .pi / 2 + distance / radius
+            return CurvePoint(x: (-halfStraight + radius * cos(angle)) / 3, y: radius * sin(angle))
+        }
+        distance -= arc
+        return CurvePoint(x: (-halfStraight + distance) / 3, y: -radius)
     }
 
     private static func interpolatedPoint(in track: [CurvePoint], progress: Double) -> CurvePoint {

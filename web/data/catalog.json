@@ -1819,6 +1819,246 @@
       "zhSummary": "横置的悬链线轮廓缓慢舒展。",
       "zhTitle": "竖向悬链弧",
       "group": "vertical"
+    },
+    {
+      "equation": "r = 26(0.85+0.15s); (x,y)=(50,50)+r(cos t,sin t)",
+      "id": "breathingCircle",
+      "parameters": {
+        "loopDuration": 4,
+        "particleCount": 72,
+        "pulseDuration": 4,
+        "rotationDuration": 28,
+        "strokeWidth": 4.5,
+        "trail": 0.3
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A clean circular loading trail expands and contracts gently.",
+      "title": "Breathing Ring",
+      "zhSummary": "简洁圆环轻轻伸缩，适合常规加载状态。",
+      "zhTitle": "呼吸圆环",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "a=0.9+0.1s; r=22+8 cos 3t; (x,y)=(50,50)+a(r cos 2t,0.8r sin 2t+6 sin 3t)",
+      "id": "torusKnotProjection",
+      "parameters": {
+        "loopDuration": 7,
+        "particleCount": 110,
+        "pulseDuration": 6,
+        "rotationDuration": 36,
+        "strokeWidth": 3.8,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "An oblique projection of a 2:3 torus knot weaves three rounded loops.",
+      "title": "Torus Knot Projection",
+      "zhSummary": "2:3 环面结经斜投影交织成三个圆润回环。",
+      "zhTitle": "环面结投影",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "a=0.9+0.1s; (x,y)=(50,50)+a(24 sin 2t+8 cos 2t,30 sin t)",
+      "id": "vivianiWindow",
+      "parameters": {
+        "loopDuration": 6.5,
+        "particleCount": 100,
+        "pulseDuration": 5,
+        "rotationDuration": 30,
+        "strokeWidth": 4,
+        "trail": 0.28
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "An oblique projection of the sphere-cylinder intersection draws a folded window.",
+      "title": "Viviani Window",
+      "zhSummary": "球面与圆柱交线的斜投影形成折叠的双窗轮廓。",
+      "zhTitle": "维维亚尼窗",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r=30(0.9+0.1s)√(1−0.82 sin²t)",
+      "id": "hippopedeLoop",
+      "parameters": {
+        "loopDuration": 6,
+        "particleCount": 90,
+        "pulseDuration": 5,
+        "rotationDuration": 30,
+        "strokeWidth": 4.2,
+        "trail": 0.3
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A smooth pinched oval uses the positive-radius hippopede family.",
+      "title": "Hippopede Oval",
+      "zhSummary": "马蹄曲线的正半径分支形成腰部收紧的平滑椭圆。",
+      "zhTitle": "马蹄椭圆",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "a=0.9+0.1s; (x,y)=(50,50)+a(22 cos t−10 cos 4t,22 sin t−10 sin 4t)",
+      "id": "epitrochoidBloom",
+      "parameters": {
+        "loopDuration": 6.5,
+        "particleCount": 104,
+        "pulseDuration": 5.5,
+        "rotationDuration": 36,
+        "strokeWidth": 4,
+        "trail": 0.27
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": true,
+      "summary": "An offset point on an outer rolling circle draws three looping petals.",
+      "title": "Epitrochoid Bloom",
+      "zhSummary": "外滚圆上的偏心点绘出三个带回环的花瓣。",
+      "zhTitle": "外旋轮花",
+      "group": "rollingAndCusps"
+    },
+    {
+      "equation": "a=0.9+0.1s; (x,y)=(50,50)+a(24 sin t+8 sin 3t,22 sin 2t+5 sin 4t)",
+      "id": "harmonicRibbon",
+      "parameters": {
+        "loopDuration": 6.5,
+        "particleCount": 100,
+        "pulseDuration": 5,
+        "rotationDuration": 30,
+        "strokeWidth": 4,
+        "trail": 0.26
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "Two harmonic sums weave a closed ribbon with rounded crossings.",
+      "title": "Harmonic Ribbon",
+      "zhSummary": "两组谐波叠加成带有圆润交叉的闭合丝带。",
+      "zhTitle": "谐波丝带",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r=(23+7 cos 4t)(0.9+0.1s)",
+      "id": "roundedCross",
+      "parameters": {
+        "loopDuration": 5.5,
+        "particleCount": 92,
+        "pulseDuration": 4.5,
+        "rotationDuration": 30,
+        "strokeWidth": 4.2,
+        "trail": 0.3
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A positive fourfold radial harmonic forms a soft cross outline.",
+      "title": "Rounded Cross",
+      "zhSummary": "四重径向谐波形成柔和的十字轮廓。",
+      "zhTitle": "圆润十字",
+      "group": "tracesAndOutlines"
+    },
+    {
+      "equation": "r=(23+7 cos t−5 sin²t)(0.9+0.1s)",
+      "id": "beanOrbit",
+      "parameters": {
+        "loopDuration": 5.5,
+        "particleCount": 90,
+        "pulseDuration": 4.8,
+        "rotationDuration": 30,
+        "strokeWidth": 4.2,
+        "trail": 0.32
+      },
+      "points": 480,
+      "ratio": 1,
+      "rotates": false,
+      "summary": "A single radial lobe draws an asymmetric bean with a shallow waist.",
+      "title": "Bean Orbit",
+      "zhSummary": "单瓣半径变化形成带浅腰的不对称豆形。",
+      "zhTitle": "豆形轨道",
+      "group": "flowersAndOrbits"
+    },
+    {
+      "equation": "a=0.9+0.1s; (x,y)=(50,50)+a(40 cos t,28 sin 2t)",
+      "id": "horizontalInfinity",
+      "parameters": {
+        "loopDuration": 5,
+        "particleCount": 104,
+        "pulseDuration": 4.5,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.28
+      },
+      "points": 480,
+      "ratio": 3,
+      "rotates": false,
+      "summary": "A closed Gerono-style infinity loop fills a horizontal loading area.",
+      "title": "Infinity Loop · Horizontal",
+      "zhSummary": "闭合的杰罗诺式无穷环适合横向加载区域。",
+      "zhTitle": "横向无穷环",
+      "group": "horizontal"
+    },
+    {
+      "equation": "a=0.9+0.1s; (x,y)=(50,50)+a(28 sin 2t,40 cos t)",
+      "id": "verticalInfinity",
+      "parameters": {
+        "loopDuration": 5,
+        "particleCount": 104,
+        "pulseDuration": 4.5,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.28
+      },
+      "points": 480,
+      "ratio": 0.3333333333333333,
+      "rotates": false,
+      "summary": "A closed infinity loop runs along a vertical loading area.",
+      "title": "Infinity Loop · Vertical",
+      "zhSummary": "沿竖轴铺开的闭合无穷环适合竖向加载区域。",
+      "zhTitle": "竖向无穷环",
+      "group": "vertical"
+    },
+    {
+      "equation": "C(t)=capsule(halfStraight=108,radius=18); (x,y)=(50,50)+(0.9+0.1s)(Cx/3,Cy)",
+      "id": "horizontalCapsuleOrbit",
+      "parameters": {
+        "loopDuration": 5,
+        "particleCount": 104,
+        "pulseDuration": 4.5,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 3,
+      "rotates": false,
+      "summary": "Straight segments and tangent semicircles make a continuous capsule loading track.",
+      "title": "Capsule Orbit · Horizontal",
+      "zhSummary": "直线与相切半圆连接成连续的胶囊加载轨道。",
+      "zhTitle": "横向胶囊环",
+      "group": "horizontal"
+    },
+    {
+      "equation": "C(t)=capsule(halfStraight=108,radius=18); (x,y)=(50,50)+(0.9+0.1s)(Cy,Cx/3)",
+      "id": "verticalCapsuleOrbit",
+      "parameters": {
+        "loopDuration": 5,
+        "particleCount": 104,
+        "pulseDuration": 4.5,
+        "rotationDuration": 28,
+        "strokeWidth": 4,
+        "trail": 0.25
+      },
+      "points": 480,
+      "ratio": 0.3333333333333333,
+      "rotates": false,
+      "summary": "A capsule track turns upright for tall loading placeholders.",
+      "title": "Capsule Orbit · Vertical",
+      "zhSummary": "竖向胶囊闭环适合狭长的加载占位区域。",
+      "zhTitle": "竖向胶囊环",
+      "group": "vertical"
     }
   ],
   "frames": 48,

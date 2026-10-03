@@ -2,13 +2,13 @@
 
 [Live demo / 在线演示](https://tamia6.github.io/MathCurveLoaders/)
 
-**Math-based loading animations for your apps.** Math Curve Loaders turns mathematical curves into 91 animated loading patterns. Preview a pattern, adjust its speed, trail, and appearance, then reuse it in loading states such as fetching data or processing a task.
+**Math-based loading animations for your apps.** Math Curve Loaders turns mathematical curves into 103 animated loading patterns. Preview a pattern, adjust its speed, trail, and appearance, then reuse it in loading states such as fetching data or processing a task.
 
-**基于数学的 Loading 图案，为应用中的等待加入动画。** Math Curve Loaders 将数学曲线转化为 91 种加载动画。你可以预览图案、调整速度、拖尾和线条，再将它用于数据加载、请求等待或任务处理等场景。
+**基于数学的 Loading 图案，为应用中的等待加入动画。** Math Curve Loaders 将数学曲线转化为 103 种加载动画。你可以预览图案、调整速度、拖尾和线条，再将它用于数据加载、请求等待或任务处理等场景。
 
-The native SwiftUI app is a playground for choosing and tuning loading animations on iOS, iPadOS, and macOS. The dependency-free `CurveCore` Swift package provides reusable animation views and mathematical sampling APIs. The H5 demo in `web/` lets you try the same 91 patterns in a browser and copy standalone HTML, CSS, and JavaScript with your chosen parameters. Both demos support English and Chinese.
+The native SwiftUI app is a playground for choosing and tuning loading animations on iOS, iPadOS, and macOS. The dependency-free `CurveCore` Swift package provides reusable animation views and mathematical sampling APIs. The H5 demo in `web/` lets you try the same 103 patterns in a browser and copy standalone HTML, CSS, and JavaScript with your chosen parameters. Both demos support English and Chinese.
 
-原生 SwiftUI 应用用于在 iOS、iPadOS 和 macOS 上挑选与调试 Loading 动画；无第三方依赖的 `CurveCore` Swift Package 提供可直接复用的动画视图和数学采样接口。`web/` 中的 H5 演示让你在浏览器中体验同一套 91 种图案，并复制带有当前参数的独立 HTML、CSS 和 JavaScript 代码。两种演示均支持中文和英文。
+原生 SwiftUI 应用用于在 iOS、iPadOS 和 macOS 上挑选与调试 Loading 动画；无第三方依赖的 `CurveCore` Swift Package 提供可直接复用的动画视图和数学采样接口。`web/` 中的 H5 演示让你在浏览器中体验同一套 103 种图案，并复制带有当前参数的独立 HTML、CSS 和 JavaScript 代码。两种演示均支持中文和英文。
 
 Loading patterns are grouped into square, horizontal, and vertical layouts to fit different loading areas. Square patterns are subdivided into flowers and orbits, rolling curves and cusps, spirals and growth, traces and outlines, and physics and motion. Each pattern includes its equation and bilingual description.
 
@@ -104,6 +104,29 @@ Physics curves: `magneticHelix`, `doublePendulum`, `lorenzAttractor`. The helix 
 
 Directional curves: `horizontalTravelingWave`, `horizontalStandingWave`, `horizontalDampedWave`, `horizontalChirpWave`, `horizontalWavePacket`, `horizontalSolitaryPulse`, `verticalTravelingWave`, `verticalSpring`, `verticalDoubleHelix`, `verticalSCurve`, `verticalDampedWave`, `verticalCatenary`. Each definition exposes `aspectRatio` (`3` for horizontal, `1/3` for vertical). Use it when sizing `CurveAnimationView` in another SwiftUI app; `CurveSampler.samples` accepts elapsed seconds and returns normalized animated points.
 
+## Latest loading patterns / 最新 Loading 图案
+
+This batch adds 12 closed paths with continuous loop seams: eight square patterns and four directional tracks. The catalog now contains 103 patterns (87 square, eight horizontal, eight vertical). All support bilingual descriptions, live parameters, and self-contained H5 copying.
+
+本批新增 12 条闭合路径：8 个方形图案和 4 个横竖轨道，循环接缝处连续衔接。现有 103 种图案（方形 87、横向 8、竖向 8），均支持双语说明、实时调参和独立 H5 代码复制。
+
+| 中文 / English | ID | 分类 / Group |
+| --- | --- | --- |
+| 呼吸圆环 / Breathing Ring | `breathingCircle` | 花瓣与轨道 / Flowers & Orbits |
+| 豆形轨道 / Bean Orbit | `beanOrbit` | 花瓣与轨道 / Flowers & Orbits |
+| 外旋轮花 / Epitrochoid Bloom | `epitrochoidBloom` | 滚线与尖点 / Rolling Curves & Cusps |
+| 环面结投影 / Torus Knot Projection | `torusKnotProjection` | 轨迹与轮廓 / Traces & Outlines |
+| 维维亚尼窗 / Viviani Window | `vivianiWindow` | 轨迹与轮廓 / Traces & Outlines |
+| 马蹄椭圆 / Hippopede Oval | `hippopedeLoop` | 轨迹与轮廓 / Traces & Outlines |
+| 谐波丝带 / Harmonic Ribbon | `harmonicRibbon` | 轨迹与轮廓 / Traces & Outlines |
+| 圆润十字 / Rounded Cross | `roundedCross` | 轨迹与轮廓 / Traces & Outlines |
+| 横向无穷环 / Infinity Loop · Horizontal | `horizontalInfinity` | 横向 / Horizontal |
+| 竖向无穷环 / Infinity Loop · Vertical | `verticalInfinity` | 竖向 / Vertical |
+| 横向胶囊环 / Capsule Orbit · Horizontal | `horizontalCapsuleOrbit` | 横向 / Horizontal |
+| 竖向胶囊环 / Capsule Orbit · Vertical | `verticalCapsuleOrbit` | 竖向 / Vertical |
+
+The named families reference [torus knots](https://mathworld.wolfram.com/TorusKnot.html), [Viviani's curve](https://mathworld.wolfram.com/VivianisCurve.html), [hippopedes](https://mathworld.wolfram.com/Hippopede.html), and [epitrochoids](https://mathworld.wolfram.com/Epitrochoid.html). Projections, scaling, breathing, and harmonic compositions are chosen for this loading-animation catalog. Capsule tracks use arc-length parameterization of tangent semicircles and straight segments.
+
 ## Reuse CurveCore
 
 Add the local package to another Swift package during development:
@@ -134,4 +157,4 @@ if let curve = CurveCatalog.definition(for: .horizontalTravelingWave) {
 
 ## Source reference
 
-The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional seventy curves use mathematical and physics parameterizations. Named curves in the expanded square set were checked against [Wolfram MathWorld](https://mathworld.wolfram.com/), including its [circle involute](https://mathworld.wolfram.com/CircleInvolute.html), [cissoid](https://mathworld.wolfram.com/CissoidofDiocles.html), [tractrix](https://mathworld.wolfram.com/Tractrix.html), and [cycloid](https://mathworld.wolfram.com/Cycloid.html) references. This repository does not copy the reference source.
+The initial 21 formulas were independently implemented using [Paidax01/math-curve-loaders](https://github.com/Paidax01/math-curve-loaders) as a reference catalog. The additional 82 curves use mathematical and physics parameterizations. Named curves in the expanded square set were checked against [Wolfram MathWorld](https://mathworld.wolfram.com/), including its [circle involute](https://mathworld.wolfram.com/CircleInvolute.html), [cissoid](https://mathworld.wolfram.com/CissoidofDiocles.html), [tractrix](https://mathworld.wolfram.com/Tractrix.html), and [cycloid](https://mathworld.wolfram.com/Cycloid.html) references. This repository does not copy the reference source.

@@ -16,6 +16,9 @@ public enum CurveID: String, CaseIterable, Identifiable, Sendable {
     case tenToothSprocket, moireRosette, asymmetricOrbit, polarDaisy
     case beatOrbit, dampedPhasePortrait, drivenOscillator, dipoleFieldLine
     case magneticHelix, doublePendulum, lorenzAttractor
+    case breathingCircle, torusKnotProjection, vivianiWindow, hippopedeLoop
+    case epitrochoidBloom, harmonicRibbon, roundedCross, beanOrbit
+    case horizontalInfinity, verticalInfinity, horizontalCapsuleOrbit, verticalCapsuleOrbit
     case horizontalTravelingWave, horizontalStandingWave, verticalTravelingWave, verticalSpring
     case horizontalDampedWave, horizontalChirpWave, verticalDoubleHelix, verticalSCurve
     case horizontalWavePacket, horizontalSolitaryPulse, verticalDampedWave, verticalCatenary
@@ -71,6 +74,9 @@ enum CurveKind: Sendable {
     case tenToothSprocket, moireRosette, asymmetricOrbit, polarDaisy
     case beatOrbit, dampedPhasePortrait, drivenOscillator, dipoleFieldLine
     case magneticHelix, doublePendulum, lorenzAttractor
+    case breathingCircle, torusKnotProjection, vivianiWindow, hippopedeLoop
+    case epitrochoidBloom, harmonicRibbon, roundedCross, beanOrbit
+    case horizontalInfinity, verticalInfinity, horizontalCapsuleOrbit, verticalCapsuleOrbit
     case horizontalTravelingWave, horizontalStandingWave, verticalTravelingWave, verticalSpring
     case horizontalDampedWave, horizontalChirpWave, verticalDoubleHelix, verticalSCurve
     case horizontalWavePacket, horizontalSolitaryPulse, verticalDampedWave, verticalCatenary

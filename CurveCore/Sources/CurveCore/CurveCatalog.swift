@@ -91,6 +91,18 @@ public enum CurveCatalog {
         define(.horizontalSolitaryPulse, "Solitary Pulse · Horizontal", "x=8+84u, y=50+25 sech²(12(u−c)), c=½+0.28sin(2πτ/T)", "A single smooth pulse moves from side to side.", .horizontalSolitaryPulse, false, 100, 0.25, 7, 5.2, 28, 4, 3),
         define(.verticalDampedWave, "Damped Wave · Vertical", "x=50+24e^(−2.2u)sin(6πu−2πτ/T), y=8+84u", "Oscillations fade down the vertical strip.", .verticalDampedWave, false, 100, 0.25, 6, 4.5, 28, 4, 1.0 / 3),
         define(.verticalCatenary, "Sideways Catenary · Vertical", "x=18+(42+6cos(2πτ/T))(cosh(2.4(u−½))−1)/(cosh1.2−1), y=8+84u", "A sideways hanging-chain profile gently breathes.", .verticalCatenary, false, 90, 0.29, 7, 5.5, 28, 4.2, 1.0 / 3),
+        define(.breathingCircle, "Breathing Ring", "r = 26(0.85+0.15s); (x,y)=(50,50)+r(cos t,sin t)", "A clean circular loading trail expands and contracts gently.", .breathingCircle, false, 72, 0.3, 4, 4, 28, 4.5),
+        define(.torusKnotProjection, "Torus Knot Projection", "a=0.9+0.1s; r=22+8 cos 3t; (x,y)=(50,50)+a(r cos 2t,0.8r sin 2t+6 sin 3t)", "An oblique projection of a 2:3 torus knot weaves three rounded loops.", .torusKnotProjection, true, 110, 0.25, 7, 6, 36, 3.8),
+        define(.vivianiWindow, "Viviani Window", "a=0.9+0.1s; (x,y)=(50,50)+a(24 sin 2t+8 cos 2t,30 sin t)", "An oblique projection of the sphere-cylinder intersection draws a folded window.", .vivianiWindow, false, 100, 0.28, 6.5, 5, 30, 4),
+        define(.hippopedeLoop, "Hippopede Oval", "r=30(0.9+0.1s)√(1−0.82 sin²t)", "A smooth pinched oval uses the positive-radius hippopede family.", .hippopedeLoop, false, 90, 0.3, 6, 5, 30, 4.2),
+        define(.epitrochoidBloom, "Epitrochoid Bloom", "a=0.9+0.1s; (x,y)=(50,50)+a(22 cos t−10 cos 4t,22 sin t−10 sin 4t)", "An offset point on an outer rolling circle draws three looping petals.", .epitrochoidBloom, true, 104, 0.27, 6.5, 5.5, 36, 4),
+        define(.harmonicRibbon, "Harmonic Ribbon", "a=0.9+0.1s; (x,y)=(50,50)+a(24 sin t+8 sin 3t,22 sin 2t+5 sin 4t)", "Two harmonic sums weave a closed ribbon with rounded crossings.", .harmonicRibbon, false, 100, 0.26, 6.5, 5, 30, 4),
+        define(.roundedCross, "Rounded Cross", "r=(23+7 cos 4t)(0.9+0.1s)", "A positive fourfold radial harmonic forms a soft cross outline.", .roundedCross, false, 92, 0.3, 5.5, 4.5, 30, 4.2),
+        define(.beanOrbit, "Bean Orbit", "r=(23+7 cos t−5 sin²t)(0.9+0.1s)", "A single radial lobe draws an asymmetric bean with a shallow waist.", .beanOrbit, false, 90, 0.32, 5.5, 4.8, 30, 4.2),
+        define(.horizontalInfinity, "Infinity Loop · Horizontal", "a=0.9+0.1s; (x,y)=(50,50)+a(40 cos t,28 sin 2t)", "A closed Gerono-style infinity loop fills a horizontal loading area.", .horizontalInfinity, false, 104, 0.28, 5, 4.5, 28, 4, 3),
+        define(.verticalInfinity, "Infinity Loop · Vertical", "a=0.9+0.1s; (x,y)=(50,50)+a(28 sin 2t,40 cos t)", "A closed infinity loop runs along a vertical loading area.", .verticalInfinity, false, 104, 0.28, 5, 4.5, 28, 4, 1.0 / 3),
+        define(.horizontalCapsuleOrbit, "Capsule Orbit · Horizontal", "C(t)=capsule(halfStraight=108,radius=18); (x,y)=(50,50)+(0.9+0.1s)(Cx/3,Cy)", "Straight segments and tangent semicircles make a continuous capsule loading track.", .horizontalCapsuleOrbit, false, 104, 0.25, 5, 4.5, 28, 4, 3),
+        define(.verticalCapsuleOrbit, "Capsule Orbit · Vertical", "C(t)=capsule(halfStraight=108,radius=18); (x,y)=(50,50)+(0.9+0.1s)(Cy,Cx/3)", "A capsule track turns upright for tall loading placeholders.", .verticalCapsuleOrbit, false, 104, 0.25, 5, 4.5, 28, 4, 1.0 / 3),
     ]
 
     public static func definition(for id: CurveID) -> CurveDefinition? { all.first { $0.id == id } }
