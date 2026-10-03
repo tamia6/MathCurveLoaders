@@ -1,5 +1,7 @@
 # Math Curve Loaders
 
+[Live demo / 在线演示](https://tamia6.github.io/MathCurveLoaders/)
+
 **Math-based loading animations for your apps.** Math Curve Loaders turns mathematical curves into 91 animated loading patterns. Preview a pattern, adjust its speed, trail, and appearance, then reuse it in loading states such as fetching data or processing a task.
 
 **基于数学的 Loading 图案，为应用中的等待加入动画。** Math Curve Loaders 将数学曲线转化为 91 种加载动画。你可以预览图案、调整速度、拖尾和线条，再将它用于数据加载、请求等待或任务处理等场景。
@@ -68,7 +70,9 @@ python3 script/export_web.py
 node web/check.mjs
 ```
 
-`.github/workflows/pages.yml` publishes `web/` using GitHub Actions. Enable **Settings → Pages → Source → GitHub Actions** in the linked GitHub repository, then push the site or run the workflow manually. `web/site.json` stores the repository link shown in the page header. The public demo URL must be added here after the deployment succeeds.
+The [live demo](https://tamia6.github.io/MathCurveLoaders/) is deployed to GitHub Pages. `.github/workflows/pages.yml` publishes `web/` using GitHub Actions when site changes are pushed to `main`; it can also be run manually. For forks, enable **Settings → Pages → Source → GitHub Actions**. `web/site.json` stores the repository link shown in the page header.
+
+[在线演示](https://tamia6.github.io/MathCurveLoaders/)已部署至 GitHub Pages。向 `main` 推送网页改动后会自动更新，也可手动运行部署工作流。
 
 ## Curve IDs
 
