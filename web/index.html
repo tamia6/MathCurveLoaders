@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="91 animated mathematical curves. Native SwiftUI and interactive HTML5 Canvas gallery. 中英双语数学曲线图库。">
+  <meta name="description" content="基于数学曲线的 Loading 动画：预览 91 种加载图案，实时调整动画并复制 SwiftUI 代码。91 math-based loading animations with live controls, a Canvas demo, and reusable SwiftUI code.">
   <meta name="theme-color" content="#111113">
-  <title>Math Curve Loaders · 数学曲线</title>
+  <title>Math Curve Loaders · 数学 Loading 动画</title>
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.js"></script>
 </head>
@@ -16,20 +16,20 @@
   </header>
   <main>
     <section class="intro">
-      <p class="eyebrow" data-en="MATHEMATICS IN MOTION" data-zh="让数学动起来">让数学动起来</p>
-      <h1 data-en="A formula. A little motion." data-zh="一个公式，一段流动。">一个公式，一段流动。</h1>
-      <p data-en="Explore 91 curves, from unfolding spirals to chaotic paths. Select a shape and make it your own." data-zh="探索 91 种曲线，从舒展的螺旋到混沌轨迹。选择一种图案，调整它的节奏。">探索 91 种曲线，从舒展的螺旋到混沌轨迹。选择一种图案，调整它的节奏。</p>
+      <p class="eyebrow" data-en="MATH-BASED LOADING ANIMATIONS" data-zh="基于数学的 Loading 图案">基于数学的 Loading 图案</p>
+      <h1 data-en="Turn a formula into a loading animation." data-zh="用数学，生成 Loading 动画。">用数学，生成 Loading 动画。</h1>
+      <p data-en="Preview 91 loading patterns built from mathematical curves. Tune their speed, trails, and appearance, then copy SwiftUI code for loading states in your app." data-zh="用数学曲线描绘等待。预览 91 种 Loading 图案，实时调整速度、拖尾与线条，再复制 SwiftUI 代码，为应用中的加载过程加入动画。">用数学曲线描绘等待。预览 91 种 Loading 图案，实时调整速度、拖尾与线条，再复制 SwiftUI 代码，为应用中的加载过程加入动画。</p>
     </section>
-    <section class="workspace" aria-label="Curve explorer">
+    <section class="workspace" aria-label="Loading animation preview">
       <div class="preview-panel">
         <div id="preview-stage"><canvas id="preview" aria-label="Animated mathematical curve"></canvas><p id="preview-status" role="status"></p></div>
         <div class="preview-info"><div><p id="shape-type" class="eyebrow"></p><h2 id="curve-title"></h2></div><button id="pause" aria-pressed="false">暂停</button></div>
         <p id="curve-summary"></p><code id="curve-equation"></code>
       </div>
-      <aside class="controls"><div class="controls-heading"><h2 data-en="Make it move" data-zh="调整节奏">调整节奏</h2><button id="reset" data-en="Reset" data-zh="重置">重置</button></div><div id="sliders"></div><button id="copy" class="copy-button" data-en="Copy SwiftUI code" data-zh="复制 SwiftUI 代码">复制 SwiftUI 代码</button><p id="copy-status" role="status"></p></aside>
+      <aside class="controls"><div class="controls-heading"><h2 data-en="Tune the animation" data-zh="调整动画">调整动画</h2><button id="reset" data-en="Reset" data-zh="重置">重置</button></div><div id="sliders"></div><button id="copy" class="copy-button" data-en="Copy SwiftUI code" data-zh="复制 SwiftUI 代码">复制 SwiftUI 代码</button><p id="copy-status" role="status"></p></aside>
     </section>
     <section class="gallery-section">
-      <div class="gallery-heading"><h2 data-en="Find your curve" data-zh="找到你的曲线">找到你的曲线</h2><label class="search-label"><span data-en="Search" data-zh="搜索">搜索</span><input id="search" type="search" autocomplete="off" placeholder="名称、公式 / Name, formula"></label></div>
+      <div class="gallery-heading"><h2 data-en="Choose a loading pattern" data-zh="选择你的 Loading 图案">选择你的 Loading 图案</h2><label class="search-label"><span data-en="Search" data-zh="搜索">搜索</span><input id="search" type="search" autocomplete="off" placeholder="名称、公式 / Name, formula"></label></div>
       <nav id="filters" aria-label="Curve categories"></nav><div id="gallery"></div><p id="gallery-status" role="status">正在加载曲线…</p>
     </section>
   </main>

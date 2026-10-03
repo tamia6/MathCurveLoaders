@@ -121,6 +121,7 @@ function renderGallery() {
 }
 function localize() {
   document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
+  document.title = text("Math Curve Loaders · 数学 Loading 动画", "Math Curve Loaders · Math-Based Loading Animations");
   for (const element of document.querySelectorAll("[data-en]")) element.textContent = element.dataset[language];
   $("language").textContent = language === "zh" ? "🌐 EN" : "🌐 中文";
   $("search").placeholder = text("名称、公式", "Name, formula");
